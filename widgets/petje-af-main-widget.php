@@ -125,7 +125,7 @@ class Petje_Af_Main_Widget extends WP_Widget {
           <div class="petje-af-widget__members">
             <h5 class="petje-af-widget__title"><?php _e('Per maand vanaf', 'petje-af'); ?></h5>
             <span class="petje-af-widget__amount">€ <?= str_replace(',00', ',-', number_format($min_amount, 2, ',', '.')); ?> <span><?php _e('per maand', 'petje-af' ); ?></span></span>
-            <p><?php _e('Neem eenmalig je petje af! Kies zelf het bedrag', 'petje-af'); ?></p>
+            <p><?php _e('Word lid en steun ons al vanaf', 'petje-af'); ?> € <?= str_replace(',00', ',-', number_format($min_amount, 2, ',', '.')); ?> <span><?php _e('per maand', 'petje-af' ); ?></p>
             <a class="petje-af-widget__button petje-af-widget__button--cta" href="https://petje.af/checkout/<?= $page_slug; ?>/" target="_blank"><?php _e('Neem je petje af!', 'petje-af'); ?></a>
           </div>
           <?php endif; ?>
