@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              https://petje.af
- * @since             1.1.0
+ * @since             1.0.0
  * @package           Petje_Af
  *
  * @wordpress-plugin
  * Plugin Name:       Petje.af
  * Plugin URI:        https://petje.af
  * Description:       De officiële petje.af WordPress plugin
- * Version:           1.0.1
+ * Version:           1.1.0
  * Author:            Stefan de Groot
  * Author URI:        https://petje.af
  * License:           GPL-2.0+
