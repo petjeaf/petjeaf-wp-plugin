@@ -1,0 +1,15 @@
+{
+    "name": "petjeaf/petjeaf-wp-plugin",
+    "description": "Petje.af WordPress plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stefan de Groot",
+            "email": "stefan@petje.af"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "petjeaf/petjeaf-api-php": "dev-master"
+    }
+}
