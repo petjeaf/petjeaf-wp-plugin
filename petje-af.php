@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              https://petje.af
- * @since             1.0.0
+ * @since             1.1.0
  * @package           Petje_Af
  *
  * @wordpress-plugin
  * Plugin Name:       Petje.af
  * Plugin URI:        https://petje.af
  * Description:       De officiële petje.af WordPress plugin
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Stefan de Groot
  * Author URI:        https://petje.af
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PETJE_AF_VERSION', '1.0.0' );
+define( 'PETJE_AF_VERSION', '1.1.0' );
 
 /**
  * The code that runs during plugin activation.

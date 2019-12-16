@@ -61,7 +61,7 @@ class Petje_Af_Public {
 	 */
 	public function enqueue_styles() {
 
-		wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Nunito:400,700&display=swap', false, null);
+		wp_enqueue_style('petje-af-google-fonts', '//fonts.googleapis.com/css?family=Nunito:400,700&display=swap', false, null);
 
 	}
 

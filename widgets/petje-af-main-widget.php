@@ -14,6 +14,7 @@ class Petje_Af_Main_Widget extends WP_Widget {
       $title = apply_filters( 'widget_title', $instance['title'] );
       $page_slug = $instance['page_slug'];
       $min_amount = $instance['min_amount'];
+      $onetime = $instance[ 'onetime' ] ? true : false;
 
       echo $args['before_widget'];
 
@@ -102,6 +103,10 @@ class Petje_Af_Main_Widget extends WP_Widget {
           border-top: 1px solid rgba(0,0,0,.125);
         }
 
+        .petje-af-widget__members.petje-af-widget__members--no-onetime {
+          border-top: none;
+        }
+
         .petje-af-widget__img-link {
           display: block;
           margin-bottom: 12px;
@@ -112,21 +117,28 @@ class Petje_Af_Main_Widget extends WP_Widget {
 
         <div class="petje-af-widget__inner">
 
-          <div class="petje-af-widget__onetime">
-            <a class="petje-af-widget__img-link" href="https://petje.af/<?= $page_slug; ?>/" target="_blank">
-              <img style="width: 100px; height: auto" src="<?= plugin_dir_url( dirname(__FILE__) ); ?>public/images/petjeaf.png" alt="Petje af logo" />
-            </a>
-            <h5 class="petje-af-widget__title"><?php _e('Eenmalig doneren?', 'petje-af'); ?></h5>
-            <p><?php _e('Neem eenmalig je petje af! Kies zelf het bedrag.', 'petje-af'); ?></p>
-            <a class="petje-af-widget__button petje-af-widget__button--info" href="https://petje.af/<?= $page_slug; ?>/" target="_blank"><?php _e('Eenmalig petje af!', 'petje-af'); ?></a>
-          </div>
+          <?php if ($onetime) : ?>
+            <div class="petje-af-widget__onetime">
+              <a class="petje-af-widget__img-link" href="https://petje.af/<?= $page_slug; ?>/" target="_blank">
+                <img style="width: 100px; height: auto" src="<?= plugin_dir_url( dirname(__FILE__) ); ?>public/images/petjeaf.png" alt="Petje af logo" />
+              </a>
+              <h5 class="petje-af-widget__title"><?php _e('Eenmalig doneren?', 'petje-af'); ?></h5>
+              <p><?php _e('Neem eenmalig je petje af! Kies zelf het bedrag.', 'petje-af'); ?></p>
+              <a class="petje-af-widget__button petje-af-widget__button--info" href="https://petje.af/<?= $page_slug; ?>/petjes/onetime" target="_blank"><?php _e('Eenmalig petje af!', 'petje-af'); ?></a>
+            </div>
+          <?php endif; ?>
 
           <?php if ($min_amount) : ?>
-          <div class="petje-af-widget__members">
-            <h5 class="petje-af-widget__title"><?php _e('Per maand vanaf', 'petje-af'); ?></h5>
-            <span class="petje-af-widget__amount">€ <?= str_replace(',00', ',-', number_format($min_amount, 2, ',', '.')); ?> <span><?php _e('per maand', 'petje-af' ); ?></span></span>
-            <p><?php _e('Neem eenmalig je petje af! Kies zelf het bedrag', 'petje-af'); ?></p>
-            <a class="petje-af-widget__button petje-af-widget__button--cta" href="https://petje.af/checkout/<?= $page_slug; ?>/" target="_blank"><?php _e('Neem je petje af!', 'petje-af'); ?></a>
+          <div class="petje-af-widget__members<?php if (!$onetime) : ?> petje-af-widget__members--no-onetime<?php endif; ?>">
+              <?php if (!$onetime) : ?>    
+              <a class="petje-af-widget__img-link" href="https://petje.af/<?= $page_slug; ?>/" target="_blank">
+                <img style="width: 100px; height: auto" src="<?= plugin_dir_url( dirname(__FILE__) ); ?>public/images/petjeaf.png" alt="Petje af logo" />
+              </a>  
+              <?php endif; ?>
+              <h5 class="petje-af-widget__title"><?php _e('Per maand vanaf', 'petje-af'); ?></h5>
+              <span class="petje-af-widget__amount">€ <?= str_replace(',00', ',-', number_format($min_amount, 2, ',', '.')); ?> <span><?php _e('per maand', 'petje-af' ); ?></span></span>
+              <p><?php _e('Word lid en steun ons al vanaf', 'petje-af'); ?> € <?= str_replace(',00', ',-', number_format($min_amount, 2, ',', '.')); ?> <span><?php _e('per maand', 'petje-af' ); ?></p>
+              <a class="petje-af-widget__button petje-af-widget__button--cta" href="https://petje.af/<?= $page_slug; ?>/petjes" target="_blank"><?php _e('Neem je petje af!', 'petje-af'); ?></a>
           </div>
           <?php endif; ?>
 
@@ -172,6 +184,10 @@ class Petje_Af_Main_Widget extends WP_Widget {
         <input class="widefat" id="<?php echo $this->get_field_id( 'page_slug' ); ?>" name="<?php echo $this->get_field_name( 'page_slug' ); ?>" type="text" value="<?php echo esc_attr( $page_slug ); ?>" />
     </p>
     <p>
+        <input class="checkbox" type="checkbox" <?php checked( $instance[ 'onetime' ], 'on' ); ?> id="<?php echo $this->get_field_id( 'ontime' ); ?>" name="<?php echo $this->get_field_name( 'onetime' ); ?>" /> 
+        <label for="<?php echo $this->get_field_id( 'onetime' ); ?>">Eenmalige betalingen activeren</label>
+   </p>
+    <p>
         <label for="<?php echo $this->get_field_id( 'min_amount' ); ?>">
             <?php _e( 'Per maand vanaf:' ); ?></label>
         <input type="number" class="widefat" id="<?php echo $this->get_field_id( 'min_amount' ); ?>" name="<?php echo $this->get_field_name( 'min_amount' ); ?>" type="text" value="<?php echo esc_attr( $min_amount ); ?>" />
@@ -184,6 +200,7 @@ class Petje_Af_Main_Widget extends WP_Widget {
       $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
       $instance['min_amount'] = ( ! empty( $new_instance['min_amount'] ) ) ? strip_tags( $new_instance['min_amount'] ) : '';
       $instance['page_slug'] = ( ! empty( $new_instance['page_slug'] ) ) ? strip_tags( $new_instance['page_slug'] ) : '';
+      $instance[ 'onetime' ] = $new_instance[ 'onetime' ];
       return $instance;
   }
 }
