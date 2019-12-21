@@ -1,26 +1,96 @@
 <?php
 
+/**
+ * User.
+ *
+ * The class responsible for creating and setup of new users after
+ * a connection is made with Petje.af.
+ *
+ * @link       https://petje.af
+ * @since      2.0.0
+ *
+ * @package    Petje_Af
+ * @subpackage Petje_Af/includes
+ */
+
+/**
+ * User.
+ *
+ * @since      2.0.0
+ * @package    Petje_Af
+ * @subpackage Petje_Af/includes
+ * @author     Stefan de Groot <stefan@petje.af>
+ */
+
 class Petje_Af_User
 {
+    /**
+	 * Database key to get the petje.af user id.
+	 *
+	 * @since    2.0.0
+	 * @access   protected
+	 * @var      string
+	 */
     protected $petje_user_id_key = 'petjeaf_user_id';
 
+    /**
+	 * The User ID
+	 *
+	 * @since    2.0.0
+	 * @access   protected
+	 * @var      integer
+	 */
     protected $userId;
 
+    /**
+	 * Instance of Petje_Af_Connector
+	 *
+	 * @since    2.0.0
+	 * @access   protected
+	 * @var      Petje_Af_Connector
+	 */
     protected $connector;
 
+    /**
+	 * Instance of Petjeaf\Api\PetjeafApiClient
+	 *
+	 * @since    2.0.0
+	 * @access   protected
+	 * @var      Petjeaf\Api\PetjeafApiClient
+	 */
     protected $client;
 
+    /**
+	 * Initialize class.
+	 *
+	 * @since   2.0.0
+     * 
+	 */
     public function __construct()
     {
         $accessToken = petjeaf_cache('access_token');
         $this->connector = new Petje_Af_Connector(null, $accessToken);
     }
 
+    /**
+	 * Check if user email is already in db.
+	 *
+	 * @since   2.0.0
+     * @param   $email
+     * 
+	 */
     protected function userEmailAlreadyExist($email) {
         $user = get_user_by('email', $email);
         return $user;
     }
 
+    /**
+	 * Check if petje.af user is already in db.
+	 *
+	 * @since   2.0.0
+     * @param   $petjeaf_id     the user id from Petje.af
+     * 
+	 */
     protected function petjeafUserAlreadyExist($petjeaf_id) {
         $user = get_users([
             'meta_key' => $this->petje_user_id_key,
@@ -31,6 +101,13 @@ class Petje_Af_User
         return $user[0];
     }
 
+    /**
+	 * Validation if user is not logged in
+	 *
+	 * @since   2.0.0
+     * @param   $user_from_token
+     * 
+	 */
     protected function validateNotLoggedInUser($user_from_token)
     {
         $user_exist = $this->petjeafUserAlreadyExist($user_from_token->id);
@@ -53,6 +130,13 @@ class Petje_Af_User
         }
     }
 
+    /**
+	 * Validation if user is logged in
+	 *
+	 * @since   2.0.0
+     * @param   $user_from_token
+     * 
+	 */
     protected function validateLoggedInUser($user_from_token)
     { 
         $wp_user = wp_get_current_user();
@@ -72,6 +156,13 @@ class Petje_Af_User
 
     }
 
+    /**
+	 * Setup the user after the connection is made.
+	 *
+	 * @since   2.0.0
+     * @param   $accessToken    Can not be found in the database yet
+     * 
+	 */
     public function set($accessToken)
     {
         $this->connector->setAccessToken($accessToken);
@@ -94,13 +185,21 @@ class Petje_Af_User
         return null;
     }
 
+    /**
+	 * Create user from token
+	 *
+	 * @since   2.0.0
+     * @param   $user_from_token
+     * 
+	 */
     protected function createUser($user_from_token)
     {
         $this->userId = wp_insert_user([
             'user_login' => $user_from_token->email,
             'user_email' => $user_from_token->email,
             'display_name' => $user_from_token->name,
-            'user_pass' => wp_generate_password()
+            'user_pass' => wp_generate_password(),
+            'role' => 'petjeaf_member'
         ]);
 
         update_user_meta($this->userId, 'petjeaf_user_id', $user_from_token->id);
@@ -108,6 +207,12 @@ class Petje_Af_User
         return $this->userId;
     }
 
+    /**
+	 * Log user in with Petje.af account
+	 *
+	 * @since   2.0.0
+     * 
+	 */
     protected function logUserIn()
     {
         wp_clear_auth_cookie();

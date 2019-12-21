@@ -30,8 +30,13 @@ class Petje_Af_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
+		
 		$pageGenerator = new Petje_Af_Page_Generator();
 		$pageGenerator->generatePages();
+
+		$userRole = new Petje_Af_User_Role();
+		$userRole->add_role();
+
 	}
 
 }

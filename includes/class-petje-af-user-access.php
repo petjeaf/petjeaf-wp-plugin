@@ -1,14 +1,55 @@
 <?php
 
+/**
+ * User Access.
+ *
+ * Class responsible for determine if a user has access
+ * to a certain post or not.
+ *
+ * @link       https://petje.af
+ * @since      2.0.0
+ *
+ * @package    Petje_Af
+ * @subpackage Petje_Af/includes
+ */
+
+/**
+ * User Access.
+ *
+ * @since      2.0.0
+ * @package    Petje_Af
+ * @subpackage Petje_Af/includes
+ * @author     Stefan de Groot <stefan@petje.af>
+ */
+
 class Petje_Af_User_Access 
 {
+    /**
+	 * WP page ID of the access denied page.
+	 *
+	 * @since    2.0.0
+	 * @access   protected
+	 * @var      integer
+	 */
     protected $accessDeniedPageId;
 
+    /**
+	 * Initialize class.
+	 *
+	 * @since   2.0.0
+     * 
+	 */
     public function __construct()
     {
         $this->accessDeniedPageId = get_option('petje_af_access_denied_page');
     }
 
+    /**
+	 * On template_redirect validate if user has access.
+	 *
+	 * @since   2.0.0
+     * 
+	 */
     public function template_redirect()
     {
         global $post;
@@ -43,9 +84,21 @@ class Petje_Af_User_Access
             }
         }
 
-        if ($access_denied) wp_redirect(get_permalink($this->accessDeniedPageId));
+        $link = add_query_arg( 'plan_id', $planId, get_permalink($this->accessDeniedPageId));
+        $link = add_query_arg( 'r', get_permalink($post->ID), $link);
+
+        if ($access_denied) wp_redirect($link);
     }
 
+    /**
+	 * Validate if user has access to content that is protected with a certain plan.
+	 *
+	 * @since   2.0.0
+	 * @param   object  plan
+     * 
+     * @return  boolean
+     * 
+	 */
     public static function toPlan($plan) 
     {
         $active_statuses = ['active', 'active_end_month', 'active_end_year'];

@@ -1,6 +1,9 @@
 (function($) {
     'use strict';
 
+    /**
+     * Disconnect form Petje.af
+     */
     function disconnect() {
         $.ajax({
             url: petjeaf_vars.ajaxurl,

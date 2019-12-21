@@ -88,7 +88,6 @@ class Petje_Af_Admin {
 
 	}
 
-
 	/**
 	 * Html for option page.
 	 *
@@ -200,14 +199,35 @@ class Petje_Af_Admin {
     
 
 	/**
-	 * Register all widgets 
+	 * Register all widgets.
 	 *
 	 * @since    1.0.0
 	 */
-	public function register_widgets() {
-
+    public function register_widgets() 
+    {
         register_widget( 'Petje_Af_Main_Widget' );
+    }
+    
+    /**
+    *  Display post states.
+    *
+    *  @since	2.0.0
+    */
+    public function display_post_states($post_states, $post)
+    {
+        if ('page' === get_post_type($post->ID) && $post->ID == get_option('petje_af_account_page')) {
+            $post_states[] = __('Petje.af account', 'petje-af'); 
+        }
 
-	}
+        if ('page' === get_post_type($post->ID) && $post->ID == get_option('petje_af_access_denied_page')) {
+            $post_states[] = __('Petje.af access denied', 'petje-af'); 
+        }
+
+        if ('page' === get_post_type($post->ID) && $post->ID == get_option('petje_af_redirect_uri_page')) {
+            $post_states[] = __('Petje.af redirect ui', 'petje-af'); 
+        }
+
+        return $post_states;
+    }
 
 }

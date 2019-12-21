@@ -1,6 +1,10 @@
 (function($) {
     'use strict';
 
+    /**
+     * read cookie
+     * @param {*} name
+     */
     function readCookie(name) {
         var nameEQ = encodeURIComponent(name) + "=";
         var ca = document.cookie.split(';');
@@ -14,6 +18,10 @@
         return null;
     }
 
+    /**
+     * get url parameter
+     * @param {*} sParam 
+     */
     function getUrlParameter(sParam) {
         var sPageURL = window.location.search.substring(1),
             sURLVariables = sPageURL.split('&'),
@@ -29,6 +37,9 @@
         }
     }
 
+    /**
+     * Login with AJAX
+     */
     function login() {
         var user = readCookie('auth2user'),
             redirect = readCookie('auth2redirect') ? readCookie('auth2redirect') : '/',

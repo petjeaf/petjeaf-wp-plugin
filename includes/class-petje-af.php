@@ -112,6 +112,7 @@ class Petje_Af {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-petje-af-oauth2-setup.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-petje-af-user.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-petje-af-user-access.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-petje-af-user-role.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'widgets/petje-af-main-widget.php';
 
 		$this->loader = new Petje_Af_Loader();
@@ -152,6 +153,8 @@ class Petje_Af {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'add_meta_box');
 		$this->loader->add_action( 'save_post', $plugin_admin, 'save_meta_box');
+		
+		$this->loader->add_filter( 'display_post_states', $plugin_admin, 'display_post_states', 10, 2);
 	}
 
 	/**
@@ -176,9 +179,16 @@ class Petje_Af {
 		$this->loader->add_action('wp_ajax_nopriv_petjeaf_disconnect', $oauth2_provider, 'ajax_revoke_token');
 		$this->loader->add_action('wp_ajax_petjeaf_disconnect', $oauth2_provider, 'ajax_revoke_token');
 
+		$this->loader->add_action('wp_logout', $oauth2_provider, 'on_logout');
+
 		$user_access = new Petje_Af_User_Access();
 
 		$this->loader->add_action('template_redirect', $user_access, 'template_redirect');
+
+		$user_role = new Petje_Af_User_Role();
+
+		$this->loader->add_action('after_setup_theme', $user_role, 'hide_admin_bar');
+		$this->loader->add_action('wp_logout', $user_role, 'logout_redirect');
 
 		// Shortcodes
 		$shortcodes = new Petje_Af_Shortcodes();

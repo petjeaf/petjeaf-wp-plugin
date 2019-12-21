@@ -1,7 +1,34 @@
 <?php
 
+/**
+ * Page Generator.
+ *
+ * Create the Petje.af pages in WordPress after 
+ * plugin activation.
+ *
+ * @link       https://petje.af
+ * @since      2.0.0
+ *
+ * @package    Petje_Af
+ * @subpackage Petje_Af/includes
+ */
+
+/**
+ * Page Generator.
+ *
+ * @since      2.0.0
+ * @package    Petje_Af
+ * @subpackage Petje_Af/includes
+ * @author     Stefan de Groot <stefan@petje.af>
+ */
 class Petje_Af_Page_Generator
 {
+    /**
+	 * Page generation that is called on setup
+	 *
+	 * @since   2.0.0
+     * 
+	 */
     public function generatePages() 
     {
       $this->generateRedirectUriPage();
@@ -9,6 +36,14 @@ class Petje_Af_Page_Generator
       $this->accessDeniedPage();
     }
 
+    /**
+	 * General function used for page generation
+	 *
+	 * @since   2.0.0
+     * @param   array   $arg for generating the page
+     * @param   string  $key in database
+     * 
+	 */
     protected function generatePage($arg = [], $key) 
     {
       if (get_option($key)) return;
@@ -24,6 +59,14 @@ class Petje_Af_Page_Generator
       return $pageId;
     }
 
+    /**
+	 * Save generated page by key
+	 *
+	 * @since   2.0.0
+     * @param   $key in database
+     * @param   $id of generated page
+     * 
+	 */
     protected function saveGeneratedPage($key, $id)
     {
       if ($id) {
@@ -31,6 +74,12 @@ class Petje_Af_Page_Generator
       }
     }
 
+    /**
+	 * Generate redirect uri page
+	 *
+	 * @since   2.0.0
+     * 
+	 */
     protected function generateRedirectUriPage() 
     {
       $pageId = $this->generatePage([
@@ -42,6 +91,12 @@ class Petje_Af_Page_Generator
       return $pageId;
     }
 
+    /**
+	 * Generate account page
+	 *
+	 * @since   2.0.0
+     * 
+	 */
     protected function generateAccountPage() 
     {
       $pageId = $this->generatePage([
@@ -53,6 +108,12 @@ class Petje_Af_Page_Generator
       return $pageId;
     }
 
+    /**
+	 * Generate access denied page
+	 *
+	 * @since   2.0.0
+     * 
+	 */
     protected function accessDeniedPage() 
     {
       $pageId = $this->generatePage([
