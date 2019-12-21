@@ -157,7 +157,7 @@ class Petje_Af_Main_Widget extends WP_Widget
                     <?php if ($onetime) : ?>
                     <div class="petje-af-widget__onetime">
                         <a class="petje-af-widget__img-link" href="<?= PETJE_AF_BASE_URL; ?><?= $page_slug; ?>/" target="_blank">
-                            <img style="width: 100px; height: auto" src="<?= plugin_dir_url( dirname(__FILE__) ); ?>public/images/petjeaf.png" alt="Petje af logo" />
+                            <img style="width: 100px; height: auto" src="<?= PETJE_AF_PLUGIN_ROOT_URL; ?>/public/images/petjeaf.png" alt="Petje af logo" />
                         </a>
                         <h5 class="petje-af-widget__title"><?php _e('Eenmalig doneren?', 'petje-af'); ?></h5>
                         <p><?php _e('Neem eenmalig je petje af! Kies zelf het bedrag.', 'petje-af'); ?></p>

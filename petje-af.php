@@ -37,6 +37,17 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'PETJE_AF_VERSION', '1.1.0' );
 
 /**
+ * Plugin base name
+ */
+define( 'PETJE_AF_PLUGIN_BASENAME',  basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ) );
+
+
+/**
+ * Root url of the plugin
+ */
+define( 'PETJE_AF_PLUGIN_ROOT_URL', plugins_url('', PETJE_AF_PLUGIN_BASENAME));
+
+/**
  * The main base url used in all functions.
  */
 define( 'PETJE_AF_BASE_URL', 'https://petje.af/');
