@@ -67,10 +67,54 @@ class Petje_Af_OAuth2_Provider
         $this->cache->saveField('refresh_token', $this->accessToken->getRefreshToken());       
     }
 
+    public function revoke($removeRefreshToken = false)
+    {
+        try {
+            $this->cache = new Petje_Af_Cache($this->userId);
+        
+            $this->provider->getAuthenticatedRequest(
+                'DELETE',
+                '/oauth2/tokens',
+                $this->cache->get('access_token')
+            );
+
+            $this->cache->delete('access_token');
+
+            if ($removeRefreshToken) {
+                $this->cache->delete('refresh_token');
+            }
+        } catch (\Throwable $th) {
+            throw new Exception($th->getMessage());
+        }
+    }
+
     public static function decodeToken($token)
     {
         list($header, $payload, $signature) = explode (".", $token);
-        return base64_decode($payload);
+        return json_decode(base64_decode($payload));
+    }
+
+    public function ajax_revoke_token()
+    {
+        $user = $_POST['user'];
+
+        if ($user != 'no') {
+            $this->userId = wp_get_current_user()->ID;
+        }
+
+        try {
+
+            $this->revoke(true);
+            delete_user_meta($this->userId, 'petjeaf_user_id');
+            
+            wp_send_json_success();
+            
+        } catch (\Throwable $th) {
+
+            wp_send_json_error([
+                'message' => __($th->getMessage(), 'petje-af')
+            ]);
+        }
     }
 
     public function ajax_exchange_code_for_token() 

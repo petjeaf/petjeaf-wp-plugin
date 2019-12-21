@@ -173,6 +173,9 @@ class Petje_Af {
 		$this->loader->add_action('wp_ajax_nopriv_petjeaf_code_for_token', $oauth2_provider, 'ajax_exchange_code_for_token');
 		$this->loader->add_action('wp_ajax_petjeaf_code_for_token', $oauth2_provider, 'ajax_exchange_code_for_token');
 
+		$this->loader->add_action('wp_ajax_nopriv_petjeaf_disconnect', $oauth2_provider, 'ajax_revoke_token');
+		$this->loader->add_action('wp_ajax_petjeaf_disconnect', $oauth2_provider, 'ajax_revoke_token');
+
 		$user_access = new Petje_Af_User_Access();
 
 		$this->loader->add_action('template_redirect', $user_access, 'template_redirect');
@@ -182,6 +185,8 @@ class Petje_Af {
 
 		$this->loader->add_shortcode('petjeaf_redirect_uri', $shortcodes, 'redirect_uri' );
 		$this->loader->add_shortcode('petjeaf_hide_content', $shortcodes, 'hide_content' );
+		$this->loader->add_shortcode('petjeaf_access_denied', $shortcodes, 'access_denied' );
+		$this->loader->add_shortcode('petjeaf_account', $shortcodes, 'account_page' );
 
 	}
 

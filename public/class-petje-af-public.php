@@ -74,11 +74,15 @@ class Petje_Af_Public {
 
 		wp_enqueue_script( $this->plugin_name . '-oauth2', plugin_dir_url( __FILE__ ) . 'js/oauth2.js', array( 'jquery' ), $this->version, false );
 
-		if (get_the_ID() == get_option('petje_af_redirect_uri_page')) {
+		if (get_the_ID() == get_option('petje_af_redirect_uri_page') || get_the_ID() == get_option('petje_af_account_page')) {
 			wp_enqueue_script( $this->plugin_name . '-login', plugin_dir_url( __FILE__ ) . 'js/login.js', array( 'jquery' ), $this->version, false );
 			wp_localize_script( $this->plugin_name . '-login', 'petjeaf_vars', array(
 				'ajaxurl' => admin_url( 'admin-ajax.php' )
 			));
+		}
+
+		if (get_the_ID() == get_option('petje_af_account_page')) {
+			wp_enqueue_script( $this->plugin_name . '-disconnect', plugin_dir_url( __FILE__ ) . 'js/disconnect.js', array( 'jquery' ), $this->version, false );
 		}
 	}
 

@@ -44,6 +44,11 @@ class Petje_Af_Cache
         return $result;
     }
 
+    public function delete($key)
+    {
+        return delete_transient($this->prefix . $key);
+    }
+
     public function setUser($userId) {
         
         $this->userId = $userId;

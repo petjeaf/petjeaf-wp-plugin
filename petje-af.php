@@ -39,6 +39,8 @@ if ( ! defined( 'WPINC' ) ) {
  */
 define( 'PETJE_AF_VERSION', '1.1.0' );
 
+define( 'PETJE_AF_BASE_URL', 'https://petje.af/');
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-petje-af-activator.php
