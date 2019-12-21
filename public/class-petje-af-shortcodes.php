@@ -42,7 +42,7 @@ class Petje_Af_Shortcodes
             $button .= '<span class="petje-af-access-denied-box__prefix">' . __($prefix, 'petje-af') . '</span>';
         }
 
-        $button .= '<a href="#" id="petjeaf_connect_button" data-redirect-uri="' . $redirect_uri .'" class="petje-af-access-denied-box__link" target="_blank">' . __($button_text, 'petje-af') . '</a>';
+        $button .= '<a href="#" data-redirect-uri="' . $redirect_uri .'" class="petjeaf-connect-button petje-af-access-denied-box__link" target="_blank">' . __($button_text, 'petje-af') . '</a>';
 
         if ($paragraph) {
             $button .= '</p>';

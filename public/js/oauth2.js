@@ -16,12 +16,7 @@
     }
 
     $(function() {
-        $("#petjeaf_login_button").click(function(event) {
-            event.preventDefault();
-            redirect($(this));
-        });
-
-        $("#petjeaf_connect_button").click(function(event) {
+        $(".petjeaf-connect-button").click(function(event) {
             event.preventDefault();
             redirect($(this));
         });

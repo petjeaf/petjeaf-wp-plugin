@@ -18,7 +18,6 @@ class Petje_Af_OAuth2_Provider
             $this->userId = $userId;
         }
 
-        $this->cache = new Petje_Af_Cache($userId);
         $this->setProvider();
     }
 
@@ -80,6 +79,8 @@ class Petje_Af_OAuth2_Provider
         $redirect = $_POST['redirect'];
         $user = $_POST['user'];
         $state = $_POST['state'];
+
+        $this->cache = new Petje_Af_Cache();
 
         if (!$code) {
             wp_send_json_error([

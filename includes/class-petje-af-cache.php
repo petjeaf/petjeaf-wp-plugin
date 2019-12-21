@@ -34,7 +34,7 @@ class Petje_Af_Cache
     }
 
     public function get($key) 
-    {
+    {   
         if (!$this->get_refresh_token()) {
             return null;
         }
@@ -122,7 +122,7 @@ class Petje_Af_Cache
     }
 
     protected function get_access_token()
-    {
+    {   
         $oauth2_provider = new Petje_Af_OAuth2_Provider($this->userId);
 
         $accessToken = $oauth2_provider->getAcccesTokenByRefreshToken($this->get_refresh_token());

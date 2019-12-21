@@ -34,6 +34,6 @@ class Petje_Af_Connector
 
     public function setAccessToken($accessToken) {
         $this->accessToken = $accessToken;
-        $this->client->setAccessToken($accessToken);
+        $this->client->setAccessToken($this->accessToken);
     }
 }
