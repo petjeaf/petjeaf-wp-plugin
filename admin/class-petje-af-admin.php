@@ -55,13 +55,158 @@ class Petje_Af_Admin {
 	}
 
 	/**
+	 * Register the JavaScript for the admin area.
+	 *
+	 * @since    2.0.0
+	 */
+	public function enqueue_scripts() {
+
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/admin.js', array( 'jquery' ), $this->version, false );
+
+	}
+
+	/**
+	 * Register settings.
+	 *
+	 * @since    2.0.0
+	 */
+	public function register_settings() {
+		register_setting( 'petje_af_settings', 'petje_af_client_id');
+		register_setting( 'petje_af_settings', 'petje_af_client_secret');
+        register_setting( 'petje_af_settings', 'petje_af_page_id');
+        register_setting( 'petje_af_settings', 'petje_af_ignore_access_settings_for_admin');
+	}
+
+	/**
+	 * Add admin menu.
+	 *
+	 * @since    2.0.0
+	 */
+	public function admin_menu() {
+
+		add_options_page( __('Petje.af','petje-af'), __('Petje.af','petje-af'), 'manage_options', 'petje-af', array($this,'html') );
+
+	}
+
+
+	/**
+	 * Html for option page.
+	 *
+	 * @since    2.0.0
+	 */
+	public function html() {
+
+		if ( !current_user_can( 'manage_options' ) )  {
+		  wp_die( __( 'You do not have sufficient permissions to access this page.', 'petje-af' ) );
+		}
+
+		include plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/petje-af-admin-display.php';
+
+	}
+
+	/**
+	 * Add metabox.
+	 *
+	 * @since    2.0.0
+	 */
+    public function add_meta_box() {
+
+        $screens = apply_filters('petje_af_post_types', ['post', 'page']);
+
+        foreach ( $screens as $screen ) {
+            add_meta_box('petjeaf-meta-box', __('Petje.af settings', 'petje-af'), array($this, 'meta_box_html'), $screen, 'side');
+        }
+    }
+    
+	/**
+	 * Add metabox HTML.
+	 *
+	 * @since    2.0.0
+	 */
+    public function meta_box_html() {
+        include plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/petje-af-meta-box.php';
+    }
+    
+	/**
+	 * Save metabox
+	 *
+	 * @since    2.0.0
+	 */
+    public function save_meta_box($post_id) {
+
+        if ( ! isset( $_POST['petje_af_meta_box_nonce'] ) ) {
+            return;
+        }      
+        
+        if ( ! wp_verify_nonce( $_POST['petje_af_meta_box_nonce'] , 'petje_af_meta_box_nonce' ) ) {
+            return;
+        }
+
+        if ( ! isset( $_POST['petje_af_page_plan_id'] ) ) {
+            return;
+        }
+
+        update_post_meta($post_id, 'petje_af_page_plan_id', $_POST['petje_af_page_plan_id']);
+    }
+
+    /**
+    *  Dropdown for pages in admin.
+    *
+    *  @since	2.0.0
+    */
+    public static function pages_dropdown() {
+        
+        $pages = petjeaf_cache('pages', false);
+
+        $dropdown = '<select name="petje_af_page_id" id="petje_af_page_id">';
+    
+        if (!empty($pages)) {
+            foreach($pages as $page) {
+                $selected = get_option('petje_af_page_id') == $page->id ? 'selected' : '';
+                $dropdown .= '<option value="' . $page->id . '"' . $selected .'>' . $page->name . '</option>';
+            }
+        }
+    
+        $dropdown .= '</select>';
+    
+        return $dropdown;
+    }
+
+    /**
+    *  Dropdown for plans in admin.
+    *
+    *  @since	2.0.0
+    */
+    public static function page_plans_dropdown($post_id) {
+        
+        $pagePlans = petjeaf_cache('page_plans', false);
+
+        $dropdown = '<select id="petje_af_plan_select" name="petje_af_page_plan_id" id="petje_af_page_plan_id" class="components-select-control__input">';
+
+        $selected = get_post_meta($post_id, 'petje_af_page_plan_id', true)? '' : 'selected';
+        $dropdown .= '<option value="" ' . $selected .'>' . __('Public', 'petje-af') . '</option>';
+
+        if (!empty($pagePlans)) {
+            foreach($pagePlans as $pagePlan) {
+                $selected = get_post_meta($post_id, 'petje_af_page_plan_id', true) == $pagePlan->id ? 'selected' : '';
+                $dropdown .= '<option value="' . $pagePlan->id . '"' . $selected .'>' . $pagePlan->name . '</option>';
+            }
+        }
+
+        $dropdown .= '</select>';
+
+        return $dropdown;
+    }
+    
+
+	/**
 	 * Register all widgets 
 	 *
 	 * @since    1.0.0
 	 */
 	public function register_widgets() {
 
-    register_widget( 'Petje_Af_Main_Widget' );
+        register_widget( 'Petje_Af_Main_Widget' );
 
 	}
 

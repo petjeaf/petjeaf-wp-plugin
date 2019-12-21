@@ -65,4 +65,22 @@ class Petje_Af_Public {
 
 	}
 
+	/**
+	 * Register the JavaScript for the public-facing side of the site.
+	 *
+	 * @since    2.0.0
+	 */
+	public function enqueue_scripts() {
+
+		wp_enqueue_script( $this->plugin_name . '-oauth2', plugin_dir_url( __FILE__ ) . 'js/oauth2.js', array( 'jquery' ), $this->version, false );
+
+		if (get_the_ID() == get_option('petje_af_redirect_uri_page')) {
+			wp_enqueue_script( $this->plugin_name . '-login', plugin_dir_url( __FILE__ ) . 'js/login.js', array( 'jquery' ), $this->version, false );
+			wp_localize_script( $this->plugin_name . '-login', 'petjeaf_vars', array(
+				'ajaxurl' => admin_url( 'admin-ajax.php' )
+			));
+		}
+	}
+
+
 }

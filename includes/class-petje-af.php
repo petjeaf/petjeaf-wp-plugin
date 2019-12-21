@@ -99,32 +99,19 @@ class Petje_Af {
 	 */
 	private function load_dependencies() {
 
-		/**
-		 * The class responsible for orchestrating the actions and filters of the
-		 * core plugin.
-		 */
+		// Classes
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-petje-af-loader.php';
-
-		/**
-		 * The class responsible for defining internationalization functionality
-		 * of the plugin.
-		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-petje-af-i18n.php';
-
-		/**
-		 * The class responsible for defining all actions that occur in the admin area.
-		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-petje-af-admin.php';
-
-		/**
-		 * The class responsible for defining all actions that occur in the public-facing
-		 * side of the site.
-		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-petje-af-public.php';
-
-			/**
-		 * The class for the main widget.
-		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ). 'includes/class-petje-af-connector.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ). 'includes/class-petje-af-oauth2-provider.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ). 'includes/class-petje-af-page-generator.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ). 'public/class-petje-af-shortcodes.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-petje-af-cache.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-petje-af-oauth2-setup.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-petje-af-user.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-petje-af-user-access.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'widgets/petje-af-main-widget.php';
 
 		$this->loader = new Petje_Af_Loader();
@@ -160,7 +147,11 @@ class Petje_Af {
 		$plugin_admin = new Petje_Af_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'widgets_init', $plugin_admin, 'register_widgets' );
-
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_settings' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'add_meta_box');
+		$this->loader->add_action( 'save_post', $plugin_admin, 'save_meta_box');
 	}
 
 	/**
@@ -175,6 +166,22 @@ class Petje_Af {
 		$plugin_public = new Petje_Af_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+		$oauth2_provider = new Petje_Af_OAuth2_Provider();
+
+		$this->loader->add_action('wp_ajax_nopriv_petjeaf_code_for_token', $oauth2_provider, 'ajax_exchange_code_for_token');
+		$this->loader->add_action('wp_ajax_petjeaf_code_for_token', $oauth2_provider, 'ajax_exchange_code_for_token');
+
+		$user_access = new Petje_Af_User_Access();
+
+		$this->loader->add_action('template_redirect', $user_access, 'template_redirect');
+
+		// Shortcodes
+		$shortcodes = new Petje_Af_Shortcodes();
+
+		$this->loader->add_shortcode('petjeaf_redirect_uri', $shortcodes, 'redirectUriPage' );
+		$this->loader->add_shortcode('petjeaf_hide_content', $shortcodes, 'hideContent' );
 
 	}
 

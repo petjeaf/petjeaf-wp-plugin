@@ -23,7 +23,7 @@
 class Petje_Af_Deactivator {
 
 	/**
-	 * Short Description. (use period)
+	 * Short Description.
 	 *
 	 * Long Description.
 	 *
