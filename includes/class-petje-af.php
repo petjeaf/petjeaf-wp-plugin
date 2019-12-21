@@ -180,8 +180,8 @@ class Petje_Af {
 		// Shortcodes
 		$shortcodes = new Petje_Af_Shortcodes();
 
-		$this->loader->add_shortcode('petjeaf_redirect_uri', $shortcodes, 'redirectUriPage' );
-		$this->loader->add_shortcode('petjeaf_hide_content', $shortcodes, 'hideContent' );
+		$this->loader->add_shortcode('petjeaf_redirect_uri', $shortcodes, 'redirect_uri' );
+		$this->loader->add_shortcode('petjeaf_hide_content', $shortcodes, 'hide_content' );
 
 	}
 
