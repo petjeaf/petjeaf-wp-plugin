@@ -22,92 +22,92 @@
  */
 class Petje_Af_Admin {
 
-	/**
-	 * The ID of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
-	 */
-	private $plugin_name;
+    /**
+     * The ID of this plugin.
+     *
+     * @since    1.0.0
+     * @access   private
+     * @var      string    $plugin_name    The ID of this plugin.
+     */
+    private $plugin_name;
 
-	/**
-	 * The version of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
-	 */
-	private $version;
+    /**
+     * The version of this plugin.
+     *
+     * @since    1.0.0
+     * @access   private
+     * @var      string    $version    The current version of this plugin.
+     */
+    private $version;
 
-	/**
-	 * Initialize the class and set its properties.
-	 *
-	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of this plugin.
-	 * @param      string    $version    The version of this plugin.
-	 */
-	public function __construct( $plugin_name, $version ) {
+    /**
+     * Initialize the class and set its properties.
+     *
+     * @since    1.0.0
+     * @param      string    $plugin_name       The name of this plugin.
+     * @param      string    $version    The version of this plugin.
+     */
+    public function __construct( $plugin_name, $version ) {
 
-		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+        $this->plugin_name = $plugin_name;
+        $this->version = $version;
 
-	}
+    }
 
-	/**
-	 * Register the JavaScript for the admin area.
-	 *
-	 * @since    2.0.0
-	 */
-	public function enqueue_scripts() {
+    /**
+     * Register the JavaScript for the admin area.
+     *
+     * @since    2.0.0
+     */
+    public function enqueue_scripts() {
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/admin.js', array( 'jquery' ), $this->version, false );
+        wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/admin.js', array( 'jquery' ), $this->version, false );
 
-	}
+    }
 
-	/**
-	 * Register settings.
-	 *
-	 * @since    2.0.0
-	 */
-	public function register_settings() {
-		register_setting( 'petje_af_settings', 'petje_af_client_id');
-		register_setting( 'petje_af_settings', 'petje_af_client_secret');
+    /**
+     * Register settings.
+     *
+     * @since    2.0.0
+     */
+    public function register_settings() {
+        register_setting( 'petje_af_settings', 'petje_af_client_id');
+        register_setting( 'petje_af_settings', 'petje_af_client_secret');
         register_setting( 'petje_af_settings', 'petje_af_page_id');
         register_setting( 'petje_af_settings', 'petje_af_ignore_access_settings_for_admin');
-	}
+    }
 
-	/**
-	 * Add admin menu.
-	 *
-	 * @since    2.0.0
-	 */
-	public function admin_menu() {
+    /**
+     * Add admin menu.
+     *
+     * @since    2.0.0
+     */
+    public function admin_menu() {
 
-		add_options_page( __('Petje.af','petje-af'), __('Petje.af','petje-af'), 'manage_options', 'petje-af', array($this,'html') );
+        add_options_page( __('Petje.af','petje-af'), __('Petje.af','petje-af'), 'manage_options', 'petje-af', array($this,'html') );
 
-	}
+    }
 
-	/**
-	 * Html for option page.
-	 *
-	 * @since    2.0.0
-	 */
-	public function html() {
+    /**
+     * Html for option page.
+     *
+     * @since    2.0.0
+     */
+    public function html() {
 
-		if ( !current_user_can( 'manage_options' ) )  {
-		  wp_die( __( 'You do not have sufficient permissions to access this page.', 'petje-af' ) );
-		}
+        if ( !current_user_can( 'manage_options' ) )  {
+          wp_die( __( 'You do not have sufficient permissions to access this page.', 'petje-af' ) );
+        }
 
-		include plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/petje-af-admin-display.php';
+        include plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/petje-af-admin-display.php';
 
-	}
+    }
 
-	/**
-	 * Add metabox.
-	 *
-	 * @since    2.0.0
-	 */
+    /**
+     * Add metabox.
+     *
+     * @since    2.0.0
+     */
     public function add_meta_box() {
 
         $screens = apply_filters('petje_af_post_types', ['post', 'page']);
@@ -117,20 +117,20 @@ class Petje_Af_Admin {
         }
     }
     
-	/**
-	 * Add metabox HTML.
-	 *
-	 * @since    2.0.0
-	 */
+    /**
+     * Add metabox HTML.
+     *
+     * @since    2.0.0
+     */
     public function meta_box_html() {
         include plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/petje-af-meta-box.php';
     }
     
-	/**
-	 * Save metabox
-	 *
-	 * @since    2.0.0
-	 */
+    /**
+     * Save metabox
+     *
+     * @since    2.0.0
+     */
     public function save_meta_box($post_id) {
 
         if ( ! isset( $_POST['petje_af_meta_box_nonce'] ) ) {
@@ -198,11 +198,11 @@ class Petje_Af_Admin {
     }
     
 
-	/**
-	 * Register all widgets.
-	 *
-	 * @since    1.0.0
-	 */
+    /**
+     * Register all widgets.
+     *
+     * @since    1.0.0
+     */
     public function register_widgets() 
     {
         register_widget( 'Petje_Af_Main_Widget' );

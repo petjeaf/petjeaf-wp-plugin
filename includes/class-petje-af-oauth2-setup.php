@@ -24,40 +24,40 @@
 class Petje_Af_OAuth2_Setup
 {
     /**
-	 * Determine if setup is for page or user
-	 *
-	 * @since    2.0.0
-	 * @access   protected
-	 * @var      boolean
-	 */
+     * Determine if setup is for page or user
+     *
+     * @since    2.0.0
+     * @access   protected
+     * @var      boolean
+     */
     protected $fromUser;
 
     /**
-	 * Instance of Petje_Af_Cache
-	 *
-	 * @since    2.0.0
-	 * @access   protected
-	 * @var      Petje_Af_Cache
-	 */
+     * Instance of Petje_Af_Cache
+     *
+     * @since    2.0.0
+     * @access   protected
+     * @var      Petje_Af_Cache
+     */
     protected $cache;
 
     /**
-	 * The Access Token
-	 *
-	 * @since    2.0.0
-	 * @access   protected
-	 * @var      string
-	 */
+     * The Access Token
+     *
+     * @since    2.0.0
+     * @access   protected
+     * @var      string
+     */
     protected $accessToken;
 
     /**
-	 * Initialize class.
-	 *
-	 * @since   2.0.0
-	 * @param   $fromUser   boolean
+     * Initialize class.
+     *
+     * @since   2.0.0
+     * @param   $fromUser   boolean
      * @param   $accessToken    to call api without access token in database
      * 
-	 */
+     */
     public function __construct($fromUser, $accessToken)
     {
         $this->fromUser = $fromUser;
@@ -67,11 +67,11 @@ class Petje_Af_OAuth2_Setup
     }
 
     /**
-	 * Run setup
-	 *
-	 * @since   2.0.0
+     * Run setup
+     *
+     * @since   2.0.0
      * 
-	 */
+     */
     public function run()
     {
         if (!$this->fromUser) {
@@ -82,23 +82,23 @@ class Petje_Af_OAuth2_Setup
     }
 
     /**
-	 * Set access token if needed
-	 *
-	 * @since   2.0.0
+     * Set access token if needed
+     *
+     * @since   2.0.0
      * @param   $accessToken
      * 
-	 */
+     */
     public function setAccessToken($accessToken)
     {
         $this->accessToken = $accessToken;
     }
 
     /**
-	 * Setup user
-	 *
-	 * @since   2.0.0
+     * Setup user
+     *
+     * @since   2.0.0
      * 
-	 */
+     */
     protected function setupUser() 
     {
         $user = new Petje_Af_User();
@@ -106,11 +106,11 @@ class Petje_Af_OAuth2_Setup
     }
 
     /**
-	 * Setup for page
-	 *
-	 * @since   2.0.0
+     * Setup for page
+     *
+     * @since   2.0.0
      * 
-	 */
+     */
     protected function setupPages()
     {
         $pages = $this->cache->get('pages');

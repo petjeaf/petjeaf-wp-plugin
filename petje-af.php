@@ -28,7 +28,7 @@ require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-	die;
+  die;
 }
 
 /**
@@ -57,8 +57,8 @@ define( 'PETJE_AF_BASE_URL', 'https://petje.af/');
  * This action is documented in includes/class-petje-af-activator.php
  */
 function activate_petje_af() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-petje-af-activator.php';
-	Petje_Af_Activator::activate();
+  require_once plugin_dir_path( __FILE__ ) . 'includes/class-petje-af-activator.php';
+  Petje_Af_Activator::activate();
 }
 
 /**
@@ -66,8 +66,8 @@ function activate_petje_af() {
  * This action is documented in includes/class-petje-af-deactivator.php
  */
 function deactivate_petje_af() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-petje-af-deactivator.php';
-	Petje_Af_Deactivator::deactivate();
+  require_once plugin_dir_path( __FILE__ ) . 'includes/class-petje-af-deactivator.php';
+  Petje_Af_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_petje_af' );
@@ -86,8 +86,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-petje-af.php';
  */
 function run_petje_af() {
 
-	$plugin = new Petje_Af();
-	$plugin->run();
+  $plugin = new Petje_Af();
+  $plugin->run();
 
 }
 run_petje_af();

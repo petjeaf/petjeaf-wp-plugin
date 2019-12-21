@@ -24,11 +24,11 @@
 class Petje_Af_Main_Widget extends WP_Widget 
 {
     /**
-	 * Initialize widget class.
-	 *
-	 * @since   1.0.0
+     * Initialize widget class.
+     *
+     * @since   1.0.0
      * 
-	 */
+     */
     function __construct() {
         parent::__construct(
             'Petje_Af_Main_Widget', 
@@ -38,15 +38,15 @@ class Petje_Af_Main_Widget extends WP_Widget
     }
 
     /**
-	 * Initialize widget class.
-	 *
-	 * @since   1.0.0
+     * Initialize widget class.
+     *
+     * @since   1.0.0
      * @param   $args
      * @param   $instance
      * 
      * @return  widget
      * 
-	 */
+     */
     public function widget( $args, $instance ) {
         $title = apply_filters( 'widget_title', $instance['title'] );
         $page_slug = $instance['page_slug'];
@@ -191,14 +191,14 @@ class Petje_Af_Main_Widget extends WP_Widget
     }
   
     /**
-	 * Widget back-end form.
-	 *
-	 * @since   1.0.0
+     * Widget back-end form.
+     *
+     * @since   1.0.0
      * @param   $instance
      * 
      * @return  form html
      * 
-	 */
+     */
     public function form( $instance ) {
         if ( isset( $instance[ 'title' ] ) ) {
             $title = $instance[ 'title' ];
@@ -242,13 +242,13 @@ class Petje_Af_Main_Widget extends WP_Widget
     }
         
     /**
-	 * On update widget.
-	 *
-	 * @since   1.0.0
+     * On update widget.
+     *
+     * @since   1.0.0
      * @param   $new_instance
      * @param   $old_instance
      * 
-	 */
+     */
     public function update( $new_instance, $old_instance ) {
         $instance = array();
         $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';

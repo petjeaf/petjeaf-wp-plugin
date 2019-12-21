@@ -25,24 +25,24 @@
 class Petje_Af_User_Role
 {
     /**
-	 * Add petjeaf_member role on activation of the plugin
-	 *
-	 * @since   2.0.0
+     * Add petjeaf_member role on activation of the plugin
+     *
+     * @since   2.0.0
      * 
-	 */
+     */
     public function add_role()
     {
         add_role('petjeaf_member', __('Petje.af member'), ['read' => true]);
     }
 
     /**
-	 * Hide admin bar for petjeaf_member. 
+     * Hide admin bar for petjeaf_member. 
      * 
      * Called on after_theme_setup
-	 *
-	 * @since   2.0.0
+     *
+     * @since   2.0.0
      * 
-	 */
+     */
     public function hide_admin_bar()
     {
         if (current_user_can('petjeaf_member')) {
@@ -51,11 +51,11 @@ class Petje_Af_User_Role
     }
 
     /**
-	 * On wp_logout redirect petjeaf_member to Petje.af account page.
-	 *
-	 * @since   2.0.0
+     * On wp_logout redirect petjeaf_member to Petje.af account page.
+     *
+     * @since   2.0.0
      * 
-	 */
+     */
     public function logout_redirect()
     {
         if (current_user_can('petjeaf_member')) {

@@ -24,24 +24,24 @@
 class Petje_Af_Shortcodes
 {
     /**
-	 * The database key for the Petje.af user id
-	 *
-	 * @since    2.0.0
-	 * @access   protected
-	 * @var      string
-	 */
+     * The database key for the Petje.af user id
+     *
+     * @since    2.0.0
+     * @access   protected
+     * @var      string
+     */
     protected $petje_user_id_key = 'petjeaf_user_id';
 
     /**
-	 * Shortcode used on the redirect_uri page.
+     * Shortcode used on the redirect_uri page.
      * 
      * Shortcode callback for "petjeaf_redirect_uri".
-	 *
-	 * @since   2.0.0     
+     *
+     * @since   2.0.0     
      *  
      * @return  $content html
      * 
-	 */
+     */
     public function redirect_uri() 
     {   
         $content = '<div id="#petjeaf_redirecter" class="petjeaf-redirecter">';
@@ -53,15 +53,15 @@ class Petje_Af_Shortcodes
     }
 
     /**
-	 * Shortcode used on the access denied page
+     * Shortcode used on the access denied page
      * 
      * Shortcode callback for "petjeaf_access_denied".
-	 *
-	 * @since   2.0.0
+     *
+     * @since   2.0.0
      * 
      * @return  $content html
      * 
-	 */
+     */
     public function access_denied() 
     {   
         $page = $this->findPage();
@@ -112,15 +112,15 @@ class Petje_Af_Shortcodes
     }
 
     /**
-	 * Shortcode used on the account page.
+     * Shortcode used on the account page.
      * 
      * Shortcode callback for "petjeaf_account_page".
-	 *
-	 * @since   2.0.0
+     *
+     * @since   2.0.0
      * 
      * @return  $content html
      * 
-	 */
+     */
     public function account_page() 
     {
         $content = '<div class="petje-af-account">';
@@ -174,15 +174,15 @@ class Petje_Af_Shortcodes
     }
 
     /**
-	 * Shortcode used for hiding parts of content.
+     * Shortcode used for hiding parts of content.
      * 
      * Shortcode callback for "petjeaf_hide_content".
-	 *
-	 * @since   2.0.0
+     *
+     * @since   2.0.0
      * 
      * @return  $content html
      * 
-	 */
+     */
     public function hide_content($atts = [], $content = null) 
     {
         $petjeaf_atts = shortcode_atts([
@@ -234,11 +234,11 @@ class Petje_Af_Shortcodes
     }
 
     /**
-	 * Find page
+     * Find page
      * 
      * @return  $page  object or null if nothing found
      * 
-	 */
+     */
     protected function findPage() 
     {
         $pages = petjeaf_cache('pages', false);
@@ -256,11 +256,11 @@ class Petje_Af_Shortcodes
     }
 
     /**
-	 * Find plan by plan id
+     * Find plan by plan id
      *
      * @return  $plan   object or null if nothing found
      * 
-	 */
+     */
     protected function findPlan($planId)
     {
         $plans = petjeaf_cache('page_plans', false);
@@ -279,9 +279,9 @@ class Petje_Af_Shortcodes
     }
 
     /**
-	 * Creating the login button
+     * Creating the login button
      * 
-	 * @since   2.0.0
+     * @since   2.0.0
      * @param   $button_text    string
      * @param   $prefix         string
      * @param   $paragraph      boolean
@@ -289,7 +289,7 @@ class Petje_Af_Shortcodes
      * 
      * @return  $content button
      * 
-	 */
+     */
     protected function loginButton($button_text = '', $prefix = '', $paragraph = true, $wrapper_class = 'petje-af-access-denied-box')
     {
         if (is_user_logged_in()) {
@@ -326,9 +326,9 @@ class Petje_Af_Shortcodes
     }
 
     /**
-	 * Creating the disconnect button
+     * Creating the disconnect button
      * 
-	 * @since   2.0.0
+     * @since   2.0.0
      * @param   $button_text    string
      * @param   $prefix         string
      * @param   $paragraph      boolean
@@ -336,7 +336,7 @@ class Petje_Af_Shortcodes
      * 
      * @return  $content button
      * 
-	 */
+     */
     protected function disconnectButton($button_text, $prefix, $paragraph = true, $wrapper_class = 'petje-af-account')
     {
         $button = '';
@@ -359,9 +359,9 @@ class Petje_Af_Shortcodes
     }
 
     /**
-	 * Access Denied Box HTML
+     * Access Denied Box HTML
      * 
-	 * @since   2.0.0
+     * @since   2.0.0
      * @param   $lead           string
      * @param   $title          string
      * @param   $link           string
@@ -370,7 +370,7 @@ class Petje_Af_Shortcodes
      * 
      * @return  $content
      * 
-	 */
+     */
     protected function accessDeniedBox($lead, $title, $link, $button_text, $login_button)
     {
         $content = '<div class="petje-af-access-denied-box">';
@@ -389,14 +389,14 @@ class Petje_Af_Shortcodes
     }
 
     /**
-	 * Access Denied Box HTML
+     * Access Denied Box HTML
      * 
-	 * @since   2.0.0
+     * @since   2.0.0
      * @param   $error      string
      * 
      * @return  $content
      * 
-	 */
+     */
     protected function accessDeniedBoxError($error) {
 
         $content = '<div class="petje-af-access-denied-box">';

@@ -3,7 +3,7 @@
 
     /**
      * read cookie
-     * @param {*} name
+     * @param {Name of the cookie to read} name
      */
     function readCookie(name) {
         var nameEQ = encodeURIComponent(name) + "=";
@@ -20,7 +20,7 @@
 
     /**
      * get url parameter
-     * @param {*} sParam 
+     * @param {The parameter to get} sParam 
      */
     function getUrlParameter(sParam) {
         var sPageURL = window.location.search.substring(1),

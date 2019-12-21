@@ -27,40 +27,40 @@ class Petje_Af_Connector
 {
     
     /**
-	 * Instance of PetjeafApiClient.
-	 *
-	 * @since    2.0.0
-	 * @access   public
-	 * @var      Petjeaf\Api\PetjeafApiClient
-	 */
+     * Instance of PetjeafApiClient.
+     *
+     * @since    2.0.0
+     * @access   public
+     * @var      Petjeaf\Api\PetjeafApiClient
+     */
     public $client;
 
     /**
-	 * The User Id
-	 *
-	 * @since    2.0.0
-	 * @access   protected
-	 * @var      integer
-	 */
+     * The User Id
+     *
+     * @since    2.0.0
+     * @access   protected
+     * @var      integer
+     */
     protected $userId = null;
 
     /**
-	 * Access Token.
-	 *
-	 * @since    2.0.0
-	 * @access   protected
-	 * @var      string
-	 */
+     * Access Token.
+     *
+     * @since    2.0.0
+     * @access   protected
+     * @var      string
+     */
     protected $accessToken;
 
     /**
-	 * Initialize class.
-	 *
-	 * @since   2.0.0
-	 * @param   $userId
+     * Initialize class.
+     *
+     * @since   2.0.0
+     * @param   $userId
      * @param   $accessToken
      * 
-	 */
+     */
     public function __construct($userId = null, $accessToken)
     {
         if ($userId) {
@@ -73,23 +73,23 @@ class Petje_Af_Connector
     }
 
     /**
-	 * Set user if needed.
-	 *
-	 * @since   2.0.0
-	 * @param   $userId
+     * Set user if needed.
+     *
+     * @since   2.0.0
+     * @param   $userId
      * 
-	 */
+     */
     public function setUser($userId)
     {
         $this->userId = $userId;
     }
 
     /**
-	 * Set client on init.
-	 *
-	 * @since   2.0.0
+     * Set client on init.
+     *
+     * @since   2.0.0
      * 
-	 */
+     */
     protected function setClient()
     {
         $this->client = new PetjeafApiClient();
@@ -97,12 +97,12 @@ class Petje_Af_Connector
     }
 
     /**
-	 * Set access token if needed.
-	 *
-	 * @since   2.0.0
-	 * @param   $accessToken
+     * Set access token if needed.
+     *
+     * @since   2.0.0
+     * @param   $accessToken
      * 
-	 */
+     */
     public function setAccessToken($accessToken) {
         $this->accessToken = $accessToken;
         $this->client->setAccessToken($this->accessToken);

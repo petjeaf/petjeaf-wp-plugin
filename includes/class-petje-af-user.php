@@ -25,47 +25,47 @@
 class Petje_Af_User
 {
     /**
-	 * Database key to get the petje.af user id.
-	 *
-	 * @since    2.0.0
-	 * @access   protected
-	 * @var      string
-	 */
+     * Database key to get the petje.af user id.
+     *
+     * @since    2.0.0
+     * @access   protected
+     * @var      string
+     */
     protected $petje_user_id_key = 'petjeaf_user_id';
 
     /**
-	 * The User ID
-	 *
-	 * @since    2.0.0
-	 * @access   protected
-	 * @var      integer
-	 */
+     * The User ID
+     *
+     * @since    2.0.0
+     * @access   protected
+     * @var      integer
+     */
     protected $userId;
 
     /**
-	 * Instance of Petje_Af_Connector
-	 *
-	 * @since    2.0.0
-	 * @access   protected
-	 * @var      Petje_Af_Connector
-	 */
+     * Instance of Petje_Af_Connector
+     *
+     * @since    2.0.0
+     * @access   protected
+     * @var      Petje_Af_Connector
+     */
     protected $connector;
 
     /**
-	 * Instance of Petjeaf\Api\PetjeafApiClient
-	 *
-	 * @since    2.0.0
-	 * @access   protected
-	 * @var      Petjeaf\Api\PetjeafApiClient
-	 */
+     * Instance of Petjeaf\Api\PetjeafApiClient
+     *
+     * @since    2.0.0
+     * @access   protected
+     * @var      Petjeaf\Api\PetjeafApiClient
+     */
     protected $client;
 
     /**
-	 * Initialize class.
-	 *
-	 * @since   2.0.0
+     * Initialize class.
+     *
+     * @since   2.0.0
      * 
-	 */
+     */
     public function __construct()
     {
         $accessToken = petjeaf_cache('access_token');
@@ -73,24 +73,24 @@ class Petje_Af_User
     }
 
     /**
-	 * Check if user email is already in db.
-	 *
-	 * @since   2.0.0
+     * Check if user email is already in db.
+     *
+     * @since   2.0.0
      * @param   $email
      * 
-	 */
+     */
     protected function userEmailAlreadyExist($email) {
         $user = get_user_by('email', $email);
         return $user;
     }
 
     /**
-	 * Check if petje.af user is already in db.
-	 *
-	 * @since   2.0.0
+     * Check if petje.af user is already in db.
+     *
+     * @since   2.0.0
      * @param   $petjeaf_id     the user id from Petje.af
      * 
-	 */
+     */
     protected function petjeafUserAlreadyExist($petjeaf_id) {
         $user = get_users([
             'meta_key' => $this->petje_user_id_key,
@@ -102,12 +102,12 @@ class Petje_Af_User
     }
 
     /**
-	 * Validation if user is not logged in
-	 *
-	 * @since   2.0.0
+     * Validation if user is not logged in
+     *
+     * @since   2.0.0
      * @param   $user_from_token
      * 
-	 */
+     */
     protected function validateNotLoggedInUser($user_from_token)
     {
         $user_exist = $this->petjeafUserAlreadyExist($user_from_token->id);
@@ -131,12 +131,12 @@ class Petje_Af_User
     }
 
     /**
-	 * Validation if user is logged in
-	 *
-	 * @since   2.0.0
+     * Validation if user is logged in
+     *
+     * @since   2.0.0
      * @param   $user_from_token
      * 
-	 */
+     */
     protected function validateLoggedInUser($user_from_token)
     { 
         $wp_user = wp_get_current_user();
@@ -157,12 +157,12 @@ class Petje_Af_User
     }
 
     /**
-	 * Setup the user after the connection is made.
-	 *
-	 * @since   2.0.0
+     * Setup the user after the connection is made.
+     *
+     * @since   2.0.0
      * @param   $accessToken    Can not be found in the database yet
      * 
-	 */
+     */
     public function set($accessToken)
     {
         $this->connector->setAccessToken($accessToken);
@@ -186,12 +186,12 @@ class Petje_Af_User
     }
 
     /**
-	 * Create user from token
-	 *
-	 * @since   2.0.0
+     * Create user from token
+     *
+     * @since   2.0.0
      * @param   $user_from_token
      * 
-	 */
+     */
     protected function createUser($user_from_token)
     {
         $this->userId = wp_insert_user([
@@ -208,11 +208,11 @@ class Petje_Af_User
     }
 
     /**
-	 * Log user in with Petje.af account
-	 *
-	 * @since   2.0.0
+     * Log user in with Petje.af account
+     *
+     * @since   2.0.0
      * 
-	 */
+     */
     protected function logUserIn()
     {
         wp_clear_auth_cookie();

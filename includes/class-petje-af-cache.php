@@ -24,57 +24,57 @@
 class Petje_Af_Cache
 {
     /**
-	 * The prefix for all database keys.
-	 *
-	 * @since    2.0.0
-	 * @access   protected
-	 * @var      string
-	 */
+     * The prefix for all database keys.
+     *
+     * @since    2.0.0
+     * @access   protected
+     * @var      string
+     */
     protected $prefix = 'petjeaf_';
 
     /**
-	 * The user ID.
-	 *
-	 * @since    2.0.0
-	 * @access   protected
-	 * @var      integer
-	 */
+     * The user ID.
+     *
+     * @since    2.0.0
+     * @access   protected
+     * @var      integer
+     */
     protected $userId;
 
     /**
-	 * The Petje.af page ID.
-	 *
-	 * @since    2.0.0
-	 * @access   protected
-	 * @var      string
-	 */
+     * The Petje.af page ID.
+     *
+     * @since    2.0.0
+     * @access   protected
+     * @var      string
+     */
     protected $pageId;
 
     /**
-	 * Instance of Petje_Af_Connector.
-	 *
-	 * @since    2.0.0
-	 * @access   protected
-	 * @var      Petje_Af_Connector
-	 */
+     * Instance of Petje_Af_Connector.
+     *
+     * @since    2.0.0
+     * @access   protected
+     * @var      Petje_Af_Connector
+     */
     protected $connector;
 
     /**
-	 * Instance of Petjeaf\Api\PetjeafApiClient.
-	 *
-	 * @since    2.0.0
-	 * @access   protected
-	 * @var      Petjeaf\Api\PetjeafApiClient
-	 */
+     * Instance of Petjeaf\Api\PetjeafApiClient.
+     *
+     * @since    2.0.0
+     * @access   protected
+     * @var      Petjeaf\Api\PetjeafApiClient
+     */
     protected $client;
 
-	/**
-	 * Initialize.
-	 *
-	 * @since   2.0.0
+    /**
+     * Initialize.
+     *
+     * @since   2.0.0
      * @param   $userId
      * 
-	 */
+     */
     public function __construct($userId = null)
     {
         if ($userId) {
@@ -90,27 +90,27 @@ class Petje_Af_Cache
         $this->client = $this->connector->client;
     }
 
-	/**
-	 * Set the database prefix for users.
-	 *
-	 * @since   2.0.0
+    /**
+     * Set the database prefix for users.
+     *
+     * @since   2.0.0
      * 
-	 */
+     */
     protected function setUserPrefix() {
         if ($this->userId) {
             $this->prefix = 'petjeaf_user_' . $this->userId . '_';
         }
     }
 
-	/**
-	 * Get key from the cache. Its a wrapper for the transient function
-	 *
-	 * @since   2.0.0
+    /**
+     * Get key from the cache. Its a wrapper for the transient function
+     *
+     * @since   2.0.0
      * @param   $key
      * 
      * @return  $result
      * 
-	 */
+     */
     public function get($key) 
     {   
         if (!$this->get_refresh_token()) {
@@ -122,27 +122,27 @@ class Petje_Af_Cache
         return $result;
     }
 
-	/**
-	 * Delete by key from the databas.
-	 *
-	 * @since   2.0.0
+    /**
+     * Delete by key from the databas.
+     *
+     * @since   2.0.0
      * @param   $key
      * 
      * @return  delete_transient
      * 
-	 */
+     */
     public function delete($key)
     {
         return delete_transient($this->prefix . $key);
     }
 
-	/**
-	 * Reset user when needed.
-	 *
-	 * @since   2.0.0
+    /**
+     * Reset user when needed.
+     *
+     * @since   2.0.0
      * @param   $userId
      * 
-	 */
+     */
     public function setUser($userId) {
         
         $this->userId = $userId;
@@ -152,37 +152,37 @@ class Petje_Af_Cache
         $this->client = $this->connector->client;
     }
 
-	/**
-	 * Set the database prefix for users.
-	 *
-	 * @since   2.0.0
+    /**
+     * Set the database prefix for users.
+     *
+     * @since   2.0.0
      * @param   $key
      * @param   $expiration     For if the transient needs to be recreated.
      * 
      * @return  object          From database or fetched from API
      * 
-	 */
+     */
     protected function transient($key, $expiration = 1 * HOUR_IN_SECONDS)
     {
-		if (false == ($obj = get_transient($this->prefix . $key))) {
+        if (false == ($obj = get_transient($this->prefix . $key))) {
             $obj = $this->get_data($key);
             $this->saveField($key, $obj, $expiration);
-		}
+        }
 
-		return $obj;
+        return $obj;
     }
 
-	/**
-	 * Save .
-	 *
-	 * @since   2.0.0
+    /**
+     * Save .
+     *
+     * @since   2.0.0
      * @param   $key
      * @param   $value
      * @param   $expiration
      * 
      * @return  $value that is save
      * 
-	 */
+     */
     public function saveField($key, $value, $expiration = 1 * HOUR_IN_SECONDS)
     {
         $exp = $expiration;
@@ -198,19 +198,19 @@ class Petje_Af_Cache
         if ($value) {
             set_transient($this->prefix . $key, $value, $exp);
         }
-		return $value;
-	}
+        return $value;
+    }
 
-	/**
-	 * Get data from the API.
-	 *
-	 * @since   2.0.0
+    /**
+     * Get data from the API.
+     *
+     * @since   2.0.0
      * @param   $key
      * 
      * @return  $result
      * @throws  Exception
      * 
-	 */
+     */
     protected function get_data($key)
     {
         $res = null;
@@ -251,14 +251,14 @@ class Petje_Af_Cache
         }
     }
 
-	/**
-	 * Get access token from OAuth2 Provider
-	 *
-	 * @since   2.0.0
+    /**
+     * Get access token from OAuth2 Provider
+     *
+     * @since   2.0.0
      * 
      * @return  string      The access token
      * 
-	 */
+     */
     protected function get_access_token()
     {   
         $oauth2_provider = new Petje_Af_OAuth2_Provider($this->userId);
@@ -270,14 +270,14 @@ class Petje_Af_Cache
         return $accessToken->getToken();
     }
 
-	/**
-	 * Get refresh token from database
-	 *
-	 * @since   2.0.0
+    /**
+     * Get refresh token from database
+     *
+     * @since   2.0.0
      * 
      * @return  string      The refresh token
      * 
-	 */
+     */
     protected function get_refresh_token() 
     {
         $refresh_token = get_transient($this->prefix . 'refresh_token');
@@ -286,27 +286,27 @@ class Petje_Af_Cache
     }
 
 
-	/**
-	 * Get current user from API
-	 *
-	 * @since   2.0.0
+    /**
+     * Get current user from API
+     *
+     * @since   2.0.0
      * 
      * @return  object
      * 
-	 */
+     */
     protected function get_current_user()
     {
         return $this->client->users->me();      
     }
 
-	/**
-	 * Get membership from API
-	 *
-	 * @since   2.0.0
+    /**
+     * Get membership from API
+     *
+     * @since   2.0.0
      * 
      * @return  object
      * 
-	 */
+     */
     protected function get_membership()
     {
         if (!$this->pageId) return null;
@@ -315,14 +315,14 @@ class Petje_Af_Cache
         return null;  
     }
 
-	/**
-	 * Get membership rewards from API
-	 *
-	 * @since   2.0.0
+    /**
+     * Get membership rewards from API
+     *
+     * @since   2.0.0
      * 
      * @return  array   with objects
      * 
-	 */
+     */
     protected function get_membership_rewards()
     {
         $membership = $this->get('membership');
@@ -332,14 +332,14 @@ class Petje_Af_Cache
         return $res;        
     }
 
-	/**
-	 * Get current pages from API
-	 *
-	 * @since   2.0.0
+    /**
+     * Get current pages from API
+     *
+     * @since   2.0.0
      * 
      * @return  array   with objects
      * 
-	 */
+     */
     protected function get_pages()
     {
         $pages = $this->client->pages->list();
@@ -347,14 +347,14 @@ class Petje_Af_Cache
         return $pages->_embedded->pages;
     }
 
-	/**
-	 * Get page plans from API
-	 *
-	 * @since   2.0.0
+    /**
+     * Get page plans from API
+     *
+     * @since   2.0.0
      * 
      * @return  array   with objects
      * 
-	 */
+     */
     protected function get_page_plans()
     {
         if (!$this->pageId) return null;
@@ -362,14 +362,14 @@ class Petje_Af_Cache
         return $plans->_embedded->plans;
     }  
 
-	/**
-	 * Get page rewards from API
-	 *
-	 * @since   2.0.0
+    /**
+     * Get page rewards from API
+     *
+     * @since   2.0.0
      * 
      * @return  array   with objects
      * 
-	 */
+     */
     protected function get_page_rewards()
     {
         if (!$this->pageId) return null;

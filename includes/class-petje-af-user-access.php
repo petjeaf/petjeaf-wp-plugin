@@ -25,31 +25,31 @@
 class Petje_Af_User_Access 
 {
     /**
-	 * WP page ID of the access denied page.
-	 *
-	 * @since    2.0.0
-	 * @access   protected
-	 * @var      integer
-	 */
+     * WP page ID of the access denied page.
+     *
+     * @since    2.0.0
+     * @access   protected
+     * @var      integer
+     */
     protected $accessDeniedPageId;
 
     /**
-	 * Initialize class.
-	 *
-	 * @since   2.0.0
+     * Initialize class.
+     *
+     * @since   2.0.0
      * 
-	 */
+     */
     public function __construct()
     {
         $this->accessDeniedPageId = get_option('petje_af_access_denied_page');
     }
 
     /**
-	 * On template_redirect validate if user has access.
-	 *
-	 * @since   2.0.0
+     * On template_redirect validate if user has access.
+     *
+     * @since   2.0.0
      * 
-	 */
+     */
     public function template_redirect()
     {
         global $post;
@@ -91,14 +91,14 @@ class Petje_Af_User_Access
     }
 
     /**
-	 * Validate if user has access to content that is protected with a certain plan.
-	 *
-	 * @since   2.0.0
-	 * @param   object  plan
+     * Validate if user has access to content that is protected with a certain plan.
+     *
+     * @since   2.0.0
+     * @param   object  plan
      * 
      * @return  boolean
      * 
-	 */
+     */
     public static function toPlan($plan) 
     {
         $active_statuses = ['active', 'active_end_month', 'active_end_year'];
