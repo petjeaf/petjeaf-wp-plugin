@@ -192,7 +192,7 @@ class Petje_Af_Admin {
         
         $pagePlans = petjeaf_cache('page_plans', false);
 
-        $dropdown = '<select id="petje_af_plan_select" name="petje_af_page_plan_id" id="petje_af_page_plan_id" class="components-select-control__input">';
+        $dropdown = '<select id="petje_af_plan_select" name="petje_af_page_plan_id" id="petje_af_page_plan_id" class="">';
 
         $selected = get_post_meta($post_id, 'petje_af_page_plan_id', true)? '' : 'selected';
         $dropdown .= '<option value="" ' . $selected .'>' . __('Public', 'petje-af') . '</option>';
@@ -200,7 +200,7 @@ class Petje_Af_Admin {
         if (!empty($pagePlans)) {
             foreach($pagePlans as $pagePlan) {
                 $selected = get_post_meta($post_id, 'petje_af_page_plan_id', true) == $pagePlan->id ? 'selected' : '';
-                $dropdown .= '<option value="' . $pagePlan->id . '"' . $selected .'>' . $pagePlan->name . '</option>';
+                $dropdown .= '<option value="' . $pagePlan->id . '"' . $selected .'>' . $pagePlan->name . ' (' . Petje_Af_Formatter::amount($pagePlan->amount) . ' ' . Petje_Af_Formatter::interval($pagePlan) . ')</option>';
             }
         }
 

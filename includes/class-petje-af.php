@@ -113,6 +113,7 @@ class Petje_Af {
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-petje-af-user.php';
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-petje-af-user-access.php';
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-petje-af-user-role.php';
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-petje-af-formatter.php';
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/widgets/petje-af-main-widget.php';
 
     $this->loader = new Petje_Af_Loader();
