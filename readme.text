@@ -1,0 +1,20 @@
+=== Petje.af ===
+Contributors: petjeaf
+Tags: petjeaf, members, membership
+Donate link: https://petje.af/petjeaf
+Requires at least: 5
+Tested up to: 5.3.2
+Requires PHP: 5.6
+Stable tag: 2.0.0
+License: GPL-2.0+
+License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+
+The official Petje.af WordPress to connect your WordPress website with your Petje.af page.
+
+== Description ==
+The official Petje.af WordPress to connect your WordPress website with your Petje.af page and create exclusive content on your own website.
+
+== Installation ==
+Before installing the plugin make sure to create an account and page on https://petje.af. After your page is created navigate to \"Koppelingen > Apps\" and create your first Client App.
+
+Now install and activate the plugin and navigate to \"Petje.af\" in the main menu of your WordPress admin. Fill in your client ID and client secret and click the \"Connect to Petje.af\" button.

@@ -1,11 +1,9 @@
-#, fuzzy
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: Petje.af\n"
 "POT-Creation-Date: 2019-12-22 19:33+0100\n"
-"PO-Revision-Date: 2019-12-22 19:33+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2019-12-22 19:47+0100\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,6 +16,8 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: nl\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
@@ -29,15 +29,15 @@ msgstr ""
 
 #: admin/class-petje-af-admin.php:111
 msgid "You do not have sufficient permissions to access this page."
-msgstr ""
+msgstr "Je hebt niet de juiste rechten om toegang te krijgen tot deze pagina."
 
 #: admin/class-petje-af-admin.php:128
 msgid "Petje.af settings"
-msgstr ""
+msgstr "Petje.af instellingen"
 
 #: admin/class-petje-af-admin.php:198
 msgid "Public"
-msgstr ""
+msgstr "Openbaar"
 
 #: admin/class-petje-af-admin.php:231
 #: includes/class-petje-af-page-generator.php:103
@@ -46,11 +46,11 @@ msgstr ""
 
 #: admin/class-petje-af-admin.php:235
 msgid "Petje.af access denied"
-msgstr ""
+msgstr "Petje.af geen toegang"
 
 #: admin/class-petje-af-admin.php:239
 msgid "Petje.af redirect ui"
-msgstr ""
+msgstr "Petje.af redirect Uri"
 
 #: admin/partials/petje-af-admin-display.php:22
 msgid "Client App"
@@ -62,7 +62,7 @@ msgstr ""
 
 #: admin/partials/petje-af-admin-display.php:31
 msgid "The id from your client app on your Petje.af page"
-msgstr ""
+msgstr "De ID van de client app van jouw Petje.af-pagina"
 
 #: admin/partials/petje-af-admin-display.php:36
 msgid "Client secret"
@@ -70,45 +70,45 @@ msgstr ""
 
 #: admin/partials/petje-af-admin-display.php:39
 msgid "The secret key from your client app on your Petje.af page"
-msgstr ""
+msgstr "De geheime sleutel van de client app van jouw  Petje.af-pagina"
 
 #: admin/partials/petje-af-admin-display.php:49
 msgid "Petje.af connection"
-msgstr ""
+msgstr "Pejte.af koppeling"
 
 #: admin/partials/petje-af-admin-display.php:54
 #: admin/partials/petje-af-admin-display.php:56
 #: public/class-petje-af-shortcodes.php:156
 msgid "Connect with Petje.af"
-msgstr ""
+msgstr "Koppel met Petje.af"
 
 #: admin/partials/petje-af-admin-display.php:63
 msgid "Petje.af page"
-msgstr ""
+msgstr "Petje.af pagina"
 
 #: admin/partials/petje-af-admin-display.php:77
 msgid "Access management"
-msgstr ""
+msgstr "Toegangsinstellingen"
 
 #: admin/partials/petje-af-admin-display.php:81
 msgid "Admin users"
-msgstr ""
+msgstr "Beheerders"
 
 #: admin/partials/petje-af-admin-display.php:84
 msgid "Ingore access settings for admin users"
-msgstr ""
+msgstr "Negeer toegangsinstellingen voor beheerders"
 
 #: admin/partials/petje-af-meta-box.php:22
 msgid "Visible for:"
-msgstr ""
+msgstr "Zichtbaar voor:"
 
 #: includes/class-petje-af-oauth2-provider.php:313
 msgid "Code is not set"
-msgstr ""
+msgstr "Er is geen code opgegeven"
 
 #: includes/class-petje-af-oauth2-provider.php:320
 msgid "State is not valid"
-msgstr ""
+msgstr "De state is niet geldig"
 
 #: includes/class-petje-af-page-generator.php:86
 msgid "Petje.af redirect"
@@ -116,23 +116,27 @@ msgstr ""
 
 #: includes/class-petje-af-page-generator.php:120
 msgid "Access denied"
-msgstr ""
+msgstr "Geen toegang"
 
 #: includes/class-petje-af-user-role.php:35
 msgid "Petje.af member"
-msgstr ""
+msgstr "Petje.af gebruiker"
 
 #: includes/class-petje-af-user.php:124
 msgid ""
 "There is already an account on this website associated with your email "
 "address. First login to connect with Petje.af"
 msgstr ""
+"Er is al een account op deze Website met jouw mailadres. Log eerst in "
+"voordat je Petje.af kan koppelen."
 
 #: includes/class-petje-af-user.php:148
 msgid ""
 "There is already an other account on this website associated with this Petje."
 "af account"
 msgstr ""
+"Er is al een andere account op deze website gekoppeld aan dit Petje.af-"
+"account"
 
 #: includes/widgets/petje-af-main-widget.php:35
 msgid "Petje.af widget"
@@ -140,23 +144,23 @@ msgstr ""
 
 #: includes/widgets/petje-af-main-widget.php:36
 msgid "Widget to show direct links to your petje.af page"
-msgstr ""
+msgstr "Widget om directe links te tonen naar je Petje.af-pagina"
 
 #: includes/widgets/petje-af-main-widget.php:162
 msgid "Onetime donation"
-msgstr ""
+msgstr "Eenmalige doneren?"
 
 #: includes/widgets/petje-af-main-widget.php:163
 msgid "Take off you hat for just onetime. Choose your own amount."
-msgstr ""
+msgstr "Neem eenmalig je petje af! Kies zelf het bedrag."
 
 #: includes/widgets/petje-af-main-widget.php:164
 msgid "Eenmalig petje af!"
-msgstr ""
+msgstr "Eenmalig petje af!"
 
 #: includes/widgets/petje-af-main-widget.php:175
 msgid "Per month from"
-msgstr ""
+msgstr "Per maand vanaf"
 
 #: includes/widgets/petje-af-main-widget.php:176
 msgid "per maand"
@@ -164,40 +168,42 @@ msgstr ""
 
 #: includes/widgets/petje-af-main-widget.php:177
 msgid "Become a member and support us from"
-msgstr ""
+msgstr "Word lid en steun ons al vanaf"
 
 #: includes/widgets/petje-af-main-widget.php:177
 msgid "per month"
-msgstr ""
+msgstr "per maand"
 
 #: includes/widgets/petje-af-main-widget.php:178
 msgid "Take off your hat!"
-msgstr ""
+msgstr "Neem je petje af!"
 
 #: includes/widgets/petje-af-main-widget.php:207
 msgid "Support u with Petje.af"
-msgstr ""
+msgstr "Steun ons via Petje.af"
 
 #: includes/widgets/petje-af-main-widget.php:224
 msgid "Title:"
-msgstr ""
+msgstr "Titel:"
 
 #: includes/widgets/petje-af-main-widget.php:229
 msgid "Page:"
-msgstr ""
+msgstr "Pagina:"
 
 #: includes/widgets/petje-af-main-widget.php:234
 msgid "Enable onetime payments"
-msgstr ""
+msgstr "Activeer eenmalige betalingen"
 
 #: includes/widgets/petje-af-main-widget.php:238
 msgid "Per month from:"
-msgstr ""
+msgstr "Per maand vanaf:"
 
 #: public/class-petje-af-shortcodes.php:75
 #, php-format
 msgid "Access denied. Only accessible for Petje.af members from %s with plan:"
 msgstr ""
+"Geen toegang. Deze pagina is alleen beschikbaar voor leden via Petje.af van "
+"%s met pakket:"
 
 #: public/class-petje-af-shortcodes.php:78
 #: public/class-petje-af-shortcodes.php:89
@@ -205,7 +211,7 @@ msgstr ""
 #: public/class-petje-af-shortcodes.php:205
 #: public/class-petje-af-shortcodes.php:224
 msgid "Become a member!"
-msgstr ""
+msgstr "Neem je petje af!"
 
 #: public/class-petje-af-shortcodes.php:80
 #: public/class-petje-af-shortcodes.php:91
@@ -214,7 +220,7 @@ msgstr ""
 #: public/class-petje-af-shortcodes.php:207
 #: public/class-petje-af-shortcodes.php:226
 msgid "Login with Petje.af"
-msgstr ""
+msgstr "Login met Petje.af"
 
 #: public/class-petje-af-shortcodes.php:81
 #: public/class-petje-af-shortcodes.php:92
@@ -222,65 +228,67 @@ msgstr ""
 #: public/class-petje-af-shortcodes.php:208
 #: public/class-petje-af-shortcodes.php:227
 msgid "Already an account?"
-msgstr ""
+msgstr "Heb je al een account?"
 
 #: public/class-petje-af-shortcodes.php:86
 #: public/class-petje-af-shortcodes.php:98
 msgid "Access denied. Only accessible for Petje.af page members from:"
-msgstr ""
+msgstr "Geen toegang. Alleen beschikbaar voor leden via Petje.af van:"
 
 #: public/class-petje-af-shortcodes.php:110
 msgid "Page is not found. Please contact the owner of this site"
 msgstr ""
+"Pagina is niet gevonden. Neem contact op met de beheerder van deze website."
 
 #: public/class-petje-af-shortcodes.php:138
 msgid "Your connected Petje.af-account"
-msgstr ""
+msgstr "Koppeling met jouw Petje.af-account"
 
 #: public/class-petje-af-shortcodes.php:140
 msgid "Name:"
-msgstr ""
+msgstr "Naam:"
 
 #: public/class-petje-af-shortcodes.php:141
 msgid "Email:"
-msgstr ""
+msgstr "Email:"
 
 #: public/class-petje-af-shortcodes.php:146
 msgid "Disconnect from Petje.af"
-msgstr ""
+msgstr "Disconnect met Petje.af"
 
 #: public/class-petje-af-shortcodes.php:147
 msgid "Detach your Petje.af account from this account."
-msgstr ""
+msgstr "Verwijder je Petje.af account van het account op deze website."
 
 #: public/class-petje-af-shortcodes.php:152
 msgid "Logout"
-msgstr ""
+msgstr "Uitloggen"
 
 #: public/class-petje-af-shortcodes.php:157
 msgid "Attach your account with a Petje.af account."
-msgstr ""
+msgstr "Koppel jouw account met een Petje.af account"
 
 #: public/class-petje-af-shortcodes.php:165
 msgid "Click on the button below to login with your Petje.af account."
-msgstr ""
+msgstr "Klik op onderstaande knop om  in te loggen met jouw Petje.af-account"
 
 #: public/class-petje-af-shortcodes.php:202
 msgid ""
 "The following content is only visible for Petje.af members from the plan:"
 msgstr ""
+"Deze content is alleen beschikbaar voor leden via Petje.af vanaf het pakket:"
 
 #: public/class-petje-af-shortcodes.php:212
 msgid "Access denied, but plan does not exist."
-msgstr ""
+msgstr "Geen toegang, maar het pakket lijkt niet te bestaan."
 
 #: public/class-petje-af-shortcodes.php:221
 msgid "The following content is only visible for Petje.af members from"
-msgstr ""
+msgstr "Deze content is alleen beschikbaar voor leden via Petje.af van"
 
 #: public/class-petje-af-shortcodes.php:233
 msgid "Access denied, but page is not found."
-msgstr ""
+msgstr "Geen toegang, maar pagina is niet gevonden"
 
 #. Plugin URI of the plugin/theme
 #. Author URI of the plugin/theme
@@ -289,4 +297,4 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid "The official Petje.af WordPress plugin."
-msgstr ""
+msgstr "De officiële Petje.af WordPress plugin."
