@@ -1,0 +1,96 @@
+/**
+* PETJEAF BUTTONS
+**/
+.petjeaf-button {
+  padding: 12px 16px !important;
+  border-radius: 4px !important;
+  background: #510fa8 !important;
+  display: inline-block !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border: 1px solid #510fa8 !important;
+  text-decoration: none !important;
+  font-family: 'Nunito', sans-serif !important;
+  position: relative;
+  outline: 0 !important;
+}
+
+.petjeaf-button--loading:after {
+  content: '';
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgb(255, 255, 255, 0.5);
+  position: absolute;
+  z-index: 2;
+}
+
+.petjeaf-button--icon {
+  position: relative !important;
+  padding-left: 45px !important;
+}
+
+.petjeaf-button--icon:before {
+  display: inline-block;
+  content: '';
+  background-image: url('../images/petje-af-icon.svg');
+  background-size: 25px 25px;
+  width: 25px;
+  height: 25px;
+  margin-right: 15px;
+  position: absolute;
+  left: 10px;
+}
+
+.petjeaf-button--cta {
+  background: transparent !important;
+  border-color: #4cd964 !important;
+  background: #4cd964 !important;
+}
+
+.petjeaf-button--info {
+  background: transparent !important;
+  border-color: #24b7fa !important;
+  color: #24b7fa !important;
+}
+
+.petjeaf-button--info:hover,
+.petjeaf-button--info:active,
+.petjeaf-button--info:focus {
+  color: #fff !important;
+  background-color: #24b7fa !important;
+  border-color: #24b7fa !important;
+}
+
+.petjeaf-button--cta:hover,
+.petjeaf-button--cta:active,
+.petjeaf-button--cta:focus {
+  color: #fff !important;
+  background-color: #2dd249 !important;
+  border-color: #2ac845 !important;
+}
+
+.petjeaf-button__loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #510fa8;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -12.5px;
+  margin-left: -12.5px;
+  z-index: 3;
+}
+
+.petjeaf-button--info .petjeaf-button__loader {
+  border-top: 4px solid #24b7fa;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
