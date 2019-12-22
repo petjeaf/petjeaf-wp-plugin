@@ -62,7 +62,9 @@ class Petje_Af_Admin {
     public function enqueue_scripts() {
 
         wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/admin.js', array( 'jquery' ), $this->version, false );
-
+        wp_localize_script( $this->plugin_name, 'petjeaf_vars', array(
+            'ajaxurl' => admin_url( 'admin-ajax.php' )
+        ));
     }
 
     /**

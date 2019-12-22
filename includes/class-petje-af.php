@@ -179,6 +179,9 @@ class Petje_Af {
     $this->loader->add_action('wp_ajax_nopriv_petjeaf_disconnect', $oauth2_provider, 'ajax_revoke_token');
     $this->loader->add_action('wp_ajax_petjeaf_disconnect', $oauth2_provider, 'ajax_revoke_token');
 
+    $this->loader->add_action('wp_ajax_nopriv_petjeaf_get_authorize_url', $oauth2_provider, 'ajax_get_authorize_url');
+    $this->loader->add_action('wp_ajax_petjeaf_get_authorize_url', $oauth2_provider, 'ajax_get_authorize_url');
+
     $this->loader->add_action('wp_logout', $oauth2_provider, 'on_logout');
 
     $user_access = new Petje_Af_User_Access();

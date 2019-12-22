@@ -249,10 +249,44 @@ class Petje_Af_OAuth2_Provider
             $this->revoke(true);
             delete_user_meta($this->userId, 'petjeaf_user_id');
 
+            if (current_user_can('petjeaf_member')) {
+                wp_delete_user($this->userId);
+            }
+
             wp_send_json_success();
             
         } catch (\Throwable $th) {
 
+            wp_send_json_error([
+                'message' => __($th->getMessage(), 'petje-af')
+            ]);
+        }
+    }
+    
+    /**
+     * Ajax call for getting the authorize url and saving the state to transient.
+     *
+     * @since   2.0.0
+     * 
+     */
+    public function ajax_get_authorize_url() 
+    {
+        $scopes = [
+            'profile.read',
+            'memberships.read',
+            'pages.read'
+        ];
+
+        try {
+
+            $redirect_uri = $this->getAuthorizationUrl($scopes);
+
+            set_transient('petje_af_state_' . $this->getState(), true, 1500);
+            
+            wp_send_json_success([
+                'redirect_uri' => $redirect_uri
+            ]);
+        } catch (\Throwable $th) {
             wp_send_json_error([
                 'message' => __($th->getMessage(), 'petje-af')
             ]);

@@ -36,17 +36,32 @@
      * @param {The element to use as $this} $el 
      */
     function redirect($el) {
-        var redirectUri = $el.data('redirect-uri');
+        var auth2redirect = getUrlParameter('r') ? getUrlParameter('r') : window.location.href
 
-        if (getUrlParameter('r')) {
-            createCookie('auth2redirect', getUrlParameter('r'))
-        } else {
-            createCookie('auth2redirect', window.location.href)
-        }
-
+        createCookie('auth2redirect', auth2redirect)
         createCookie('auth2user', 'yes');
 
-        window.location = redirectUri;
+        $.ajax({
+            url: petjeaf_vars.ajaxurl,
+            type: 'post',
+            data: {
+                action: 'petjeaf_get_authorize_url'
+            },
+            beforeSend: function() {
+                $('.petjeaf-connect-button').append('<div class="petjeaf-connect-button__loader"></div>');
+            },
+            success: function(response) {
+
+                if (response.success) {
+                    window.location = response.data.redirect_uri;
+                }
+
+                if (!response.success) {
+                    $('.petjeaf-connect-button__loader').remove();
+                    $('.petjeaf-connect-button').after(response.data.message);
+                }
+            }
+        });
     }
 
     

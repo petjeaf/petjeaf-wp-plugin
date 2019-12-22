@@ -315,7 +315,7 @@ class Petje_Af_Shortcodes
             $button .= '<span class="' . $wrapper_class .'__prefix">' . $prefix . '</span>';
         }
 
-        $button .= '<button type="button" data-redirect-uri="' . $redirect_uri .'" class="' . $wrapper_class . '__connect-button petjeaf-connect-button ">' . $button_text . '</button>';
+        $button .= '<button type="button" class="' . $wrapper_class . '__connect-button petjeaf-connect-button ">' . $button_text . '</button>';
 
         if ($paragraph) {
             $button .= '</p>';

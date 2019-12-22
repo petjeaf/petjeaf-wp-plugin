@@ -53,11 +53,7 @@
                         <tr valign="top">
                             <th scope="row"><?php _e('Connect with Petje.af', 'petje-af'); ?></th>
                             <td>
-                                <?php $oauth2_provider = new Petje_Af_OAuth2_Provider(); ?>
-                                <button id="petjeaf_connect_button" type="button" data-redirect-uri="<?= $oauth2_provider->getAuthorizationUrl([ 'profile.read', 'pages.read', 'memberships.read']); ?>"><?php _e('Connect with Petje.af', 'petje-af'); ?></button>
-                                <?php 
-                                  set_transient('petje_af_state_' . $oauth2_provider->getState(), true, 3600);
-                                ?>
+                                <button id="petjeaf_connect_button" class="petjeaf-connect-button" type="button"><?php _e('Connect with Petje.af', 'petje-af'); ?></button>
                             </td>
                         </tr>
                         <?php endif; ?>

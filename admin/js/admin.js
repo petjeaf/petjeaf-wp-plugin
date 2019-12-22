@@ -17,12 +17,30 @@
      */
     $(function() {
         $("#petjeaf_connect_button").click( function() {
-            var redirectUri = $(this).data('redirect-uri');
-
             createCookie('auth2redirect', window.location.href);
             createCookie('auth2user', 'no');
 
-            window.location = redirectUri;
+            $.ajax({
+                url: petjeaf_vars.ajaxurl,
+                type: 'post',
+                data: {
+                    action: 'petjeaf_get_authorize_url'
+                },
+                beforeSend: function() {
+                    $('#petjeaf_connect_button').append('<div class="petjeaf-connect-button__loader"></div>');
+                },
+                success: function(response) {
+    
+                    if (response.success) {
+                        window.location = response.data.redirect_uri;
+                    }
+    
+                    if (!response.success) {
+                        $('.petjeaf-connect-button__loader').remove();
+                        $('#petjeaf_connect_button').after(response.data.message);
+                    }
+                }
+            });
         });
     });
 
