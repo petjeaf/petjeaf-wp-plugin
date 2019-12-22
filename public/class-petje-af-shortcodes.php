@@ -44,7 +44,7 @@ class Petje_Af_Shortcodes
      */
     public function redirect_uri() 
     {   
-        $content = '<div id="#petjeaf_redirecter" class="petjeaf-redirecter">';
+        $content = '<div id="#petjeaf_redirecter" class="petjeaf-redirecter petjeaf-redirecter--loading">';
         $content .= '<div class="petjeaf-redirecter__error"></div>';
         $content .= '<div class="petjeaf-redirecter__loader"></div>';
         $content .= '</div>';
@@ -299,12 +299,6 @@ class Petje_Af_Shortcodes
             if ($petjeaf_id) return '';
         }
 
-        $oauth2_provider = new Petje_Af_OAuth2_Provider();
-    
-        $redirect_uri = $oauth2_provider->getAuthorizationUrl([ 'profile.read', 'memberships.read', 'pages.read']);
-        
-        set_transient('petje_af_state_' . $oauth2_provider->getState(), true, 3600);
-
         $button = '';
 
         if ($paragraph) {
@@ -315,7 +309,7 @@ class Petje_Af_Shortcodes
             $button .= '<span class="' . $wrapper_class .'__prefix">' . $prefix . '</span>';
         }
 
-        $button .= '<button type="button" class="' . $wrapper_class . '__connect-button petjeaf-connect-button ">' . $button_text . '</button>';
+        $button .= '<button type="button" class="' . $wrapper_class . '__connect-button petjeaf-button petjeaf-button--icon petjeaf-connect-button ">' . $button_text . '</button>';
 
         if ($paragraph) {
             $button .= '</p>';
@@ -349,7 +343,7 @@ class Petje_Af_Shortcodes
             $button .= '<span class="' . $wrapper_class . '__prefix">' . $prefix . '</span>';
         }
 
-        $button .= '<button type="button" class="' . $wrapper_class . '__disconnect-button petjeaf-disconnect-button">' . $button_text . '</button>';
+        $button .= '<button type="button" class="' . $wrapper_class . '__disconnect-button petjeaf-button petjeaf-button--info petjeaf-disconnect-button">' . $button_text . '</button>';
 
         if ($paragraph) {
             $button .= '</p>';
@@ -379,7 +373,7 @@ class Petje_Af_Shortcodes
 
         if ($title) $content .= '<h4>' . $title . '</h4>';
 
-        if ($link) $content .=  '<a href="' . $link . '" class="petje-af-access-denied-box__button-link" target="_blank">' . $button_text . '</a>';
+        if ($link) $content .=  '<a href="' . $link . '" class="petjeaf-button petjeaf-button--cta petje-af-access-denied-box__button-link" target="_blank">' . $button_text . '</a>';
 
         $content .= $login_button;
 
