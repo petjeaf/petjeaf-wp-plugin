@@ -1,0 +1,101 @@
+@import 'petje-af-button.css';
+
+/**
+* PETJEAF ACCESS DENIED BOX
+**/
+.petje-af-access-denied-box {
+  background: #fafbfe;
+  border: 1px solid #eff2f7;
+  padding: 30px 15px;
+  text-align: center;
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 16px !important;
+}
+
+.petje-af-access-denied-box p {
+  margin-bottom: 0 !important;
+}
+
+.petje-af-access-denied-box h4 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.petje-af-access-denied-box__prefix {
+  display: block;
+  color: #8492a6;
+  padding: 20px 0 15px;
+  font-size: 14px !important;
+}
+
+/**
+* PETJEAF ACCOUNT
+**/
+.petje-af-account {
+  background: #fafbfe;
+  border: 1px solid #eff2f7;
+  padding: 15px 15px;
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 16px !important;
+}
+
+.petje-af-account h4 {
+  margin-top: 10px !important;
+  margin-bottom: 15px !important;
+}
+
+.petje-af-account__prefix {
+  display: block;
+  color: #8492a6;
+  padding: 20px 0;
+  font-size: 14px !important;
+}
+
+/**
+* PEJTEAF REDIRECTER
+**/
+.petjeaf-redirecter {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.petjeaf-redirecter--loading {
+  position: fixed;
+  content: '';
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgb(255, 255, 255, 0.9);
+  z-index: 10090;
+}
+
+.petjeaf-redirecter__loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #510fa8;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+  z-index: 10091;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-top: -30px;
+  margin-left: -30px;
+}
+
+.petjeaf-redirecter--loading .petjeaf-redirecter__error {
+  display: none;
+}
+
+.petjeaf-redirecter__error {
+  display: block;
+  text-align: left;
+  padding: 15px;
+  border: 1px solid red;
+  color: red;
+}

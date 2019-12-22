@@ -3,7 +3,7 @@
 /**
  * The plugin bootstrap file
  *
- * The official Petje.af WordPress to connect your WordPress website 
+ * The official Petje.af WordPress plugin to connect your WordPress website 
  * with your Petje.af page and create exclusive content on your own
  * website.
  *
@@ -14,9 +14,9 @@
  * @wordpress-plugin
  * Plugin Name:       Petje.af
  * Plugin URI:        https://petje.af
- * Description:       De officiële petje.af WordPress plugin
+ * Description:       The official Petje.af WordPress plugin.
  * Version:           1.1.0
- * Author:            Stefan de Groot
+ * Author:            Petje.af
  * Author URI:        https://petje.af
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt

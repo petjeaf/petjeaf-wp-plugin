@@ -64,6 +64,7 @@
                     }
 
                     if (!response.success) {
+                        $('.petjeaf-redirecter').removeClass('petjeaf-redirecter--loading');
                         $('.petjeaf-redirecter').addClass('petjeaf-redirector--error');
                         $('.petjeaf-redirecter__error').text(response.data.message);
                         $('.petjeaf-redirecter__loader').remove();

@@ -48,7 +48,8 @@
                 action: 'petjeaf_get_authorize_url'
             },
             beforeSend: function() {
-                $('.petjeaf-connect-button').append('<div class="petjeaf-connect-button__loader"></div>');
+                $('.petjeaf-connect-button').addClass('petjeaf-button--loading');
+                $('.petjeaf-connect-button').append('<div class="petjeaf-button__loader"></div>');
             },
             success: function(response) {
 
@@ -57,6 +58,7 @@
                 }
 
                 if (!response.success) {
+                    $('.petjeaf-connect-button').removeClass('petjeaf-button--loading');
                     $('.petjeaf-connect-button__loader').remove();
                     $('.petjeaf-connect-button').after(response.data.message);
                 }

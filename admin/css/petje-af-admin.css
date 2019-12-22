@@ -1,0 +1,6 @@
+@import '../../public/css/petje-af-button.css';
+
+.wrap--petje-af select {
+  display: block;
+  width: 100%;
+}

@@ -14,7 +14,7 @@
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
-<div class="wrap">
+<div class="wrap wrap--petje-af">
     <h1>Petje.af instellingen</h1>
     <form method="post" action="options.php">
         <div class="right-column-settings-page metabox-holder">
@@ -53,7 +53,7 @@
                         <tr valign="top">
                             <th scope="row"><?php _e('Connect with Petje.af', 'petje-af'); ?></th>
                             <td>
-                                <button id="petjeaf_connect_button" class="petjeaf-connect-button" type="button"><?php _e('Connect with Petje.af', 'petje-af'); ?></button>
+                                <button id="petjeaf_connect_button" class="petjeaf-connect-button petjeaf-button" type="button"><?php _e('Connect with Petje.af', 'petje-af'); ?></button>
                             </td>
                         </tr>
                         <?php endif; ?>

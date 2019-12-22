@@ -59,10 +59,10 @@ class Petje_Af_Public {
    *
    * @since    1.0.0
    */
-  public function enqueue_styles() {
-
-    wp_enqueue_style('petje-af-google-fonts', '//fonts.googleapis.com/css?family=Nunito:400,700&display=swap', false, null);
-
+  public function enqueue_styles() 
+  {
+    wp_enqueue_style( $this->plugin_name . '-google-fonts', '//fonts.googleapis.com/css?family=Nunito:400,700&display=swap', false, null);
+    wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/petje-af.css', array(), $this->version );
   }
 
   /**
@@ -70,8 +70,8 @@ class Petje_Af_Public {
    *
    * @since    2.0.0
    */
-  public function enqueue_scripts() {
-
+  public function enqueue_scripts() 
+  {
     wp_enqueue_script( $this->plugin_name . '-oauth2', plugin_dir_url( __FILE__ ) . 'js/oauth2.js', array( 'jquery' ), $this->version, false );
     wp_localize_script( $this->plugin_name . '-oauth2', 'petjeaf_vars', array(
       'ajaxurl' => admin_url( 'admin-ajax.php' )

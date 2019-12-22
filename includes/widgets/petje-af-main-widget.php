@@ -159,9 +159,9 @@ class Petje_Af_Main_Widget extends WP_Widget
                         <a class="petje-af-widget__img-link" href="<?= PETJE_AF_BASE_URL; ?><?= $page_slug; ?>/" target="_blank">
                             <img style="width: 100px; height: auto" src="<?= PETJE_AF_PLUGIN_ROOT_URL; ?>/public/images/petjeaf.png" alt="Petje af logo" />
                         </a>
-                        <h5 class="petje-af-widget__title"><?php _e('Eenmalig doneren?', 'petje-af'); ?></h5>
-                        <p><?php _e('Neem eenmalig je petje af! Kies zelf het bedrag.', 'petje-af'); ?></p>
-                        <a class="petje-af-widget__button petje-af-widget__button--info" href="<?= PETJE_AF_BASE_URL; ?><?= $page_slug; ?>/petjes/onetime" target="_blank"><?php _e('Eenmalig petje af!', 'petje-af'); ?></a>
+                        <h5 class="petje-af-widget__title"><?php _e('Onetime donation', 'petje-af'); ?></h5>
+                        <p><?php _e('Take off you hat for just onetime. Choose your own amount.', 'petje-af'); ?></p>
+                        <a class="petje-af-widget__button petje-af-widget__button--info" href="<?= PETJE_AF_BASE_URL; ?><?= $page_slug; ?>/petjes/onetime" target="_blank"><?php _e('Donate now!', 'petje-af'); ?></a>
                     </div>
                     <?php endif; ?>
 
@@ -172,10 +172,10 @@ class Petje_Af_Main_Widget extends WP_Widget
                             <img style="width: 100px; height: auto" src="<?= plugin_dir_url( dirname(__FILE__) ); ?>public/images/petjeaf.png" alt="Petje af logo" />
                         </a>
                         <?php endif; ?>
-                        <h5 class="petje-af-widget__title"><?php _e('Per maand vanaf', 'petje-af'); ?></h5>
+                        <h5 class="petje-af-widget__title"><?php _e('Per month from', 'petje-af'); ?></h5>
                         <span class="petje-af-widget__amount">€ <?= str_replace(',00', ',-', number_format($min_amount, 2, ',', '.')); ?> <span><?php _e('per maand', 'petje-af' ); ?></span></span>
-                        <p><?php _e('Word lid en steun ons al vanaf', 'petje-af'); ?> € <?= str_replace(',00', ',-', number_format($min_amount, 2, ',', '.')); ?> <span><?php _e('per maand', 'petje-af' ); ?></p>
-                        <a class="petje-af-widget__button petje-af-widget__button--cta" href="<?= PETJE_AF_BASE_URL; ?><?= $page_slug; ?>/petjes" target="_blank"><?php _e('Neem je petje af!', 'petje-af'); ?></a>
+                        <p><?php _e('Become a member and support us from', 'petje-af'); ?> € <?= str_replace(',00', ',-', number_format($min_amount, 2, ',', '.')); ?> <span><?php _e('per month', 'petje-af' ); ?></p>
+                        <a class="petje-af-widget__button petje-af-widget__button--cta" href="<?= PETJE_AF_BASE_URL; ?><?= $page_slug; ?>/petjes" target="_blank"><?php _e('Take off your hat!', 'petje-af'); ?></a>
                     </div>
                     <?php endif; ?>
 
@@ -204,7 +204,7 @@ class Petje_Af_Main_Widget extends WP_Widget
             $title = $instance[ 'title' ];
         }
         else {
-            $title = __( 'Steun ons via Petje af!', 'petje-af' );
+            $title = __( 'Support u with Petje.af', 'petje-af' );
         }
         if ( isset( $instance[ 'page_slug' ] ) ) {
             $page_slug = $instance[ 'page_slug' ];
@@ -221,21 +221,21 @@ class Petje_Af_Main_Widget extends WP_Widget
         ?>
         <p>
             <label for="<?php echo $this->get_field_id( 'title' ); ?>">
-                <?php _e( 'Title:' ); ?></label>
+                <?php _e( 'Title:', 'petje-af'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'page_slug' ); ?>">
-                <?php _e( 'Pagina:' ); ?></label>
+                <?php _e( 'Page:' , 'petje-af'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'page_slug' ); ?>" name="<?php echo $this->get_field_name( 'page_slug' ); ?>" type="text" value="<?php echo esc_attr( $page_slug ); ?>" />
         </p>
         <p>
             <input class="checkbox" type="checkbox" <?php checked( $instance[ 'onetime' ], 'on' ); ?> id="<?php echo $this->get_field_id( 'ontime' ); ?>" name="<?php echo $this->get_field_name( 'onetime' ); ?>" />
-            <label for="<?php echo $this->get_field_id( 'onetime' ); ?>">Eenmalige betalingen activeren</label>
+            <label for="<?php echo $this->get_field_id( 'onetime' ); ?>"><?php _e('Enable onetime payments', 'petje-af'); ?></label>
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'min_amount' ); ?>">
-                <?php _e( 'Per maand vanaf:' ); ?></label>
+                <?php _e( 'Per month from:', 'petje-af' ); ?></label>
             <input type="number" class="widefat" id="<?php echo $this->get_field_id( 'min_amount' ); ?>" name="<?php echo $this->get_field_name( 'min_amount' ); ?>" type="text" value="<?php echo esc_attr( $min_amount ); ?>" />
         </p>
         <?php 

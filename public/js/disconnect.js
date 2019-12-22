@@ -13,7 +13,8 @@
                 user: 'yes'
             },
             beforeSend: function() {
-                $('.petje-af-account').append('<div class="petje-af-account__loader"></div>');
+                $('.petjeaf-disconnect-button').addClass('petjeaf-button--loading');
+                $('.petjeaf-disconnect-button').append('<div class="petjeaf-button__loader"></div>');
             },
             success: function(response) {
 
@@ -22,7 +23,8 @@
                 }
 
                 if (!response.success) {
-                    $('.petje-af-account__loader').remove();
+                    $('.petjeaf-disconnect-button').removeClass('petjeaf-button--loading');
+                    $('.petjeaf-button__loader').remove();
                     $('.petje-af-account').addClass('petje-af-account--error');
                     $('.petje-af-account__error').text(response.data.message);
                 }
