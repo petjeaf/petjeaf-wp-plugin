@@ -72,7 +72,7 @@ class Petje_Af_Shortcodes
 
             if ($plan) {
                 return $this->accessDeniedBox(
-                    sprintf( __( 'Access denied. Only accessible for Petje.af members from %s with plan:', 'text_domain' ), $page->name ),
+                    sprintf( __( 'Access denied. Only accessible for Petje.af members from %s with plan:', 'petje-af' ), $page->name ),
                     $plan->name . ' (' . Petje_Af_Formatter::amount($plan->amount) . ' ' . Petje_Af_Formatter::interval($plan) . ')',
                     PETJE_AF_BASE_URL . $page->slug . '/petjes',
                     __('Become a member!', 'petje-af'),

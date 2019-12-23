@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Petje.af\n"
-"POT-Creation-Date: 2019-12-22 19:33+0100\n"
+"POT-Creation-Date: 2019-12-23 09:27+0100\n"
 "PO-Revision-Date: 2019-12-22 19:33+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -39,16 +39,16 @@ msgstr ""
 msgid "Public"
 msgstr ""
 
-#: admin/class-petje-af-admin.php:231
+#: admin/class-petje-af-admin.php:253
 #: includes/class-petje-af-page-generator.php:103
 msgid "Petje.af account"
 msgstr ""
 
-#: admin/class-petje-af-admin.php:235
+#: admin/class-petje-af-admin.php:257
 msgid "Petje.af access denied"
 msgstr ""
 
-#: admin/class-petje-af-admin.php:239
+#: admin/class-petje-af-admin.php:261
 msgid "Petje.af redirect ui"
 msgstr ""
 
@@ -72,34 +72,73 @@ msgstr ""
 msgid "The secret key from your client app on your Petje.af page"
 msgstr ""
 
-#: admin/partials/petje-af-admin-display.php:49
+#: admin/partials/petje-af-admin-display.php:45
+msgid "Redirect Uri"
+msgstr ""
+
+#: admin/partials/petje-af-admin-display.php:48
+msgid "Copy and paste this redirect uri in your Petje.af client app"
+msgstr ""
+
+#: admin/partials/petje-af-admin-display.php:61
 msgid "Petje.af connection"
 msgstr ""
 
-#: admin/partials/petje-af-admin-display.php:54
-#: admin/partials/petje-af-admin-display.php:56
+#: admin/partials/petje-af-admin-display.php:66
+#: admin/partials/petje-af-admin-display.php:68
 #: public/class-petje-af-shortcodes.php:156
 msgid "Connect with Petje.af"
 msgstr ""
 
-#: admin/partials/petje-af-admin-display.php:63
+#: admin/partials/petje-af-admin-display.php:75
 msgid "Petje.af page"
 msgstr ""
 
-#: admin/partials/petje-af-admin-display.php:77
+#: admin/partials/petje-af-admin-display.php:90
 msgid "Access management"
 msgstr ""
 
-#: admin/partials/petje-af-admin-display.php:81
+#: admin/partials/petje-af-admin-display.php:94
 msgid "Admin users"
 msgstr ""
 
-#: admin/partials/petje-af-admin-display.php:84
+#: admin/partials/petje-af-admin-display.php:97
 msgid "Ingore access settings for admin users"
 msgstr ""
 
 #: admin/partials/petje-af-meta-box.php:22
 msgid "Visible for:"
+msgstr ""
+
+#: admin/partials/petje-af-meta-box.php:28
+msgid "Hiding partial content?"
+msgstr ""
+
+#: admin/partials/petje-af-meta-box.php:29
+msgid "Copy & Paste this shortcodes"
+msgstr ""
+
+#: admin/partials/petje-af-meta-box.php:32
+msgid "How to hide partial content?"
+msgstr ""
+
+#: admin/partials/petje-af-meta-box.php:33
+msgid ""
+"Copy and paste the shortcodes below that correspond to the plan you would "
+"like to use and put your content in between the opening and the closing."
+msgstr ""
+
+#: includes/class-petje-af-formatter.php:32
+#: includes/widgets/petje-af-main-widget.php:177
+msgid "per month"
+msgstr ""
+
+#: includes/class-petje-af-formatter.php:34
+msgid "per year"
+msgstr ""
+
+#: includes/class-petje-af-formatter.php:36
+msgid "per "
 msgstr ""
 
 #: includes/class-petje-af-oauth2-provider.php:313
@@ -151,7 +190,7 @@ msgid "Take off you hat for just onetime. Choose your own amount."
 msgstr ""
 
 #: includes/widgets/petje-af-main-widget.php:164
-msgid "Eenmalig petje af!"
+msgid "Donate now!"
 msgstr ""
 
 #: includes/widgets/petje-af-main-widget.php:175
@@ -164,10 +203,6 @@ msgstr ""
 
 #: includes/widgets/petje-af-main-widget.php:177
 msgid "Become a member and support us from"
-msgstr ""
-
-#: includes/widgets/petje-af-main-widget.php:177
-msgid "per month"
 msgstr ""
 
 #: includes/widgets/petje-af-main-widget.php:178

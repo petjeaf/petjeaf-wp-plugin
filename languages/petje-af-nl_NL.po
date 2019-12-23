@@ -1,13 +1,15 @@
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: Petje.af\n"
-"POT-Creation-Date: 2019-12-22 19:33+0100\n"
-"PO-Revision-Date: 2019-12-22 19:47+0100\n"
+"POT-Creation-Date: 2019-12-23 09:27+0100\n"
+"PO-Revision-Date: 2019-12-23 09:31+0100\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -16,8 +18,6 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Last-Translator: \n"
-"Language: nl\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
@@ -39,16 +39,16 @@ msgstr "Petje.af instellingen"
 msgid "Public"
 msgstr "Openbaar"
 
-#: admin/class-petje-af-admin.php:231
+#: admin/class-petje-af-admin.php:253
 #: includes/class-petje-af-page-generator.php:103
 msgid "Petje.af account"
 msgstr ""
 
-#: admin/class-petje-af-admin.php:235
+#: admin/class-petje-af-admin.php:257
 msgid "Petje.af access denied"
 msgstr "Petje.af geen toegang"
 
-#: admin/class-petje-af-admin.php:239
+#: admin/class-petje-af-admin.php:261
 msgid "Petje.af redirect ui"
 msgstr "Petje.af redirect Uri"
 
@@ -72,35 +72,77 @@ msgstr ""
 msgid "The secret key from your client app on your Petje.af page"
 msgstr "De geheime sleutel van de client app van jouw  Petje.af-pagina"
 
-#: admin/partials/petje-af-admin-display.php:49
-msgid "Petje.af connection"
-msgstr "Pejte.af koppeling"
+#: admin/partials/petje-af-admin-display.php:45
+msgid "Redirect Uri"
+msgstr ""
 
-#: admin/partials/petje-af-admin-display.php:54
-#: admin/partials/petje-af-admin-display.php:56
+#: admin/partials/petje-af-admin-display.php:48
+msgid "Copy and paste this redirect uri in your Petje.af client app"
+msgstr "Knip en plak deze redirect Uri in je Petje.af client app"
+
+#: admin/partials/petje-af-admin-display.php:61
+msgid "Petje.af connection"
+msgstr "Petje.af koppeling"
+
+#: admin/partials/petje-af-admin-display.php:66
+#: admin/partials/petje-af-admin-display.php:68
 #: public/class-petje-af-shortcodes.php:156
 msgid "Connect with Petje.af"
 msgstr "Koppel met Petje.af"
 
-#: admin/partials/petje-af-admin-display.php:63
+#: admin/partials/petje-af-admin-display.php:75
 msgid "Petje.af page"
 msgstr "Petje.af pagina"
 
-#: admin/partials/petje-af-admin-display.php:77
+#: admin/partials/petje-af-admin-display.php:90
 msgid "Access management"
 msgstr "Toegangsinstellingen"
 
-#: admin/partials/petje-af-admin-display.php:81
+#: admin/partials/petje-af-admin-display.php:94
 msgid "Admin users"
 msgstr "Beheerders"
 
-#: admin/partials/petje-af-admin-display.php:84
+#: admin/partials/petje-af-admin-display.php:97
 msgid "Ingore access settings for admin users"
 msgstr "Negeer toegangsinstellingen voor beheerders"
 
 #: admin/partials/petje-af-meta-box.php:22
 msgid "Visible for:"
 msgstr "Zichtbaar voor:"
+
+#: admin/partials/petje-af-meta-box.php:28
+msgid "Hiding partial content?"
+msgstr "Content gedeeltelijk afschermen?"
+
+#: admin/partials/petje-af-meta-box.php:29
+msgid "Copy & Paste this shortcodes"
+msgstr "Knip & Plan deze shortcodes"
+
+#: admin/partials/petje-af-meta-box.php:32
+msgid "How to hide partial content?"
+msgstr "Hoe scherm je content gedeeltelijk af?"
+
+#: admin/partials/petje-af-meta-box.php:33
+msgid ""
+"Copy and paste the shortcodes below that correspond to the plan you would "
+"like to use and put your content in between the opening and the closing."
+msgstr ""
+"Knip en plak de shortcode die hoort bij het pakket dat je wilt gebruiken en "
+"plaats je content tussen de opening en de afsluiting, zoals hieronder "
+"weergegeven."
+
+#: includes/class-petje-af-formatter.php:32
+#: includes/widgets/petje-af-main-widget.php:177
+msgid "per month"
+msgstr "per maand"
+
+#: includes/class-petje-af-formatter.php:34
+msgid "per year"
+msgstr "per jaar"
+
+#: includes/class-petje-af-formatter.php:36
+msgid "per "
+msgstr "per"
 
 #: includes/class-petje-af-oauth2-provider.php:313
 msgid "Code is not set"
@@ -155,7 +197,7 @@ msgid "Take off you hat for just onetime. Choose your own amount."
 msgstr "Neem eenmalig je petje af! Kies zelf het bedrag."
 
 #: includes/widgets/petje-af-main-widget.php:164
-msgid "Eenmalig petje af!"
+msgid "Donate now!"
 msgstr "Eenmalig petje af!"
 
 #: includes/widgets/petje-af-main-widget.php:175
@@ -169,10 +211,6 @@ msgstr ""
 #: includes/widgets/petje-af-main-widget.php:177
 msgid "Become a member and support us from"
 msgstr "Word lid en steun ons al vanaf"
-
-#: includes/widgets/petje-af-main-widget.php:177
-msgid "per month"
-msgstr "per maand"
 
 #: includes/widgets/petje-af-main-widget.php:178
 msgid "Take off your hat!"
@@ -298,3 +336,6 @@ msgstr ""
 #. Description of the plugin/theme
 msgid "The official Petje.af WordPress plugin."
 msgstr "De officiële Petje.af WordPress plugin."
+
+#~ msgid "Eenmalig petje af!"
+#~ msgstr "Eenmalig petje af!"
