@@ -24,7 +24,9 @@
  * Domain Path:       /languages
  */
 
-require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+if ( is_readable( __DIR__ . '/vendor/autoload.php' )) {
+  require __DIR__ . '/vendor/autoload.php';
+}
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
