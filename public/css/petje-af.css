@@ -8,7 +8,7 @@
   border: 1px solid #eff2f7;
   padding: 30px 15px;
   text-align: center;
-  font-family: 'Nunito', sans-serif !important;
+  /* font-family: 'Nunito', sans-serif !important; */
   font-size: 16px !important;
 }
 
@@ -37,7 +37,7 @@
   background: #fafbfe;
   border: 1px solid #eff2f7;
   padding: 15px 15px;
-  font-family: 'Nunito', sans-serif !important;
+  /* font-family: 'Nunito', sans-serif !important; */
   font-size: 16px !important;
 }
 

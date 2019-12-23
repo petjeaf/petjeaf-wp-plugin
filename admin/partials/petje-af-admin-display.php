@@ -39,11 +39,23 @@
                                 <p class="description"><?php _e('The secret key from your client app on your Petje.af page', 'petje-af'); ?></p>
                             </td>
                         </tr>
+
+                        <?php if (get_option('petje_af_redirect_uri_page') ) : ?>
+                        <tr valign="top">
+                            <th scope="row"><?php _e('Redirect Uri', 'petje-af'); ?></th>
+                            <td>
+                                <strong><?php echo get_permalink(get_option('petje_af_redirect_uri_page')); ?></strong>
+                                <p class="description"><?php _e('Copy and paste this redirect uri in your Petje.af client app', 'petje-af'); ?></p>
+                            </td>
+                        </tr>
+                        <?php endif; ?>
+
                     </table>
                 </div>
             </div>
         </div>
 
+        <?php if (get_option('petje_af_client_id')  && get_option('petje_af_client_secret') ) : ?>
         <div class="right-column-settings-page metabox-holder">
             <div class="postbox">
                 <h3 class="hndle"><span><?php _e('Petje.af connection', 'petje-af'); ?></span></h3>
@@ -71,6 +83,7 @@
                 </div>
             </div>
         </div>
+        <?php endif; ?>
 
         <div class="right-column-settings-page metabox-holder">
             <div class="postbox">

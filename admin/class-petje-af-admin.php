@@ -208,6 +208,28 @@ class Petje_Af_Admin {
 
         return $dropdown;
     }
+
+    /**
+    *  Shortcode examples for page plans in meta box.
+    *
+    *  @since	2.0.1
+    */
+    public static function page_plans_shortcode_examples() {
+        
+        $pagePlans = petjeaf_cache('page_plans', false);
+
+        $shortcodes = '';
+
+        if (!empty($pagePlans)) {
+            foreach($pagePlans as $pagePlan) {
+                $shortcodes .= '<h5>' . $pagePlan->name . ':</h5><p>[petjeaf_hide_content plan_id="' . $pagePlan->id . '"]<br>
+                    JOUW AFGESCHERMDE CONTENT<br>[/petjeaf_hide_content]</p>';
+            }
+        }
+
+        return $shortcodes;
+    }
+    
     
 
     /**

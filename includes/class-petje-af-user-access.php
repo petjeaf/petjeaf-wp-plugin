@@ -104,9 +104,11 @@ class Petje_Af_User_Access
         $active_statuses = ['active', 'active_end_month', 'active_end_year'];
         
         $membership = petjeaf_cache('membership');
-    
-        if (current_user_can( 'manage_options' ) && get_option('petje_af_ignore_access_settings_for_admin') ) return true;
-    
+        
+        if (get_option('petje_af_ignore_access_settings_for_admin')) {
+            if (current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' )  ) return true;
+        }
+        
         if ($membership) {
             if ($membership->planId == $plan->id && in_array($membership->status, $active_statuses)) return true;
             if ($membership->amount >= $plan->amount && in_array($membership->status, $active_statuses)) return true;

@@ -34,7 +34,7 @@ class Petje_Af_Main_Widget extends WP_Widget
             'Petje_Af_Main_Widget', 
             __('Petje.af widget', 'petje-af'), 
             array( 'description' => __( 'Widget to show direct links to your petje.af page', 'petje-af' ), ) 
-        );
+        );    
     }
 
     /**
