@@ -222,7 +222,7 @@ class Petje_Af_Admin {
 
         if (!empty($pagePlans)) {
             foreach($pagePlans as $pagePlan) {
-                $shortcodes .= '<h5>' . $pagePlan->name . ':</h5><p>[petjeaf_hide_content plan_id="' . $pagePlan->id . '"]<br>
+                $shortcodes .= '<h5>' . $pagePlan->name . ':</h5><p>[petjeaf_hide_content plan_id="' . $pagePlan->id . '" effect="true"]<br>
                     JOUW AFGESCHERMDE CONTENT<br>[/petjeaf_hide_content]</p>';
             }
         }
