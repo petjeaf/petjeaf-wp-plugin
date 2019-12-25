@@ -79,7 +79,8 @@ class Petje_Af_Shortcodes
                     $this->loginButton(
                         __('Login with Petje.af', 'petje-af'),
                         __('Already an account?', 'petje-af')
-                    )
+                    ),
+                    false
                 );                
             } else {
                 return $this->accessDeniedBox(
@@ -90,7 +91,8 @@ class Petje_Af_Shortcodes
                     $this->loginButton(
                         __('Login with Petje.af', 'petje-af'),
                         __('Already an account?', 'petje-af')
-                    )
+                    ),
+                    false
                 );
             }
         } elseif ($page) {
@@ -102,7 +104,8 @@ class Petje_Af_Shortcodes
                 $this->loginButton(
                     __('Login with Petje.af', 'petje-af'),
                     __('Already an account?', 'petje-af')
-                )
+                ),
+                false
             );
         }
 
@@ -187,7 +190,14 @@ class Petje_Af_Shortcodes
     {
         $petjeaf_atts = shortcode_atts([
             'plan_id' => null,
+            'effect' => true
         ], $atts);
+
+        $effect = true;
+
+        if ($petjeaf_atts['effect'] == 'false') {
+            $effect = false;
+        }
 
         if ($petjeaf_atts['plan_id'] && get_option('petje_af_page_id')) {
             $page = $this->findPage();
@@ -206,7 +216,8 @@ class Petje_Af_Shortcodes
                     $this->loginButton(
                         __('Login with Petje.af', 'petje-af'),
                         __('Already an account?', 'petje-af')
-                    )
+                    ),
+                    $effect 
                 );
             } else {
                 return $this->accessDeniedBoxError(__('Access denied, but plan does not exist.', 'petje-af'));
@@ -225,7 +236,8 @@ class Petje_Af_Shortcodes
                     $this->loginButton(
                         __('Login with Petje.af', 'petje-af'),
                         __('Already an account?', 'petje-af')
-                    )
+                    ),
+                    $effect
                 );
             }  
         }
@@ -309,7 +321,7 @@ class Petje_Af_Shortcodes
             $button .= '<span class="' . $wrapper_class .'__prefix">' . $prefix . '</span>';
         }
 
-        $button .= '<button type="button" class="' . $wrapper_class . '__connect-button petjeaf-button petjeaf-button--icon petjeaf-connect-button ">' . $button_text . '</button>';
+        $button .= '<a href="#" class="' . $wrapper_class . '__connect-button petjeaf-button petjeaf-button--icon petjeaf-connect-button ">' . $button_text . '</a>';
 
         if ($paragraph) {
             $button .= '</p>';
@@ -365,9 +377,15 @@ class Petje_Af_Shortcodes
      * @return  $content
      * 
      */
-    protected function accessDeniedBox($lead, $title, $link, $button_text, $login_button)
+    protected function accessDeniedBox($lead, $title, $link, $button_text, $login_button, $hide_effect = true)
     {
-        $content = '<div class="petje-af-access-denied-box">';
+        $hide_class = ' petje-af-access_denied-box--hide';
+
+        if (!$hide_effect) {
+            $hide_class = '';
+        }
+        
+        $content = '<div class="petje-af-access-denied-box' . $hide_class . '">';
 
         $content .= $lead;
 

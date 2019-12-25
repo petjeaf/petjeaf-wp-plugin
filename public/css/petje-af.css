@@ -8,8 +8,26 @@
   border: 1px solid #eff2f7;
   padding: 30px 15px;
   text-align: center;
-  /* font-family: 'Nunito', sans-serif !important; */
+  font-family: 'Nunito', sans-serif !important;
   font-size: 16px !important;
+  position: relative;
+  border-radius: 4px !important;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.06), 0 3px 6px rgba(0,0,0,0.13);
+}
+
+.petje-af-access_denied-box--hide {
+  margin-top: -75px;
+}
+
+.petje-af-access_denied-box--hide:before { 
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -120px;
+  height: 120px;
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,0.7) 31%, rgba(255,255,255,0) 100%);
 }
 
 .petje-af-access-denied-box p {
@@ -28,6 +46,7 @@
   color: #8492a6;
   padding: 20px 0 15px;
   font-size: 14px !important;
+  font-family: 'Nunito', sans-serif !important;
 }
 
 /**
@@ -37,7 +56,7 @@
   background: #fafbfe;
   border: 1px solid #eff2f7;
   padding: 15px 15px;
-  /* font-family: 'Nunito', sans-serif !important; */
+  font-family: 'Nunito', sans-serif !important;
   font-size: 16px !important;
 }
 
