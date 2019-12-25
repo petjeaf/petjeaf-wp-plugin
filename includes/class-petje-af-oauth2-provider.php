@@ -3,8 +3,7 @@
 /**
  * Create connection with Petje.af OAuth2 Client.
  *
- * Create connection with the Petje.af OAuth2 Client
- * through composer package
+ * Create connection with the Petje.af OAuth2 Client.
  *
  * @link       https://petje.af
  * @since      2.0.0
@@ -22,18 +21,52 @@
  * @author     Stefan de Groot <stefan@petje.af>
  */
 
-use Petjeaf\OAuth2\Client\Provider\Petjeaf;
-
 class Petje_Af_OAuth2_Provider
 {
     /**
-     * Instance of Petjeaf\OAuth2\Client\Provider\Petjeaf
+     * Instance of Petje_Af_Connector
      *
      * @since    2.0.0
-     * @access   public
-     * @var      Petjeaf\OAuth2\Client\Provider\Petjeaf
+     * @access   protected
+     * @var      Petje_Af_Connector
      */
-    public $provider;
+    protected $connector;
+
+    /**
+     * Web base url.
+     *
+     * @since    2.0.2
+     * @access   protected
+     * @var      string
+     */
+    protected $webBaseUrl = 'https://petje.af/';
+
+    /**
+     * The Client ID
+     *
+     * @since    2.0.2
+     * @access   public
+     * @var      string
+     */
+    protected $client_id;
+
+    /**
+     * The Client secret
+     *
+     * @since    2.0.2
+     * @access   public
+     * @var      string
+     */
+    protected $client_secret;
+
+    /**
+     * The state
+     *
+     * @since    2.0.2
+     * @access   public
+     * @var      string
+     */
+    protected $state;
 
     /**
      * The User ID
@@ -63,6 +96,15 @@ class Petje_Af_OAuth2_Provider
     protected $accessToken;
 
     /**
+     * The Refresh Token
+     *
+     * @since    2.0.2
+     * @access   protected
+     * @var      string
+     */
+    protected $refreshToken;
+
+    /**
      * Initialize class.
      *
      * @since   2.0.0
@@ -75,25 +117,37 @@ class Petje_Af_OAuth2_Provider
             $this->userId = $userId;
         }
 
-        $this->setProvider();
+        $this->connector = new Petje_Af_Connector($userId);
+
+        $this->client_id = get_option('petje_af_client_id');
+        $this->client_secret = get_option('petje_af_client_secret');
     }
 
     /**
-     * Set the Petje.af OAuth2 provider with credentials.
+     * Build query parameters for authorization Url
      *
      * @since   2.0.0
+     * @param   array   $scopes
+     * 
+     * @return Authorization query
      * 
      */
-    protected function setProvider() 
+    protected function buildAuthorizationQuery($scopes = [])
     {
-        $this->provider = new Petjeaf([
-            'clientId' => get_option('petje_af_client_id'),
-            'clientSecret' => get_option('petje_af_client_secret')
-        ]);
+        $this->state = wp_generate_password(12, false);
+        
+        $query = [
+            'client_id' => $this->client_id,
+            'response_type' => 'code',
+            'state' => $this->state,
+            'scope' => implode(' ', $scopes)
+        ];
+        
+        return http_build_query($query);
     }
 
     /**
-     * Returns Authorization Url from provdier
+     * Returns Authorization Url
      *
      * @since   2.0.0
      * @param   array   $scopes
@@ -103,11 +157,11 @@ class Petje_Af_OAuth2_Provider
      */
     public function getAuthorizationUrl($scopes = [])
     {
-        return $this->provider->getAuthorizationUrl(['scope' => $scopes ]);
+        return $this->webBaseUrl . 'oauth2/authorize?' . $this->buildAuthorizationQuery($scopes);
     }
 
     /**
-     * Get state from Authorization Url
+     * Get state from Authorization
      *
      * @since   2.0.0
      * 
@@ -116,7 +170,7 @@ class Petje_Af_OAuth2_Provider
      */
     public function getState()
     {
-        return $this->provider->getState();
+        return $this->state;
     }
 
     /**
@@ -130,9 +184,15 @@ class Petje_Af_OAuth2_Provider
      */
     protected function getAcccesTokenByCode($code)
     {
-        $this->accessToken = $this->provider->getAccessToken('authorization_code', [
+        $res = $this->connector->post('oauth2/tokens', [
+            'client_id' => $this->client_id,
+            'client_secret' => $this->client_secret,
+            'grant_type' => 'authorization_code',
             'code' => $code
         ]);
+
+        $this->accessToken = $res->access_token;
+        $this->refreshToken = $res->refresh_token;
 
         return $this->accessToken;
     }
@@ -148,11 +208,20 @@ class Petje_Af_OAuth2_Provider
      */
     public function getAcccesTokenByRefreshToken($refreshToken)
     {
-        $this->accessToken = $this->provider->getAccessToken('refresh_token', [
+        $res = $this->connector->post('oauth2/tokens', [
+            'client_id' => $this->client_id,
+            'client_secret' => $this->client_secret,
+            'grant_type' => 'refresh_token',
             'refresh_token' => $refreshToken
         ]);
 
-        return $this->accessToken;
+        $this->accessToken = $res->access_token;
+        $this->refreshToken = $res->refresh_token;
+
+        return [
+            'access_token' => $this->accessToken,
+            'refresh_token' => $this->refreshToken
+        ];
     }
 
     /**
@@ -163,7 +232,7 @@ class Petje_Af_OAuth2_Provider
      */
     protected function saveAccessToken()
     {
-        $this->cache->saveField('access_token', $this->accessToken->getToken());      
+        $this->cache->saveField('access_token', $this->accessToken);      
     }
 
     /**
@@ -174,7 +243,7 @@ class Petje_Af_OAuth2_Provider
      */
     protected function saveRefreshToken()
     {
-        $this->cache->saveField('refresh_token', $this->accessToken->getRefreshToken());       
+        $this->cache->saveField('refresh_token', $this->refreshToken);       
     }
 
     /**
@@ -188,14 +257,15 @@ class Petje_Af_OAuth2_Provider
     {
         try {
             $this->cache = new Petje_Af_Cache($this->userId);
+            
+            $accessToken = $this->cache->get('access_token');
+
+            $this->connector->setAccessToken($accessToken);
         
-            $this->provider->getAuthenticatedRequest(
-                'DELETE',
-                '/oauth2/tokens',
-                $this->cache->get('access_token')
-            );
+            $this->connector->delete('oauth2/tokens');
 
             $this->cache->delete('access_token');
+            $this->cache->delete('membership');
 
             if ($removeRefreshToken) {
                 $this->cache->delete('refresh_token');
@@ -286,6 +356,7 @@ class Petje_Af_OAuth2_Provider
             wp_send_json_success([
                 'redirect_uri' => $redirect_uri
             ]);
+
         } catch (\Throwable $th) {
             wp_send_json_error([
                 'message' => __($th->getMessage(), 'petje-af')
