@@ -13,11 +13,11 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Petje.af
- * Plugin URI:        https://petje.af
+ * Plugin URI:        https://docs.petje.af/wordpress-plugin/
  * Description:       The official Petje.af WordPress plugin.
  * Version:           2.0.2
  * Author:            Petje.af
- * Author URI:        https://petje.af
+ * Author URI:        https://petje.af/petjeaf
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       petje-af
