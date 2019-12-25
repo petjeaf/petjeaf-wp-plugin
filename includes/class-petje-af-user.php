@@ -52,15 +52,6 @@ class Petje_Af_User
     protected $connector;
 
     /**
-     * Instance of Petjeaf\Api\PetjeafApiClient
-     *
-     * @since    2.0.0
-     * @access   protected
-     * @var      Petjeaf\Api\PetjeafApiClient
-     */
-    protected $client;
-
-    /**
      * Initialize class.
      *
      * @since   2.0.0
@@ -166,9 +157,8 @@ class Petje_Af_User
     public function set($accessToken)
     {
         $this->connector->setAccessToken($accessToken);
-        $this->client = $this->connector->client;
         
-        $user_from_token = $this->client->users->me();
+        $user_from_token = $this->connector->get('users/me');
         
         if (is_user_logged_in()) {
 

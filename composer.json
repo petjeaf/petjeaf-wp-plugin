@@ -9,8 +9,5 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {
-        "petjeaf/petjeaf-api-php": "1.0.1",
-        "petjeaf/oauth2-petjeaf": "1.0.1"
-    }
+    "require": {}
 }

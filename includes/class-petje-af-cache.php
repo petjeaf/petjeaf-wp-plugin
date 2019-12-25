@@ -263,11 +263,11 @@ class Petje_Af_Cache
     {   
         $oauth2_provider = new Petje_Af_OAuth2_Provider($this->userId);
 
-        $accessToken = $oauth2_provider->getAcccesTokenByRefreshToken($this->get_refresh_token());
+        $res = $oauth2_provider->getAcccesTokenByRefreshToken($this->get_refresh_token());
 
-        $this->saveField('refresh_token', $accessToken->getRefreshToken());
+        $this->saveField('refresh_token', $res['refresh_token']);
 
-        return $accessToken->getToken();
+        return $res['access_token'];
     }
 
     /**
@@ -296,7 +296,7 @@ class Petje_Af_Cache
      */
     protected function get_current_user()
     {
-        return $this->client->users->me();      
+        return $this->get('users/me');      
     }
 
     /**
@@ -310,7 +310,7 @@ class Petje_Af_Cache
     protected function get_membership()
     {
         if (!$this->pageId) return null;
-        $memberships = $this->client->memberships->byPage($this->pageId);
+        $memberships = $this->connector->get('memberships', ['pageId' => $this->pageId]);
         if (!empty($memberships->_embedded->memberships)) return $memberships->_embedded->memberships[0];
         return null;  
     }
@@ -327,9 +327,10 @@ class Petje_Af_Cache
     {
         $membership = $this->get('membership');
         if ($membership) {
-            $res = $this->client->membershipRewards->byMembership($membership->ID);
+            $rewards = $this->connector->get("memberships/$membership->ID/rewards");
+            return $rewards->_embedded->rewards;
         }
-        return $res;        
+        return null;        
     }
 
     /**
@@ -342,8 +343,7 @@ class Petje_Af_Cache
      */
     protected function get_pages()
     {
-        $pages = $this->client->pages->list();
-
+        $pages = $this->connector->get('pages');
         return $pages->_embedded->pages;
     }
 
@@ -358,7 +358,7 @@ class Petje_Af_Cache
     protected function get_page_plans()
     {
         if (!$this->pageId) return null;
-        $plans = $this->client->pagePlans->byPage($this->pageId);
+        $plans = $this->connector->get("pages/$this->pageId/plans");
         return $plans->_embedded->plans;
     }  
 
@@ -373,7 +373,8 @@ class Petje_Af_Cache
     protected function get_page_rewards()
     {
         if (!$this->pageId) return null;
-        return $this->client->pageRewards->byPage($this->pageId);
+        $rewards = $this->connector->get("pages/$this->pageId/rewards");
+        return $rewards->_embedded->rewards;
     }
 }
 
