@@ -117,7 +117,10 @@ class Petje_Af_OAuth2_Setup
 
         if (!empty($pages)) {
             $page = $pages[0];
-            update_option('petje_af_page_id', $page->id);
+            if ($page->id) {
+                $pageId = sanitize_text_field($page->id);
+                update_option('petje_af_page_id', $pageId);
+            }
         }
     }
 

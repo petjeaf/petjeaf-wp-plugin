@@ -308,6 +308,12 @@ class Petje_Af_OAuth2_Provider
      */
     public function ajax_revoke_token()
     {
+        if ($_POST['user'] != 'yes' && $_POST['user'] != 'no') {
+            wp_send_json_error([
+                'message' => __('User needs to be set to yes or no', 'petje-af')
+            ]);            
+        }
+        
         $user = $_POST['user'];
 
         if ($user != 'no') {
@@ -372,10 +378,34 @@ class Petje_Af_OAuth2_Provider
      */
     public function ajax_exchange_code_for_token() 
     {
-        $code = $_POST['code'];
-        $redirect = $_POST['redirect'];
-        $user = $_POST['user'];
-        $state = $_POST['state'];
+        if (!wp_http_validate_url($_POST['redirect'])) {
+            wp_send_json_error([
+                'message' => __('Redirect is not a valid URL', 'petje-af')
+            ]); 
+        }
+
+        if ($_POST['user'] != 'yes' && $_POST['user'] != 'no') {
+            wp_send_json_error([
+                'message' => __('User needs to be set to yes or no', 'petje-af')
+            ]);            
+        }
+
+        if (!$_POST['code']) {
+            wp_send_json_error([
+                'message' => __('Code is not set', 'petje-af')
+            ]);            
+        }
+
+        if (!$_POST['state']) {
+            wp_send_json_error([
+                'message' => __('State is not set', 'petje-af')
+            ]);            
+        }
+
+        $code = sanitize_text_field($_POST['code']);
+        $redirect = sanitize_text_field( $_POST['redirect']);
+        $user = sanitize_text_field( $_POST['user']);
+        $state = sanitize_text_field( $_POST['state']);
 
         $this->cache = new Petje_Af_Cache();
 

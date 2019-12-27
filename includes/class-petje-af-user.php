@@ -184,8 +184,23 @@ class Petje_Af_User
      */
     protected function createUser($user_from_token)
     {
+        if (
+            !$user_from_token->id ||
+            !$user_from_token->email ||
+            !$user_from_token->name
+        ) {
+            throw new Exception(__('User ID, email or name is missing.', 'petje-af'));
+        }
+
+        if (!is_email($user_from_token->email)) {
+            throw new Exception(__('Email is not valid', 'petje-af'));
+        }
+
+        $parts = explode("@", $user_from_token->email);
+        $user_login = $parts[0];
+
         $this->userId = wp_insert_user([
-            'user_login' => $user_from_token->email,
+            'user_login' => sanitize_user($user_login),
             'user_email' => $user_from_token->email,
             'display_name' => $user_from_token->name,
             'user_pass' => wp_generate_password(),
