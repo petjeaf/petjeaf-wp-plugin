@@ -157,7 +157,9 @@ class Petje_Af_Admin {
             return;
         }
 
-        update_post_meta($post_id, 'petje_af_page_plan_id', $_POST['petje_af_page_plan_id']);
+        $plan_id = sanitize_text_field( $_POST['petje_af_page_plan_id'] );
+
+        update_post_meta($post_id, 'petje_af_page_plan_id', $plan_id);
     }
 
     /**
@@ -194,7 +196,7 @@ class Petje_Af_Admin {
 
         $dropdown = '<select id="petje_af_plan_select" name="petje_af_page_plan_id" id="petje_af_page_plan_id" class="">';
 
-        $selected = get_post_meta($post_id, 'petje_af_page_plan_id', true)? '' : 'selected';
+        $selected = get_post_meta($post_id, 'petje_af_page_plan_id', true) ? '' : 'selected';
         $dropdown .= '<option value="" ' . $selected .'>' . __('Public', 'petje-af') . '</option>';
 
         if (!empty($pagePlans)) {
@@ -223,7 +225,7 @@ class Petje_Af_Admin {
         if (!empty($pagePlans)) {
             foreach($pagePlans as $pagePlan) {
                 $shortcodes .= '<h5>' . $pagePlan->name . ':</h5><p>[petjeaf_hide_content plan_id="' . $pagePlan->id . '" effect="true"]<br>
-                    JOUW AFGESCHERMDE CONTENT<br>[/petjeaf_hide_content]</p>';
+                    ' . __("PUT YOUR HIDDEN CONTENT HERE", 'petje-af') . '<br>[/petjeaf_hide_content]</p>';
             }
         }
 
