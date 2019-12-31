@@ -67,7 +67,7 @@ class Petje_Af_Shortcodes
         $page = $this->findPage();
         
         if (isset($_GET['plan_id']) && $page) {
-            $plan_id = $_GET['plan_id'];
+            $plan_id = sanitize_text_field($_GET['plan_id']);
             $plan = $this->findPlan($plan_id);
 
             if ($plan) {
