@@ -314,7 +314,7 @@ class Petje_Af_OAuth2_Provider
             ]);            
         }
         
-        $user = $_POST['user'];
+        $user = sanitize_text_field($_POST['user']);
 
         if ($user != 'no') {
             $this->userId = wp_get_current_user()->ID;
