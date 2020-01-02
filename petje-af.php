@@ -15,7 +15,7 @@
  * Plugin Name:       Petje.af
  * Plugin URI:        https://docs.petje.af/wordpress-plugin/
  * Description:       The official Petje.af WordPress plugin.
- * Version:           2.0.5
+ * Version:           2.0.6
  * Author:            Petje.af
  * Author URI:        https://petje.af/petjeaf
  * License:           GPL-2.0+
@@ -32,7 +32,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Currently plugin version.
  */
-define( 'PETJE_AF_VERSION', '2.0.5' );
+define( 'PETJE_AF_VERSION', '2.0.6' );
 
 /**
  * Plugin base name
