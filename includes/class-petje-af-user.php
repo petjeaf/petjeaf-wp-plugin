@@ -176,6 +176,34 @@ class Petje_Af_User
     }
 
     /**
+     * Generate unique username
+     * 
+     * @since   2.0.6
+     * @param   $user_email
+     * 
+     * @return  $user_login
+     * 
+     */
+    protected function createUniqueUsername($user_email)
+    {
+        $parts = explode("@", $user_email);
+        $user_login = sanitize_user($parts[0]); 
+        
+        if (! username_exists($user_login)) {
+            return $user_login;
+        } else {
+            $random = wp_generate_password(8, false);
+            $user_login = $user_login  . '-' . $random;
+
+            if (! username_exists($user_login)) {
+                return $user_login;
+            }
+        } 
+
+        throw new Exception(__('Username creation failed', 'petje-af'));
+    }
+
+    /**
      * Create user from token
      *
      * @since   2.0.0
@@ -196,11 +224,10 @@ class Petje_Af_User
             throw new Exception(__('Email is not valid', 'petje-af'));
         }
 
-        $parts = explode("@", $user_from_token->email);
-        $user_login = $parts[0];
+        $user_login = $this->createUniqueUsername($user_from_token->email);
 
         $this->userId = wp_insert_user([
-            'user_login' => sanitize_user($user_login),
+            'user_login' => $user_login,
             'user_email' => $user_from_token->email,
             'display_name' => $user_from_token->name,
             'user_pass' => wp_generate_password(),
