@@ -52,6 +52,7 @@ class Petje_Af_Main_Widget extends WP_Widget
         $page_slug = $instance['page_slug'];
         $min_amount = $instance['min_amount'];
         $onetime = $instance[ 'onetime' ] ? true : false;
+        $disable_styling = $instance[ 'disable_styling' ] ? true : false;
 
         echo $args['before_widget'];
 
@@ -60,7 +61,9 @@ class Petje_Af_Main_Widget extends WP_Widget
 
         if ($page_slug) :
 
-        ?>
+            if (!$disable_styling) :
+
+            ?>
 
             <style>
                 .petje-af-widget {
@@ -150,6 +153,12 @@ class Petje_Af_Main_Widget extends WP_Widget
                 }
             </style>
 
+            <?php 
+
+            endif;
+
+            ?>
+
             <div class="petje-af-widget">
 
                 <div class="petje-af-widget__inner">
@@ -169,7 +178,7 @@ class Petje_Af_Main_Widget extends WP_Widget
                     <div class="petje-af-widget__members<?php if (!$onetime) : ?> petje-af-widget__members--no-onetime<?php endif; ?>">
                         <?php if (!$onetime) : ?>
                         <a class="petje-af-widget__img-link" href="<?= PETJE_AF_BASE_URL; ?><?= $page_slug; ?>/" target="_blank">
-                            <img style="width: 100px; height: auto" src="<?= plugin_dir_url( dirname(__FILE__) ); ?>public/images/petjeaf.png" alt="Petje af logo" />
+                            <img style="width: 100px; height: auto" src="<?= PETJE_AF_PLUGIN_ROOT_URL; ?>/public/images/petjeaf.png" alt="Petje af logo" />
                         </a>
                         <?php endif; ?>
                         <h5 class="petje-af-widget__title"><?php _e('Per month from', 'petje-af'); ?></h5>
@@ -234,6 +243,10 @@ class Petje_Af_Main_Widget extends WP_Widget
             <label for="<?php echo $this->get_field_id( 'onetime' ); ?>"><?php _e('Enable onetime payments', 'petje-af'); ?></label>
         </p>
         <p>
+            <input class="checkbox" type="checkbox" <?php checked( $instance[ 'disable_styling' ], 'on' ); ?> id="<?php echo $this->get_field_id( 'disable_styling' ); ?>" name="<?php echo $this->get_field_name( 'disable_styling' ); ?>" />
+            <label for="<?php echo $this->get_field_id( 'disable_styling' ); ?>"><?php _e('Disable styling', 'petje-af'); ?></label>
+        </p>
+        <p>
             <label for="<?php echo $this->get_field_id( 'min_amount' ); ?>">
                 <?php _e( 'Per month from:', 'petje-af' ); ?></label>
             <input type="number" class="widefat" id="<?php echo $this->get_field_id( 'min_amount' ); ?>" name="<?php echo $this->get_field_name( 'min_amount' ); ?>" type="text" value="<?php echo esc_attr( $min_amount ); ?>" />
@@ -255,6 +268,7 @@ class Petje_Af_Main_Widget extends WP_Widget
         $instance['min_amount'] = ( ! empty( $new_instance['min_amount'] ) ) ? strip_tags( $new_instance['min_amount'] ) : '';
         $instance['page_slug'] = ( ! empty( $new_instance['page_slug'] ) ) ? strip_tags( $new_instance['page_slug'] ) : '';
         $instance[ 'onetime' ] = $new_instance[ 'onetime' ];
+        $instance[ 'disable_styling' ] = $new_instance[ 'disable_styling' ];
         return $instance;
     }
 }

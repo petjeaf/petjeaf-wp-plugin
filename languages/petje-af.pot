@@ -225,6 +225,10 @@ msgstr ""
 msgid "Enable onetime payments"
 msgstr ""
 
+#: includes/widgets/petje-af-main-widget.php:247
+msgid "Disable styling"
+msgstr ""
+
 #: includes/widgets/petje-af-main-widget.php:238
 msgid "Per month from:"
 msgstr ""
