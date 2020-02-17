@@ -30,6 +30,9 @@ The plugin is meant for content creators on Petje.af that would like to have exc
 
 == Changelog ==
 
+= 2.0.7 =
+* Add option to disable styling for widget
+
 = 2.0.4 =
 * Add better validation and sanitization
 * Optimize readme.text
