@@ -155,6 +155,7 @@ class Petje_Af {
     $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
     $this->loader->add_action( 'add_meta_boxes', $plugin_admin, 'add_meta_box');
     $this->loader->add_action( 'save_post', $plugin_admin, 'save_meta_box');
+    $this->loader->add_action( 'admin_notices', $plugin_admin, 'no_connection_admin_notice');
     
     $this->loader->add_filter( 'display_post_states', $plugin_admin, 'display_post_states', 10, 2);
   }

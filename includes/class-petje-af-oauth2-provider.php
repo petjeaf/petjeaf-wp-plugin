@@ -215,6 +215,12 @@ class Petje_Af_OAuth2_Provider
             'refresh_token' => $refreshToken
         ]);
 
+        if (!$res->refresh_token && $this->userId) {
+            wp_logout();
+        } else if (!$res->refresh_token) {
+            $this->setConnectionFailedNotice(true);
+        }
+
         $this->accessToken = $res->access_token;
         $this->refreshToken = $res->refresh_token;
 
@@ -232,7 +238,7 @@ class Petje_Af_OAuth2_Provider
      */
     protected function saveAccessToken()
     {
-        $this->cache->saveField('access_token', $this->accessToken);      
+        $this->cache->saveField('access_token', $this->accessToken);  
     }
 
     /**
@@ -244,6 +250,17 @@ class Petje_Af_OAuth2_Provider
     protected function saveRefreshToken()
     {
         $this->cache->saveField('refresh_token', $this->refreshToken);       
+    }
+
+    /**
+     * Save connection failed option for notice
+     *
+     * @since   2.1.0
+     * 
+     */
+    protected function setConnectionFailedNotice($value = false)
+    {
+        update_option('petjeaf_connection_failed', $value);
     }
 
     /**
@@ -431,6 +448,7 @@ class Petje_Af_OAuth2_Provider
 
             if ($user == 'no') {
                 $fromUser = false;
+                $this->setConnectionFailedNotice(false);
                 $this->saveAccessToken();
                 $this->saveRefreshToken();
             }

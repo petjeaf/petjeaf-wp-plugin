@@ -275,4 +275,13 @@ class Petje_Af_Admin {
         return $post_states;
     }
 
+    public function no_connection_admin_notice()
+    {
+        if (get_option('petjeaf_connection_failed')) {
+            echo '<div class="notice notice-error is-dismissible">
+                <p>' . __('Action required! Your Petje.af account is not connected anymore.', 'petje-af') . ' <a href="' . admin_url( 'admin.php?page=petje-af' ) . '">' . __('Go to settings and click "Connect with Petje.af"', 'petje-af') . '</a></p>
+            </div>';
+        }
+    }
+
 }
