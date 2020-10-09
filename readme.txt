@@ -30,6 +30,10 @@ The plugin is meant for content creators on Petje.af that would like to have exc
 
 == Changelog ==
 
+= 2.1.0 =
+* Add option to protect complete site with login
+* Add fallback for pages and plans if (for some reason) page is not connected anymore
+
 = 2.0.7 =
 * Add option to disable styling for widget
 
