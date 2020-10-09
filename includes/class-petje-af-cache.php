@@ -69,6 +69,14 @@ class Petje_Af_Cache
     protected $client;
 
     /**
+     * Access Token
+     *
+     * @since    2.1.0
+     * @access   protected
+     */
+    protected $accessToken;
+
+    /**
      * Initialize.
      *
      * @since   2.0.0
@@ -84,9 +92,9 @@ class Petje_Af_Cache
 
         $this->pageId = get_option('petje_af_page_id');
 
-        $accessToken = $this->get('access_token');
+        $this->accessToken = $this->get('access_token');
 
-        $this->connector = new Petje_Af_Connector($userId, $accessToken);
+        $this->connector = new Petje_Af_Connector($userId, $this->accessToken);
         $this->client = $this->connector->client;
     }
 
@@ -197,8 +205,48 @@ class Petje_Af_Cache
 
         if ($value) {
             set_transient($this->prefix . $key, $value, $exp);
+            $this->save_fallback($key, $value);
         }
         return $value;
+    }
+
+    /**
+     * Save fallback to options table for pages and page plans only.
+     *
+     * @since   2.1.0
+     * @param   $key
+     * @param   $value
+     * 
+     * @return  $value that is save
+     * 
+     */
+    public function save_fallback($key, $value)
+    {
+        if (!in_array($key, ['pages', 'page_plans'])) return;
+
+        if ($value) {
+            update_option($this->prefix . $key, $value);
+        }
+        return $value;
+    }
+
+    /**
+     * Get fallback from options. To use when api is not connected (anymore)
+     *
+     * @since   2.1.0
+     * @param   $key
+     * @param   $value
+     * 
+     * @return  $value that is save
+     * 
+     */
+    public function get_fallback($key)
+    {
+        if ($key == 'pages' || $key == 'page_plans') {
+            return get_option($this->prefix . $key);
+        }
+
+        return null;
     }
 
     /**
@@ -343,7 +391,13 @@ class Petje_Af_Cache
      */
     protected function get_pages()
     {
+        if (
+            !$this->accessToken && 
+            $this->get_fallback('pages')
+        ) return $this->get_fallback('pages');
+        
         $pages = $this->connector->get('pages');
+
         return $pages->_embedded->pages;
     }
 
@@ -358,6 +412,12 @@ class Petje_Af_Cache
     protected function get_page_plans()
     {
         if (!$this->pageId) return null;
+
+        if (
+            !$this->accessToken && 
+            $this->get_fallback('page_plans')
+        ) return $this->get_fallback('page_plans');
+
         $plans = $this->connector->get("pages/$this->pageId/plans");
         return $plans->_embedded->plans;
     }  

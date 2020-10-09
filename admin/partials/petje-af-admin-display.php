@@ -61,7 +61,7 @@
                 <h3 class="hndle"><span><?php _e('Petje.af connection', 'petje-af'); ?></span></h3>
                 <div class="inside">
                     <table class="form-table">
-                        <?php if (get_option('petje_af_client_id') && get_option('petje_af_client_secret') && !get_option('petje_af_page_id') || !petjeaf_cache('pages', false)) : ?>
+                        <?php if (get_option('petje_af_client_id') && get_option('petje_af_client_secret') && !get_option('petje_af_page_id') || !petjeaf_cache('pages', false) || get_option('petjeaf_connection_failed')) : ?>
                         <tr valign="top">
                             <th scope="row"><?php _e('Connect with Petje.af', 'petje-af'); ?></th>
                             <td>
@@ -97,6 +97,16 @@
                                 <label><?php _e('Ingore access settings for admin users', 'petje-af'); ?></label>
                             </td>
                         </tr>
+
+                        <?php if(petjeaf_cache('page_plans', false)) : ?>
+                        <tr valign="top">
+                            <th scope="row"><?php _e('Complete site protection', 'petje-af'); ?></th>
+                            <td>
+                                <?php echo Petje_Af_Admin::page_plans_dropdown(null, 'petje_af_site_protection_plan'); ?>
+                                <p></op><label><?php _e('Protect your complete site with Petje.af login', 'petje-af'); ?></label></p>
+                            </td>
+                        </tr>
+                        <?php endif; ?>
 
                     </table>
                 </div>

@@ -34,6 +34,15 @@ class Petje_Af_User_Access
     protected $accessDeniedPageId;
 
     /**
+     * WP page ID of the redirect page.
+     *
+     * @since    2.1.0
+     * @access   protected
+     * @var      integer
+     */
+    protected $redirectPageId;
+
+    /**
      * Initialize class.
      *
      * @since   2.0.0
@@ -42,6 +51,7 @@ class Petje_Af_User_Access
     public function __construct()
     {
         $this->accessDeniedPageId = get_option('petje_af_access_denied_page');
+        $this->redirectPageId = get_option('petje_af_redirect_uri_page');
     }
 
     /**
@@ -54,7 +64,11 @@ class Petje_Af_User_Access
     {
         global $post;
 
-        $planId = get_post_meta($post->ID, 'petje_af_page_plan_id', true);
+        if ($post->ID == $this->redirectPageId) return;
+
+        if ($post->ID == $this->accessDeniedPageId) return;
+
+        $planId = get_post_meta($post->ID, 'petje_af_page_plan_id') ? get_post_meta($post->ID, 'petje_af_page_plan_id', true) : get_option('petje_af_site_protection_plan', '');
 
         $access_denied = false;
 
