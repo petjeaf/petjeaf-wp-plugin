@@ -60,15 +60,6 @@ class Petje_Af_Cache
     protected $connector;
 
     /**
-     * Instance of Petjeaf\Api\PetjeafApiClient.
-     *
-     * @since    2.0.0
-     * @access   protected
-     * @var      Petjeaf\Api\PetjeafApiClient
-     */
-    protected $client;
-
-    /**
      * Access Token
      *
      * @since    2.1.0
@@ -95,7 +86,6 @@ class Petje_Af_Cache
         $this->accessToken = $this->get('access_token');
 
         $this->connector = new Petje_Af_Connector($userId, $this->accessToken);
-        $this->client = $this->connector->client;
     }
 
     /**
@@ -157,7 +147,6 @@ class Petje_Af_Cache
         $this->setUserPrefix();
 
         $this->connector->setUser($userId);
-        $this->client = $this->connector->client;
     }
 
     /**
