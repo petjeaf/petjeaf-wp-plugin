@@ -87,6 +87,7 @@ class Petje_Af_Admin {
         register_setting( 'petje_af_settings', 'petje_af_client_id');
         register_setting( 'petje_af_settings', 'petje_af_client_secret');
         register_setting( 'petje_af_settings', 'petje_af_page_id');
+        register_setting( 'petje_af_settings', 'petje_af_site_protection_plan');
         register_setting( 'petje_af_settings', 'petje_af_ignore_access_settings_for_admin');
     }
 
@@ -190,18 +191,26 @@ class Petje_Af_Admin {
     *
     *  @since	2.0.0
     */
-    public static function page_plans_dropdown($post_id) {
+    public static function page_plans_dropdown($post_id = null, $option_key = '') {
         
         $pagePlans = petjeaf_cache('page_plans', false);
 
-        $dropdown = '<select id="petje_af_plan_select" name="petje_af_page_plan_id" id="petje_af_page_plan_id" class="">';
+        $id = $post_id ? 'petje_af_page_plan_id' : 'petje_af_site_protection_plan';
+
+        $dropdown = '<select name="' . $id . '" id="' . $id . '" class="">';
 
         $selected = get_post_meta($post_id, 'petje_af_page_plan_id', true) ? '' : 'selected';
         $dropdown .= '<option value="" ' . $selected .'>' . __('Public', 'petje-af') . '</option>';
 
         if (!empty($pagePlans)) {
             foreach($pagePlans as $pagePlan) {
-                $selected = get_post_meta($post_id, 'petje_af_page_plan_id', true) == $pagePlan->id ? 'selected' : '';
+                $selected = '';
+                if ($post_id) {
+                    $selected = get_post_meta($post_id, 'petje_af_page_plan_id', true) == $pagePlan->id ? 'selected' : '';
+                }
+                if ($option_key) {
+                    $selected = get_option($option_key) == $pagePlan->id ? 'selected' : '';
+                }
                 $dropdown .= '<option value="' . $pagePlan->id . '"' . $selected .'>' . $pagePlan->name . ' (' . Petje_Af_Formatter::amount($pagePlan->amount) . ' ' . Petje_Af_Formatter::interval($pagePlan) . ')</option>';
             }
         }

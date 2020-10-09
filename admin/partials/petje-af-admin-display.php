@@ -98,6 +98,14 @@
                             </td>
                         </tr>
 
+                        <tr valign="top">
+                            <th scope="row"><?php _e('Complete site protection', 'petje-af'); ?></th>
+                            <td>
+                                <?php echo Petje_Af_Admin::page_plans_dropdown(null, 'petje_af_site_protection_plan'); ?>
+                                <p></op><label><?php _e('Protect your complete site with Petje.af login', 'petje-af'); ?></label></p>
+                            </td>
+                        </tr>
+
                     </table>
                 </div>
             </div>
