@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Petje.af\n"
-"POT-Creation-Date: 2019-12-23 09:27+0100\n"
-"PO-Revision-Date: 2020-09-15 08:12+0200\n"
+"POT-Creation-Date: 2020-10-09 12:27+0200\n"
+"PO-Revision-Date: 2020-10-09 12:31+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -23,106 +23,271 @@ msgstr ""
 
 #. Plugin Name of the plugin/theme
 #. Author of the plugin/theme
-#: admin/class-petje-af-admin.php:100
+#: admin/class-petje-af-admin.php:101
+#: dotorg/tags/2.0.5/admin/class-petje-af-admin.php:100
+#: dotorg/tags/2.0.6/admin/class-petje-af-admin.php:100
+#: dotorg/tags/2.0.7/admin/class-petje-af-admin.php:100
+#: dotorg/tags/2.0.8/admin/class-petje-af-admin.php:100
+#: dotorg/trunk/admin/class-petje-af-admin.php:100
 msgid "Petje.af"
 msgstr ""
 
-#: admin/class-petje-af-admin.php:111
+#: admin/class-petje-af-admin.php:112
+#: dotorg/tags/2.0.5/admin/class-petje-af-admin.php:111
+#: dotorg/tags/2.0.6/admin/class-petje-af-admin.php:111
+#: dotorg/tags/2.0.7/admin/class-petje-af-admin.php:111
+#: dotorg/tags/2.0.8/admin/class-petje-af-admin.php:111
+#: dotorg/trunk/admin/class-petje-af-admin.php:111
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Je hebt niet de juiste rechten om toegang te krijgen tot deze pagina."
 
-#: admin/class-petje-af-admin.php:128
+#: admin/class-petje-af-admin.php:129
+#: dotorg/tags/2.0.5/admin/class-petje-af-admin.php:128
+#: dotorg/tags/2.0.6/admin/class-petje-af-admin.php:128
+#: dotorg/tags/2.0.7/admin/class-petje-af-admin.php:128
+#: dotorg/tags/2.0.8/admin/class-petje-af-admin.php:128
+#: dotorg/trunk/admin/class-petje-af-admin.php:128
 msgid "Petje.af settings"
 msgstr "Petje.af instellingen"
 
-#: admin/class-petje-af-admin.php:198
+#: admin/class-petje-af-admin.php:203
+#: dotorg/tags/2.0.5/admin/class-petje-af-admin.php:200
+#: dotorg/tags/2.0.6/admin/class-petje-af-admin.php:200
+#: dotorg/tags/2.0.7/admin/class-petje-af-admin.php:200
+#: dotorg/tags/2.0.8/admin/class-petje-af-admin.php:200
+#: dotorg/trunk/admin/class-petje-af-admin.php:200
 msgid "Public"
 msgstr "Openbaar"
 
-#: admin/class-petje-af-admin.php:253
+#: admin/class-petje-af-admin.php:237
+#: dotorg/tags/2.0.5/admin/class-petje-af-admin.php:228
+#: dotorg/tags/2.0.6/admin/class-petje-af-admin.php:228
+#: dotorg/tags/2.0.7/admin/class-petje-af-admin.php:228
+#: dotorg/tags/2.0.8/admin/class-petje-af-admin.php:228
+#: dotorg/trunk/admin/class-petje-af-admin.php:228
+msgid "PUT YOUR HIDDEN CONTENT HERE"
+msgstr "PLAATS HIER JE EXCLUSIEVE CONTENT"
+
+#: admin/class-petje-af-admin.php:264
+#: dotorg/tags/2.0.5/admin/class-petje-af-admin.php:255
+#: dotorg/tags/2.0.5/includes/class-petje-af-page-generator.php:103
+#: dotorg/tags/2.0.6/admin/class-petje-af-admin.php:255
+#: dotorg/tags/2.0.6/includes/class-petje-af-page-generator.php:103
+#: dotorg/tags/2.0.7/admin/class-petje-af-admin.php:255
+#: dotorg/tags/2.0.7/includes/class-petje-af-page-generator.php:103
+#: dotorg/tags/2.0.8/admin/class-petje-af-admin.php:255
+#: dotorg/tags/2.0.8/includes/class-petje-af-page-generator.php:103
+#: dotorg/trunk/admin/class-petje-af-admin.php:255
+#: dotorg/trunk/includes/class-petje-af-page-generator.php:103
 #: includes/class-petje-af-page-generator.php:103
 msgid "Petje.af account"
 msgstr ""
 
-#: admin/class-petje-af-admin.php:257
+#: admin/class-petje-af-admin.php:268
+#: dotorg/tags/2.0.5/admin/class-petje-af-admin.php:259
+#: dotorg/tags/2.0.6/admin/class-petje-af-admin.php:259
+#: dotorg/tags/2.0.7/admin/class-petje-af-admin.php:259
+#: dotorg/tags/2.0.8/admin/class-petje-af-admin.php:259
+#: dotorg/trunk/admin/class-petje-af-admin.php:259
 msgid "Petje.af access denied"
 msgstr "Petje.af geen toegang"
 
-#: admin/class-petje-af-admin.php:261
+#: admin/class-petje-af-admin.php:272
+#: dotorg/tags/2.0.5/admin/class-petje-af-admin.php:263
+#: dotorg/tags/2.0.6/admin/class-petje-af-admin.php:263
+#: dotorg/tags/2.0.7/admin/class-petje-af-admin.php:263
+#: dotorg/tags/2.0.8/admin/class-petje-af-admin.php:263
+#: dotorg/trunk/admin/class-petje-af-admin.php:263
 msgid "Petje.af redirect ui"
 msgstr "Petje.af redirect Uri"
 
+#: admin/class-petje-af-admin.php:282
+msgid "Action required! Your Petje.af account is not connected anymore."
+msgstr "Actie nodig! Je Petje.af-account in niet meer gekoppeld."
+
+#: admin/class-petje-af-admin.php:282
+msgid "Go to settings and click \"Connect with Petje.af\""
+msgstr "Ga naar instellingen en koppel opnieuw"
+
 #: admin/partials/petje-af-admin-display.php:22
+#: dotorg/tags/2.0.5/admin/partials/petje-af-admin-display.php:22
+#: dotorg/tags/2.0.6/admin/partials/petje-af-admin-display.php:22
+#: dotorg/tags/2.0.7/admin/partials/petje-af-admin-display.php:22
+#: dotorg/tags/2.0.8/admin/partials/petje-af-admin-display.php:22
+#: dotorg/trunk/admin/partials/petje-af-admin-display.php:22
 msgid "Client App"
 msgstr ""
 
 #: admin/partials/petje-af-admin-display.php:28
+#: dotorg/tags/2.0.5/admin/partials/petje-af-admin-display.php:28
+#: dotorg/tags/2.0.6/admin/partials/petje-af-admin-display.php:28
+#: dotorg/tags/2.0.7/admin/partials/petje-af-admin-display.php:28
+#: dotorg/tags/2.0.8/admin/partials/petje-af-admin-display.php:28
+#: dotorg/trunk/admin/partials/petje-af-admin-display.php:28
 msgid "Client id"
 msgstr ""
 
 #: admin/partials/petje-af-admin-display.php:31
+#: dotorg/tags/2.0.5/admin/partials/petje-af-admin-display.php:31
+#: dotorg/tags/2.0.6/admin/partials/petje-af-admin-display.php:31
+#: dotorg/tags/2.0.7/admin/partials/petje-af-admin-display.php:31
+#: dotorg/tags/2.0.8/admin/partials/petje-af-admin-display.php:31
+#: dotorg/trunk/admin/partials/petje-af-admin-display.php:31
 msgid "The id from your client app on your Petje.af page"
 msgstr "De ID van de client app van jouw Petje.af-pagina"
 
 #: admin/partials/petje-af-admin-display.php:36
+#: dotorg/tags/2.0.5/admin/partials/petje-af-admin-display.php:36
+#: dotorg/tags/2.0.6/admin/partials/petje-af-admin-display.php:36
+#: dotorg/tags/2.0.7/admin/partials/petje-af-admin-display.php:36
+#: dotorg/tags/2.0.8/admin/partials/petje-af-admin-display.php:36
+#: dotorg/trunk/admin/partials/petje-af-admin-display.php:36
 msgid "Client secret"
 msgstr ""
 
 #: admin/partials/petje-af-admin-display.php:39
+#: dotorg/tags/2.0.5/admin/partials/petje-af-admin-display.php:39
+#: dotorg/tags/2.0.6/admin/partials/petje-af-admin-display.php:39
+#: dotorg/tags/2.0.7/admin/partials/petje-af-admin-display.php:39
+#: dotorg/tags/2.0.8/admin/partials/petje-af-admin-display.php:39
+#: dotorg/trunk/admin/partials/petje-af-admin-display.php:39
 msgid "The secret key from your client app on your Petje.af page"
 msgstr "De geheime sleutel van de client app van jouw  Petje.af-pagina"
 
 #: admin/partials/petje-af-admin-display.php:45
+#: dotorg/tags/2.0.5/admin/partials/petje-af-admin-display.php:45
+#: dotorg/tags/2.0.6/admin/partials/petje-af-admin-display.php:45
+#: dotorg/tags/2.0.7/admin/partials/petje-af-admin-display.php:45
+#: dotorg/tags/2.0.8/admin/partials/petje-af-admin-display.php:45
+#: dotorg/trunk/admin/partials/petje-af-admin-display.php:45
 msgid "Redirect Uri"
 msgstr ""
 
 #: admin/partials/petje-af-admin-display.php:48
+#: dotorg/tags/2.0.5/admin/partials/petje-af-admin-display.php:48
+#: dotorg/tags/2.0.6/admin/partials/petje-af-admin-display.php:48
+#: dotorg/tags/2.0.7/admin/partials/petje-af-admin-display.php:48
+#: dotorg/tags/2.0.8/admin/partials/petje-af-admin-display.php:48
+#: dotorg/trunk/admin/partials/petje-af-admin-display.php:48
 msgid "Copy and paste this redirect uri in your Petje.af client app"
 msgstr "Knip en plak deze redirect Uri in je Petje.af client app"
 
 #: admin/partials/petje-af-admin-display.php:61
+#: dotorg/tags/2.0.5/admin/partials/petje-af-admin-display.php:61
+#: dotorg/tags/2.0.6/admin/partials/petje-af-admin-display.php:61
+#: dotorg/tags/2.0.7/admin/partials/petje-af-admin-display.php:61
+#: dotorg/tags/2.0.8/admin/partials/petje-af-admin-display.php:61
+#: dotorg/trunk/admin/partials/petje-af-admin-display.php:61
 msgid "Petje.af connection"
 msgstr "Petje.af koppeling"
 
 #: admin/partials/petje-af-admin-display.php:66
 #: admin/partials/petje-af-admin-display.php:68
-#: public/class-petje-af-shortcodes.php:156
+#: dotorg/tags/2.0.5/admin/partials/petje-af-admin-display.php:66
+#: dotorg/tags/2.0.5/admin/partials/petje-af-admin-display.php:68
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:159
+#: dotorg/tags/2.0.6/admin/partials/petje-af-admin-display.php:66
+#: dotorg/tags/2.0.6/admin/partials/petje-af-admin-display.php:68
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:159
+#: dotorg/tags/2.0.7/admin/partials/petje-af-admin-display.php:66
+#: dotorg/tags/2.0.7/admin/partials/petje-af-admin-display.php:68
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:159
+#: dotorg/tags/2.0.8/admin/partials/petje-af-admin-display.php:66
+#: dotorg/tags/2.0.8/admin/partials/petje-af-admin-display.php:68
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:159
+#: dotorg/trunk/admin/partials/petje-af-admin-display.php:66
+#: dotorg/trunk/admin/partials/petje-af-admin-display.php:68
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:159
+#: public/class-petje-af-shortcodes.php:159
 msgid "Connect with Petje.af"
 msgstr "Koppel met Petje.af"
 
 #: admin/partials/petje-af-admin-display.php:75
+#: dotorg/tags/2.0.5/admin/partials/petje-af-admin-display.php:75
+#: dotorg/tags/2.0.6/admin/partials/petje-af-admin-display.php:75
+#: dotorg/tags/2.0.7/admin/partials/petje-af-admin-display.php:75
+#: dotorg/tags/2.0.8/admin/partials/petje-af-admin-display.php:75
+#: dotorg/trunk/admin/partials/petje-af-admin-display.php:75
 msgid "Petje.af page"
 msgstr "Petje.af pagina"
 
 #: admin/partials/petje-af-admin-display.php:90
+#: dotorg/tags/2.0.5/admin/partials/petje-af-admin-display.php:90
+#: dotorg/tags/2.0.6/admin/partials/petje-af-admin-display.php:90
+#: dotorg/tags/2.0.7/admin/partials/petje-af-admin-display.php:90
+#: dotorg/tags/2.0.8/admin/partials/petje-af-admin-display.php:90
+#: dotorg/trunk/admin/partials/petje-af-admin-display.php:90
 msgid "Access management"
 msgstr "Toegangsinstellingen"
 
 #: admin/partials/petje-af-admin-display.php:94
+#: dotorg/tags/2.0.5/admin/partials/petje-af-admin-display.php:94
+#: dotorg/tags/2.0.6/admin/partials/petje-af-admin-display.php:94
+#: dotorg/tags/2.0.7/admin/partials/petje-af-admin-display.php:94
+#: dotorg/tags/2.0.8/admin/partials/petje-af-admin-display.php:94
+#: dotorg/trunk/admin/partials/petje-af-admin-display.php:94
 msgid "Admin users"
 msgstr "Beheerders"
 
 #: admin/partials/petje-af-admin-display.php:97
+#: dotorg/tags/2.0.5/admin/partials/petje-af-admin-display.php:97
+#: dotorg/tags/2.0.6/admin/partials/petje-af-admin-display.php:97
+#: dotorg/tags/2.0.7/admin/partials/petje-af-admin-display.php:97
+#: dotorg/tags/2.0.8/admin/partials/petje-af-admin-display.php:97
+#: dotorg/trunk/admin/partials/petje-af-admin-display.php:97
 msgid "Ingore access settings for admin users"
 msgstr "Negeer toegangsinstellingen voor beheerders"
 
+#: admin/partials/petje-af-admin-display.php:103
+msgid "Complete site protection"
+msgstr "Gehele site afschermen"
+
+#: admin/partials/petje-af-admin-display.php:106
+msgid "Protect your complete site with Petje.af login"
+msgstr "Plaats je volledige website achter een Petje.af login"
+
 #: admin/partials/petje-af-meta-box.php:22
+#: dotorg/tags/2.0.5/admin/partials/petje-af-meta-box.php:22
+#: dotorg/tags/2.0.6/admin/partials/petje-af-meta-box.php:22
+#: dotorg/tags/2.0.7/admin/partials/petje-af-meta-box.php:22
+#: dotorg/tags/2.0.8/admin/partials/petje-af-meta-box.php:22
+#: dotorg/trunk/admin/partials/petje-af-meta-box.php:22
 msgid "Visible for:"
 msgstr "Zichtbaar voor:"
 
 #: admin/partials/petje-af-meta-box.php:28
+#: dotorg/tags/2.0.5/admin/partials/petje-af-meta-box.php:28
+#: dotorg/tags/2.0.6/admin/partials/petje-af-meta-box.php:28
+#: dotorg/tags/2.0.7/admin/partials/petje-af-meta-box.php:28
+#: dotorg/tags/2.0.8/admin/partials/petje-af-meta-box.php:28
+#: dotorg/trunk/admin/partials/petje-af-meta-box.php:28
 msgid "Hiding partial content?"
 msgstr "Content gedeeltelijk afschermen?"
 
 #: admin/partials/petje-af-meta-box.php:29
+#: dotorg/tags/2.0.5/admin/partials/petje-af-meta-box.php:29
+#: dotorg/tags/2.0.6/admin/partials/petje-af-meta-box.php:29
+#: dotorg/tags/2.0.7/admin/partials/petje-af-meta-box.php:29
+#: dotorg/tags/2.0.8/admin/partials/petje-af-meta-box.php:29
+#: dotorg/trunk/admin/partials/petje-af-meta-box.php:29
 msgid "Copy & Paste this shortcodes"
 msgstr "Knip & Plan deze shortcodes"
 
 #: admin/partials/petje-af-meta-box.php:32
+#: dotorg/tags/2.0.5/admin/partials/petje-af-meta-box.php:32
+#: dotorg/tags/2.0.6/admin/partials/petje-af-meta-box.php:32
+#: dotorg/tags/2.0.7/admin/partials/petje-af-meta-box.php:32
+#: dotorg/tags/2.0.8/admin/partials/petje-af-meta-box.php:32
+#: dotorg/trunk/admin/partials/petje-af-meta-box.php:32
 msgid "How to hide partial content?"
 msgstr "Hoe scherm je content gedeeltelijk af?"
 
 #: admin/partials/petje-af-meta-box.php:33
+#: dotorg/tags/2.0.5/admin/partials/petje-af-meta-box.php:33
+#: dotorg/tags/2.0.6/admin/partials/petje-af-meta-box.php:33
+#: dotorg/tags/2.0.7/admin/partials/petje-af-meta-box.php:33
+#: dotorg/tags/2.0.8/admin/partials/petje-af-meta-box.php:33
+#: dotorg/trunk/admin/partials/petje-af-meta-box.php:33
 msgid ""
 "Copy and paste the shortcodes below that correspond to the plan you would "
 "like to use and put your content in between the opening and the closing."
@@ -131,40 +296,133 @@ msgstr ""
 "plaats je content tussen de opening en de afsluiting, zoals hieronder "
 "weergegeven."
 
+#: dotorg/tags/2.0.5/includes/class-petje-af-formatter.php:32
+#: dotorg/tags/2.0.5/includes/widgets/petje-af-main-widget.php:177
+#: dotorg/tags/2.0.6/includes/class-petje-af-formatter.php:32
+#: dotorg/tags/2.0.6/includes/widgets/petje-af-main-widget.php:177
+#: dotorg/tags/2.0.7/includes/class-petje-af-formatter.php:32
+#: dotorg/tags/2.0.7/includes/widgets/petje-af-main-widget.php:186
+#: dotorg/tags/2.0.8/includes/class-petje-af-formatter.php:32
+#: dotorg/tags/2.0.8/includes/widgets/petje-af-main-widget.php:186
+#: dotorg/trunk/includes/class-petje-af-formatter.php:32
+#: dotorg/trunk/includes/widgets/petje-af-main-widget.php:186
 #: includes/class-petje-af-formatter.php:32
-#: includes/widgets/petje-af-main-widget.php:177
+#: includes/widgets/petje-af-main-widget.php:186
 msgid "per month"
 msgstr "per maand"
 
+#: dotorg/tags/2.0.5/includes/class-petje-af-formatter.php:34
+#: dotorg/tags/2.0.6/includes/class-petje-af-formatter.php:34
+#: dotorg/tags/2.0.7/includes/class-petje-af-formatter.php:34
+#: dotorg/tags/2.0.8/includes/class-petje-af-formatter.php:34
+#: dotorg/trunk/includes/class-petje-af-formatter.php:34
 #: includes/class-petje-af-formatter.php:34
 msgid "per year"
 msgstr "per jaar"
 
+#: dotorg/tags/2.0.5/includes/class-petje-af-formatter.php:36
+#: dotorg/tags/2.0.6/includes/class-petje-af-formatter.php:36
+#: dotorg/tags/2.0.7/includes/class-petje-af-formatter.php:36
+#: dotorg/tags/2.0.8/includes/class-petje-af-formatter.php:36
+#: dotorg/trunk/includes/class-petje-af-formatter.php:36
 #: includes/class-petje-af-formatter.php:36
 msgid "per "
 msgstr "per"
 
-#: includes/class-petje-af-oauth2-provider.php:313
+#: dotorg/tags/2.0.5/includes/class-petje-af-oauth2-provider.php:313
+#: dotorg/tags/2.0.5/includes/class-petje-af-oauth2-provider.php:389
+#: dotorg/tags/2.0.6/includes/class-petje-af-oauth2-provider.php:313
+#: dotorg/tags/2.0.6/includes/class-petje-af-oauth2-provider.php:389
+#: dotorg/tags/2.0.7/includes/class-petje-af-oauth2-provider.php:313
+#: dotorg/tags/2.0.7/includes/class-petje-af-oauth2-provider.php:389
+#: dotorg/tags/2.0.8/includes/class-petje-af-oauth2-provider.php:313
+#: dotorg/tags/2.0.8/includes/class-petje-af-oauth2-provider.php:389
+#: dotorg/trunk/includes/class-petje-af-oauth2-provider.php:313
+#: dotorg/trunk/includes/class-petje-af-oauth2-provider.php:389
+#: includes/class-petje-af-oauth2-provider.php:330
+#: includes/class-petje-af-oauth2-provider.php:406
+msgid "User needs to be set to yes or no"
+msgstr ""
+
+#: dotorg/tags/2.0.5/includes/class-petje-af-oauth2-provider.php:383
+#: dotorg/tags/2.0.6/includes/class-petje-af-oauth2-provider.php:383
+#: dotorg/tags/2.0.7/includes/class-petje-af-oauth2-provider.php:383
+#: dotorg/tags/2.0.8/includes/class-petje-af-oauth2-provider.php:383
+#: dotorg/trunk/includes/class-petje-af-oauth2-provider.php:383
+#: includes/class-petje-af-oauth2-provider.php:400
+#, fuzzy
+#| msgid "State is not valid"
+msgid "Redirect is not a valid URL"
+msgstr "De state is niet geldig"
+
+#: dotorg/tags/2.0.5/includes/class-petje-af-oauth2-provider.php:395
+#: dotorg/tags/2.0.5/includes/class-petje-af-oauth2-provider.php:414
+#: dotorg/tags/2.0.6/includes/class-petje-af-oauth2-provider.php:395
+#: dotorg/tags/2.0.6/includes/class-petje-af-oauth2-provider.php:414
+#: dotorg/tags/2.0.7/includes/class-petje-af-oauth2-provider.php:395
+#: dotorg/tags/2.0.7/includes/class-petje-af-oauth2-provider.php:414
+#: dotorg/tags/2.0.8/includes/class-petje-af-oauth2-provider.php:395
+#: dotorg/tags/2.0.8/includes/class-petje-af-oauth2-provider.php:414
+#: dotorg/trunk/includes/class-petje-af-oauth2-provider.php:395
+#: dotorg/trunk/includes/class-petje-af-oauth2-provider.php:414
+#: includes/class-petje-af-oauth2-provider.php:412
+#: includes/class-petje-af-oauth2-provider.php:431
 msgid "Code is not set"
 msgstr "Er is geen code opgegeven"
 
-#: includes/class-petje-af-oauth2-provider.php:320
+#: dotorg/tags/2.0.5/includes/class-petje-af-oauth2-provider.php:401
+#: dotorg/tags/2.0.6/includes/class-petje-af-oauth2-provider.php:401
+#: dotorg/tags/2.0.7/includes/class-petje-af-oauth2-provider.php:401
+#: dotorg/tags/2.0.8/includes/class-petje-af-oauth2-provider.php:401
+#: dotorg/trunk/includes/class-petje-af-oauth2-provider.php:401
+#: includes/class-petje-af-oauth2-provider.php:418
+#, fuzzy
+#| msgid "Code is not set"
+msgid "State is not set"
+msgstr "Er is geen code opgegeven"
+
+#: dotorg/tags/2.0.5/includes/class-petje-af-oauth2-provider.php:421
+#: dotorg/tags/2.0.6/includes/class-petje-af-oauth2-provider.php:421
+#: dotorg/tags/2.0.7/includes/class-petje-af-oauth2-provider.php:421
+#: dotorg/tags/2.0.8/includes/class-petje-af-oauth2-provider.php:421
+#: dotorg/trunk/includes/class-petje-af-oauth2-provider.php:421
+#: includes/class-petje-af-oauth2-provider.php:438
 msgid "State is not valid"
 msgstr "De state is niet geldig"
 
+#: dotorg/tags/2.0.5/includes/class-petje-af-page-generator.php:86
+#: dotorg/tags/2.0.6/includes/class-petje-af-page-generator.php:86
+#: dotorg/tags/2.0.7/includes/class-petje-af-page-generator.php:86
+#: dotorg/tags/2.0.8/includes/class-petje-af-page-generator.php:86
+#: dotorg/trunk/includes/class-petje-af-page-generator.php:86
 #: includes/class-petje-af-page-generator.php:86
 msgid "Petje.af redirect"
 msgstr ""
 
+#: dotorg/tags/2.0.5/includes/class-petje-af-page-generator.php:120
+#: dotorg/tags/2.0.6/includes/class-petje-af-page-generator.php:120
+#: dotorg/tags/2.0.7/includes/class-petje-af-page-generator.php:120
+#: dotorg/tags/2.0.8/includes/class-petje-af-page-generator.php:120
+#: dotorg/trunk/includes/class-petje-af-page-generator.php:120
 #: includes/class-petje-af-page-generator.php:120
 msgid "Access denied"
 msgstr "Geen toegang"
 
+#: dotorg/tags/2.0.5/includes/class-petje-af-user-role.php:35
+#: dotorg/tags/2.0.6/includes/class-petje-af-user-role.php:35
+#: dotorg/tags/2.0.7/includes/class-petje-af-user-role.php:35
+#: dotorg/tags/2.0.8/includes/class-petje-af-user-role.php:35
+#: dotorg/trunk/includes/class-petje-af-user-role.php:35
 #: includes/class-petje-af-user-role.php:35
 msgid "Petje.af member"
 msgstr "Petje.af gebruiker"
 
-#: includes/class-petje-af-user.php:124
+#: dotorg/tags/2.0.5/includes/class-petje-af-user.php:115
+#: dotorg/tags/2.0.6/includes/class-petje-af-user.php:115
+#: dotorg/tags/2.0.7/includes/class-petje-af-user.php:115
+#: dotorg/tags/2.0.8/includes/class-petje-af-user.php:115
+#: dotorg/trunk/includes/class-petje-af-user.php:115
+#: includes/class-petje-af-user.php:115
 msgid ""
 "There is already an account on this website associated with your email "
 "address. First login to connect with Petje.af"
@@ -172,7 +430,12 @@ msgstr ""
 "Er is al een account op deze Website met jouw mailadres. Log eerst in "
 "voordat je Petje.af kan koppelen."
 
-#: includes/class-petje-af-user.php:148
+#: dotorg/tags/2.0.5/includes/class-petje-af-user.php:139
+#: dotorg/tags/2.0.6/includes/class-petje-af-user.php:139
+#: dotorg/tags/2.0.7/includes/class-petje-af-user.php:139
+#: dotorg/tags/2.0.8/includes/class-petje-af-user.php:139
+#: dotorg/trunk/includes/class-petje-af-user.php:139
+#: includes/class-petje-af-user.php:139
 msgid ""
 "There is already an other account on this website associated with this Petje."
 "af account"
@@ -180,66 +443,155 @@ msgstr ""
 "Er is al een andere account op deze website gekoppeld aan dit Petje.af-"
 "account"
 
+#: dotorg/tags/2.0.5/includes/class-petje-af-user.php:192
+#: dotorg/tags/2.0.6/includes/class-petje-af-user.php:220
+#: dotorg/tags/2.0.7/includes/class-petje-af-user.php:220
+#: dotorg/tags/2.0.8/includes/class-petje-af-user.php:220
+#: dotorg/trunk/includes/class-petje-af-user.php:220
+#: includes/class-petje-af-user.php:220
+msgid "User ID, email or name is missing."
+msgstr ""
+
+#: dotorg/tags/2.0.5/includes/class-petje-af-user.php:196
+#: dotorg/tags/2.0.6/includes/class-petje-af-user.php:224
+#: dotorg/tags/2.0.7/includes/class-petje-af-user.php:224
+#: dotorg/tags/2.0.8/includes/class-petje-af-user.php:224
+#: dotorg/trunk/includes/class-petje-af-user.php:224
+#: includes/class-petje-af-user.php:224
+msgid "Email is not valid"
+msgstr "Email is niet geldig"
+
+#: dotorg/tags/2.0.5/includes/widgets/petje-af-main-widget.php:35
+#: dotorg/tags/2.0.6/includes/widgets/petje-af-main-widget.php:35
+#: dotorg/tags/2.0.7/includes/widgets/petje-af-main-widget.php:35
+#: dotorg/tags/2.0.8/includes/widgets/petje-af-main-widget.php:35
+#: dotorg/trunk/includes/widgets/petje-af-main-widget.php:35
 #: includes/widgets/petje-af-main-widget.php:35
 msgid "Petje.af widget"
 msgstr ""
 
+#: dotorg/tags/2.0.5/includes/widgets/petje-af-main-widget.php:36
+#: dotorg/tags/2.0.6/includes/widgets/petje-af-main-widget.php:36
+#: dotorg/tags/2.0.7/includes/widgets/petje-af-main-widget.php:36
+#: dotorg/tags/2.0.8/includes/widgets/petje-af-main-widget.php:36
+#: dotorg/trunk/includes/widgets/petje-af-main-widget.php:36
 #: includes/widgets/petje-af-main-widget.php:36
 msgid "Widget to show direct links to your petje.af page"
 msgstr "Widget om directe links te tonen naar je Petje.af-pagina"
 
-#: includes/widgets/petje-af-main-widget.php:162
+#: dotorg/tags/2.0.5/includes/widgets/petje-af-main-widget.php:162
+#: dotorg/tags/2.0.6/includes/widgets/petje-af-main-widget.php:162
+#: dotorg/tags/2.0.7/includes/widgets/petje-af-main-widget.php:171
+#: dotorg/tags/2.0.8/includes/widgets/petje-af-main-widget.php:171
+#: dotorg/trunk/includes/widgets/petje-af-main-widget.php:171
+#: includes/widgets/petje-af-main-widget.php:171
 msgid "Onetime donation"
 msgstr "Eenmalig doneren?"
 
-#: includes/widgets/petje-af-main-widget.php:163
+#: dotorg/tags/2.0.5/includes/widgets/petje-af-main-widget.php:163
+#: dotorg/tags/2.0.6/includes/widgets/petje-af-main-widget.php:163
+#: dotorg/tags/2.0.7/includes/widgets/petje-af-main-widget.php:172
+#: dotorg/tags/2.0.8/includes/widgets/petje-af-main-widget.php:172
+#: dotorg/trunk/includes/widgets/petje-af-main-widget.php:172
+#: includes/widgets/petje-af-main-widget.php:172
 msgid "Take off you hat for just onetime. Choose your own amount."
 msgstr "Neem eenmalig je petje af! Kies zelf het bedrag."
 
-#: includes/widgets/petje-af-main-widget.php:164
+#: dotorg/tags/2.0.5/includes/widgets/petje-af-main-widget.php:164
+#: dotorg/tags/2.0.6/includes/widgets/petje-af-main-widget.php:164
+#: dotorg/tags/2.0.7/includes/widgets/petje-af-main-widget.php:173
+#: dotorg/tags/2.0.8/includes/widgets/petje-af-main-widget.php:173
+#: dotorg/trunk/includes/widgets/petje-af-main-widget.php:173
+#: includes/widgets/petje-af-main-widget.php:173
 msgid "Donate now!"
 msgstr "Eenmalig petje af!"
 
-#: includes/widgets/petje-af-main-widget.php:175
+#: dotorg/tags/2.0.5/includes/widgets/petje-af-main-widget.php:175
+#: dotorg/tags/2.0.6/includes/widgets/petje-af-main-widget.php:175
+#: dotorg/tags/2.0.7/includes/widgets/petje-af-main-widget.php:184
+#: dotorg/tags/2.0.8/includes/widgets/petje-af-main-widget.php:184
+#: dotorg/trunk/includes/widgets/petje-af-main-widget.php:184
+#: includes/widgets/petje-af-main-widget.php:184
 msgid "Per month from"
 msgstr "Per maand vanaf"
 
-#: includes/widgets/petje-af-main-widget.php:176
+#: dotorg/tags/2.0.5/includes/widgets/petje-af-main-widget.php:176
+#: dotorg/tags/2.0.6/includes/widgets/petje-af-main-widget.php:176
+#: dotorg/tags/2.0.7/includes/widgets/petje-af-main-widget.php:185
+#: dotorg/tags/2.0.8/includes/widgets/petje-af-main-widget.php:185
+#: dotorg/trunk/includes/widgets/petje-af-main-widget.php:185
+#: includes/widgets/petje-af-main-widget.php:185
 msgid "per maand"
 msgstr ""
 
-#: includes/widgets/petje-af-main-widget.php:177
+#: dotorg/tags/2.0.5/includes/widgets/petje-af-main-widget.php:177
+#: dotorg/tags/2.0.6/includes/widgets/petje-af-main-widget.php:177
+#: dotorg/tags/2.0.7/includes/widgets/petje-af-main-widget.php:186
+#: dotorg/tags/2.0.8/includes/widgets/petje-af-main-widget.php:186
+#: dotorg/trunk/includes/widgets/petje-af-main-widget.php:186
+#: includes/widgets/petje-af-main-widget.php:186
 msgid "Become a member and support us from"
 msgstr "Word lid en steun ons al vanaf"
 
-#: includes/widgets/petje-af-main-widget.php:178
+#: dotorg/tags/2.0.5/includes/widgets/petje-af-main-widget.php:178
+#: dotorg/tags/2.0.6/includes/widgets/petje-af-main-widget.php:178
+#: dotorg/tags/2.0.7/includes/widgets/petje-af-main-widget.php:187
+#: dotorg/tags/2.0.8/includes/widgets/petje-af-main-widget.php:187
+#: dotorg/trunk/includes/widgets/petje-af-main-widget.php:187
+#: includes/widgets/petje-af-main-widget.php:187
 msgid "Take off your hat!"
 msgstr "Neem je petje af!"
 
-#: includes/widgets/petje-af-main-widget.php:207
+#: dotorg/tags/2.0.5/includes/widgets/petje-af-main-widget.php:207
+#: dotorg/tags/2.0.6/includes/widgets/petje-af-main-widget.php:207
+#: dotorg/tags/2.0.7/includes/widgets/petje-af-main-widget.php:216
+#: dotorg/tags/2.0.8/includes/widgets/petje-af-main-widget.php:216
+#: dotorg/trunk/includes/widgets/petje-af-main-widget.php:216
+#: includes/widgets/petje-af-main-widget.php:216
 msgid "Support u with Petje.af"
 msgstr "Steun ons via Petje.af"
 
-#: includes/widgets/petje-af-main-widget.php:224
+#: dotorg/tags/2.0.5/includes/widgets/petje-af-main-widget.php:224
+#: dotorg/tags/2.0.6/includes/widgets/petje-af-main-widget.php:224
+#: dotorg/tags/2.0.7/includes/widgets/petje-af-main-widget.php:233
+#: dotorg/tags/2.0.8/includes/widgets/petje-af-main-widget.php:233
+#: dotorg/trunk/includes/widgets/petje-af-main-widget.php:233
+#: includes/widgets/petje-af-main-widget.php:233
 msgid "Title:"
 msgstr "Titel:"
 
-#: includes/widgets/petje-af-main-widget.php:229
+#: dotorg/tags/2.0.5/includes/widgets/petje-af-main-widget.php:229
+#: dotorg/tags/2.0.6/includes/widgets/petje-af-main-widget.php:229
+#: dotorg/tags/2.0.7/includes/widgets/petje-af-main-widget.php:238
+#: dotorg/tags/2.0.8/includes/widgets/petje-af-main-widget.php:238
+#: dotorg/trunk/includes/widgets/petje-af-main-widget.php:238
+#: includes/widgets/petje-af-main-widget.php:238
 msgid "Page:"
 msgstr "Pagina:"
 
-#: includes/widgets/petje-af-main-widget.php:234
+#: dotorg/tags/2.0.5/includes/widgets/petje-af-main-widget.php:234
+#: dotorg/tags/2.0.6/includes/widgets/petje-af-main-widget.php:234
+#: dotorg/tags/2.0.7/includes/widgets/petje-af-main-widget.php:243
+#: dotorg/tags/2.0.8/includes/widgets/petje-af-main-widget.php:243
+#: dotorg/trunk/includes/widgets/petje-af-main-widget.php:243
+#: includes/widgets/petje-af-main-widget.php:243
 msgid "Enable onetime payments"
 msgstr "Activeer eenmalige betalingen"
 
-#: includes/widgets/petje-af-main-widget.php:247
-msgid "Disable styling"
-msgstr "Styling uitschakelen"
-
-#: includes/widgets/petje-af-main-widget.php:238
+#: dotorg/tags/2.0.5/includes/widgets/petje-af-main-widget.php:238
+#: dotorg/tags/2.0.6/includes/widgets/petje-af-main-widget.php:238
+#: dotorg/tags/2.0.7/includes/widgets/petje-af-main-widget.php:251
+#: dotorg/tags/2.0.8/includes/widgets/petje-af-main-widget.php:251
+#: dotorg/trunk/includes/widgets/petje-af-main-widget.php:251
+#: includes/widgets/petje-af-main-widget.php:251
 msgid "Per month from:"
 msgstr "Per maand vanaf:"
 
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:75
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:75
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:75
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:75
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:75
 #: public/class-petje-af-shortcodes.php:75
 #, php-format
 msgid "Access denied. Only accessible for Petje.af members from %s with plan:"
@@ -247,99 +599,272 @@ msgstr ""
 "Geen toegang. Deze pagina is alleen beschikbaar voor leden via Petje.af van "
 "%s met pakket:"
 
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:78
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:90
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:103
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:215
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:235
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:78
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:90
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:103
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:215
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:235
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:78
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:90
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:103
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:215
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:235
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:78
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:90
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:103
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:215
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:235
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:78
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:90
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:103
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:215
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:235
 #: public/class-petje-af-shortcodes.php:78
-#: public/class-petje-af-shortcodes.php:89
-#: public/class-petje-af-shortcodes.php:101
-#: public/class-petje-af-shortcodes.php:205
-#: public/class-petje-af-shortcodes.php:224
+#: public/class-petje-af-shortcodes.php:90
+#: public/class-petje-af-shortcodes.php:103
+#: public/class-petje-af-shortcodes.php:215
+#: public/class-petje-af-shortcodes.php:235
 msgid "Become a member!"
 msgstr "Neem je petje af!"
 
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:80
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:92
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:105
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:167
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:217
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:237
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:80
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:92
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:105
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:167
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:217
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:237
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:80
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:92
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:105
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:167
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:217
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:237
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:80
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:92
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:105
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:167
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:217
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:237
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:80
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:92
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:105
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:167
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:217
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:237
 #: public/class-petje-af-shortcodes.php:80
-#: public/class-petje-af-shortcodes.php:91
-#: public/class-petje-af-shortcodes.php:103
-#: public/class-petje-af-shortcodes.php:164
-#: public/class-petje-af-shortcodes.php:207
-#: public/class-petje-af-shortcodes.php:226
+#: public/class-petje-af-shortcodes.php:92
+#: public/class-petje-af-shortcodes.php:105
+#: public/class-petje-af-shortcodes.php:167
+#: public/class-petje-af-shortcodes.php:217
+#: public/class-petje-af-shortcodes.php:237
 msgid "Login with Petje.af"
 msgstr "Login met Petje.af"
 
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:81
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:93
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:106
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:218
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:238
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:81
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:93
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:106
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:218
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:238
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:81
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:93
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:106
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:218
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:238
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:81
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:93
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:106
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:218
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:238
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:81
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:93
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:106
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:218
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:238
 #: public/class-petje-af-shortcodes.php:81
-#: public/class-petje-af-shortcodes.php:92
-#: public/class-petje-af-shortcodes.php:104
-#: public/class-petje-af-shortcodes.php:208
-#: public/class-petje-af-shortcodes.php:227
+#: public/class-petje-af-shortcodes.php:93
+#: public/class-petje-af-shortcodes.php:106
+#: public/class-petje-af-shortcodes.php:218
+#: public/class-petje-af-shortcodes.php:238
 msgid "Already an account?"
 msgstr "Heb je al een account?"
 
-#: public/class-petje-af-shortcodes.php:86
-#: public/class-petje-af-shortcodes.php:98
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:87
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:100
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:87
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:100
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:87
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:100
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:87
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:100
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:87
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:100
+#: public/class-petje-af-shortcodes.php:87
+#: public/class-petje-af-shortcodes.php:100
 msgid "Access denied. Only accessible for Petje.af page members from:"
 msgstr "Geen toegang. Alleen beschikbaar voor leden via Petje.af van:"
 
-#: public/class-petje-af-shortcodes.php:110
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:113
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:113
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:113
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:113
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:113
+#: public/class-petje-af-shortcodes.php:113
 msgid "Page is not found. Please contact the owner of this site"
 msgstr ""
 "Pagina is niet gevonden. Neem contact op met de beheerder van deze website."
 
-#: public/class-petje-af-shortcodes.php:138
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:141
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:141
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:141
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:141
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:141
+#: public/class-petje-af-shortcodes.php:141
 msgid "Your connected Petje.af-account"
 msgstr "Koppeling met jouw Petje.af-account"
 
-#: public/class-petje-af-shortcodes.php:140
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:143
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:143
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:143
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:143
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:143
+#: public/class-petje-af-shortcodes.php:143
 msgid "Name:"
 msgstr "Naam:"
 
-#: public/class-petje-af-shortcodes.php:141
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:144
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:144
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:144
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:144
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:144
+#: public/class-petje-af-shortcodes.php:144
 msgid "Email:"
 msgstr "Email:"
 
-#: public/class-petje-af-shortcodes.php:146
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:149
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:149
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:149
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:149
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:149
+#: public/class-petje-af-shortcodes.php:149
 msgid "Disconnect from Petje.af"
 msgstr "Disconnect met Petje.af"
 
-#: public/class-petje-af-shortcodes.php:147
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:150
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:150
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:150
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:150
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:150
+#: public/class-petje-af-shortcodes.php:150
 msgid "Detach your Petje.af account from this account."
 msgstr "Verwijder je Petje.af account van het account op deze website."
 
-#: public/class-petje-af-shortcodes.php:152
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:155
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:155
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:155
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:155
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:155
+#: public/class-petje-af-shortcodes.php:155
 msgid "Logout"
 msgstr "Uitloggen"
 
-#: public/class-petje-af-shortcodes.php:157
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:160
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:160
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:160
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:160
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:160
+#: public/class-petje-af-shortcodes.php:160
 msgid "Attach your account with a Petje.af account."
 msgstr "Koppel jouw account met een Petje.af account"
 
-#: public/class-petje-af-shortcodes.php:165
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:168
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:168
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:168
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:168
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:168
+#: public/class-petje-af-shortcodes.php:168
 msgid "Click on the button below to login with your Petje.af account."
 msgstr "Klik op onderstaande knop om  in te loggen met jouw Petje.af-account"
 
-#: public/class-petje-af-shortcodes.php:202
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:212
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:212
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:212
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:212
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:212
+#: public/class-petje-af-shortcodes.php:212
 msgid ""
 "The following content is only visible for Petje.af members from the plan:"
 msgstr ""
 "Deze content is alleen beschikbaar voor leden via Petje.af vanaf het pakket:"
 
-#: public/class-petje-af-shortcodes.php:212
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:223
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:223
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:223
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:223
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:223
+#: public/class-petje-af-shortcodes.php:223
 msgid "Access denied, but plan does not exist."
 msgstr "Geen toegang, maar het pakket lijkt niet te bestaan."
 
-#: public/class-petje-af-shortcodes.php:221
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:232
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:232
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:232
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:232
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:232
+#: public/class-petje-af-shortcodes.php:232
 msgid "The following content is only visible for Petje.af members from"
 msgstr "Deze content is alleen beschikbaar voor leden via Petje.af van"
 
-#: public/class-petje-af-shortcodes.php:233
+#: dotorg/tags/2.0.5/public/class-petje-af-shortcodes.php:245
+#: dotorg/tags/2.0.6/public/class-petje-af-shortcodes.php:245
+#: dotorg/tags/2.0.7/public/class-petje-af-shortcodes.php:245
+#: dotorg/tags/2.0.8/public/class-petje-af-shortcodes.php:245
+#: dotorg/trunk/public/class-petje-af-shortcodes.php:245
+#: public/class-petje-af-shortcodes.php:245
 msgid "Access denied, but page is not found."
 msgstr "Geen toegang, maar pagina is niet gevonden"
 
+#: dotorg/tags/2.0.6/includes/class-petje-af-user.php:203
+#: dotorg/tags/2.0.7/includes/class-petje-af-user.php:203
+#: dotorg/tags/2.0.8/includes/class-petje-af-user.php:203
+#: dotorg/trunk/includes/class-petje-af-user.php:203
+#: includes/class-petje-af-user.php:203
+msgid "Username creation failed"
+msgstr ""
+
+#: dotorg/tags/2.0.7/includes/widgets/petje-af-main-widget.php:247
+#: dotorg/tags/2.0.8/includes/widgets/petje-af-main-widget.php:247
+#: dotorg/trunk/includes/widgets/petje-af-main-widget.php:247
+#: includes/widgets/petje-af-main-widget.php:247
+msgid "Disable styling"
+msgstr "Styling uitschakelen"
+
 #. Plugin URI of the plugin/theme
-#. Author URI of the plugin/theme
-msgid "https://petje.af"
+msgid "https://docs.petje.af/wordpress-plugin/"
 msgstr ""
 
 #. Description of the plugin/theme
 msgid "The official Petje.af WordPress plugin."
 msgstr "De officiële Petje.af WordPress plugin."
+
+#. Author URI of the plugin/theme
+msgid "https://petje.af/petjeaf"
+msgstr ""
 
 #~ msgid "Eenmalig petje af!"
 #~ msgstr "Eenmalig petje af!"
