@@ -190,6 +190,7 @@ class Petje_Af {
     $user_access = new Petje_Af_User_Access();
 
     $this->loader->add_action('template_redirect', $user_access, 'template_redirect');
+    $this->loader->add_action('wp', $user_access, 'wp');
 
     $user_role = new Petje_Af_User_Role();
 
