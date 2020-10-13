@@ -62,9 +62,11 @@ class Petje_Af_User_Access
      */
     public function template_redirect()
     {
-        if (!is_single()) return;
+        if (!is_single() || is_admin()) return;
 
         global $post;
+
+        if (empty( $post )) return;
 
         if ($post->ID == $this->redirectPageId) return;
 
@@ -92,11 +94,13 @@ class Petje_Af_User_Access
      */
     public function wp()
     {
+        if (is_admin()) return;
+
         global $post;
 
-        if ($post->ID == $this->redirectPageId) return;
+        if (!empty( $post ) && $post->ID == $this->redirectPageId) return;
 
-        if ($post->ID == $this->accessDeniedPageId) return;
+        if (!empty( $post ) && $post->ID == $this->accessDeniedPageId) return;
 
         $planId = get_option('petje_af_site_protection_plan', '');
 
