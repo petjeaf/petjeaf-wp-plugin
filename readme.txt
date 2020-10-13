@@ -5,7 +5,7 @@ Donate link: https://petje.af/petjeaf
 Requires at least: 5.3
 Tested up to: 5.5.1
 Requires PHP: 5.6
-Stable tag: 2.1.4
+Stable tag: 2.1.5
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -29,6 +29,12 @@ The plugin is meant for content creators on Petje.af that would like to have exc
 1. The Petje.af admin WordPress admin area where you should fill in your Client ID and Client secret.
 
 == Changelog ==
+
+= 2.1.5 =
+* Several fixes
+
+= 2.1.4 =
+* Fix for complete site protection not working for pages with other settings
 
 = 2.1.0 =
 * Add option to protect complete site with login
