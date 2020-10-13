@@ -62,46 +62,92 @@ class Petje_Af_User_Access
      */
     public function template_redirect()
     {
+        if (!is_single()) return;
+
         global $post;
 
         if ($post->ID == $this->redirectPageId) return;
 
         if ($post->ID == $this->accessDeniedPageId) return;
 
-        $planId = get_post_meta($post->ID, 'petje_af_page_plan_id') ? get_post_meta($post->ID, 'petje_af_page_plan_id', true) : get_option('petje_af_site_protection_plan', '');
+        $planId = get_post_meta($post->ID, 'petje_af_page_plan_id', true) ? get_post_meta($post->ID, 'petje_af_page_plan_id', true) : get_option('petje_af_site_protection_plan', '');
 
         $access_denied = false;
 
         if (!$planId) return;
 
-        if ($planId) {
-            $plans = petjeaf_cache('page_plans', false);
-
-            $plan = null;
-
-            if (!empty($plans)) {
-                foreach ($plans as $p) {
-                    if ($p->id == $planId) {
-                        $plan = $p;
-                    }
-                }
-            }
-
-            if (!$plan) $access_denied = true;
-
-            if ($plan) {
-                if (Petje_Af_User_Access::toPlan($plan)) {
-                    $access_denied = false;
-                } else {
-                    $access_denied = true;
-                }
-            }
-        }
+        $access_denied = $this->accessDeniedtoPlanById($planId);
 
         $link = add_query_arg( 'plan_id', $planId, get_permalink($this->accessDeniedPageId));
         $link = add_query_arg( 'r', get_permalink($post->ID), $link);
 
         if ($access_denied) wp_redirect($link);
+    }
+
+    /**
+     * On wp action validate if user has access.
+     *
+     * @since   2.0.0
+     * 
+     */
+    public function wp()
+    {
+        global $post;
+
+        if ($post->ID == $this->redirectPageId) return;
+
+        if ($post->ID == $this->accessDeniedPageId) return;
+
+        $planId = get_option('petje_af_site_protection_plan', '');
+
+        $access_denied = false;
+
+        if (!$planId) return;
+
+        $access_denied = $this->accessDeniedtoPlanById($planId);
+
+        $link = add_query_arg( 'plan_id', $planId, get_permalink($this->accessDeniedPageId));
+        $link = add_query_arg( 'r', get_permalink($post->ID), $link);
+
+        if ($access_denied) wp_redirect($link);
+    }
+
+    /**
+     * Validate if user has access to content that is protected with a certain plan by id.
+     *
+     * @since   2.1.4
+     * @param   string  planId
+     * 
+     * @return  boolean
+     * 
+     */
+    protected function accessDeniedtoPlanById($planId)
+    {   
+        if (!$planId) return false;
+
+        $plans = petjeaf_cache('page_plans', false);
+
+        $plan = null;
+
+        if (!empty($plans)) {
+            foreach ($plans as $p) {
+                if ($p->id == $planId) {
+                    $plan = $p;
+                }
+            }
+        }
+
+        if (!$plan) $access_denied = true;
+
+        if ($plan) {
+            if (Petje_Af_User_Access::toPlan($plan)) {
+                $access_denied = false;
+            } else {
+                $access_denied = true;
+            }
+        }
+
+        return $access_denied;
     }
 
     /**
