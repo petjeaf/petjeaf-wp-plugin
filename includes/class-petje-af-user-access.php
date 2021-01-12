@@ -165,7 +165,7 @@ class Petje_Af_User_Access
      */
     public static function toPlan($plan) 
     {
-        $active_statuses = ['active', 'active_end_month', 'active_end_year'];
+        $active_statuses = ['active', 'active_end', 'active_end_month', 'active_end_year'];
         
         $membership = petjeaf_cache('membership');
         
