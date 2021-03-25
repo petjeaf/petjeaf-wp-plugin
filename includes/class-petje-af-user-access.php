@@ -62,7 +62,7 @@ class Petje_Af_User_Access
      */
     public function template_redirect()
     {
-        if (!is_single() || is_admin()) return;
+        if (!is_singular() || is_admin()) return;
 
         global $post;
 
